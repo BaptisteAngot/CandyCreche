@@ -8,103 +8,13 @@
         {% endblock %}
     </head>
     <body>
-    <header>
-        <nav class="nav">
-            <div class="container">
-                <div class="logo">
-                    <a href="index.php">Candy Crèche</a>
-                </div>
-                <div id="mainListDiv" class="main_list">
-                    <ul class="navlinks">
-                        <li><a href="#QSMN">Qui sommes-nous ?</a></li>
-                        <li><a href="#espParents">Espace Parents</a></li>
-                        <li><a href="#espCreches">Espace Entreprises</a></li>
-                    </ul>
-                </div>
-                <span class="navTrigger">
-                <i></i>
-                <i></i>
-                <i></i>
-            </span>
-            </div>
-        </nav>
-        <div class="clear"></div>
-    </header>
-        {% block body %}{% endblock %}
-    <footer id="footer">
-        <div class="wrap">
-            <div class="columns">
-                <div class="column-info">
-                    <h3>Plus d'informations</h3>
-                    <address>
-                        <strong>NFactory School</strong><br>
-                        76600 Rouen, <br>
-                        Haute-Normandie, France.<br>
-                    </address>
-                    <p>NFactory, Incubateur & Accélérateur Normand.</p>
-                </div>
-            </div>
-
-            <div class="columns">
-                <ul class="social-icons">
-                    <li><a href="#" class="facebook"></a></li>
-                    <li><a href="#" class="twitter"></a></li>
-                    <li><a href="#" class="dribble"></a></li>
-                    <li><a href="#" class="rss"></a></li>
-                </ul>
-            </div>
-
-            <div class="columns">
-                <div class="column-info">
-                    <h3>Lorem ipsum</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                        ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                </div>
-            </div>
-
-            <div class="clear"></div>
-        </div>
-
-
-        <div class="copyright">
-            <p>Copyright 2019 Candy Crèche. Tous droit réservés.</p>
-        </div>
-    </footer>
+    {{ include('header/header.html.twig') }}
+        {% block body %}
+        {% endblock %}
+    {{ include('footer/footer.html.twig') }}
         {% block javascripts %}
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-            <script>
-
-                $(document).scroll(function () {
-                    var y = $(this).scrollTop();
-                    if (y > 1600) {
-                        $('.txt1').fadeIn();
-                    } else {
-                        $('.txt1').fadeOut();
-                    }
-                });
-
-                $(document).scroll(function () {
-                    var y = $(this).scrollTop();
-                    if (y > 2500) {
-                        $('.txt2').fadeIn();
-                    } else {
-                        $('.txt2').fadeOut();
-                    }
-                });
-            </script>
-
-
-
-            <script>
-                $('.navTrigger').click(function () {
-                    $(this).toggleClass('active');
-                    console.log("Clicked menu");
-                    $("#mainListDiv").toggleClass("show_list");
-                    $("#mainListDiv").fadeIn();
-
-                });
-
-            </script>
+            <script src="{{ asset('asset/js/homepage.js') }}"></script>
         {% endblock %}
     </body>
 </html>
