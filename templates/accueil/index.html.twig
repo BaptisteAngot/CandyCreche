@@ -2,19 +2,114 @@
 
 {% block title %}Hello AccueilController!{% endblock %}
 
+{% block header %}{% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Admin/Projets/CandyCreche/src/Controller/AccueilController.php'|file_link(0) }}">src/Controller/AccueilController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Admin/Projets/CandyCreche/templates/accueil/index.html.twig'|file_link(0) }}">templates/accueil/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <div class="homeAccueil">
+        <div class="titreAccueil">
+            <h1>Bienvenue sur Candy Crèche</h1>
+        </div>
+    </div>
+
+    <div class="wrap">
+        <div id="QSMN" class="homeAccueil2">
+            <div class="txtAccueil">
+                <h2>Qui sommes-nous ?</h2>
+                <p>
+                    Candy Crèche est l'une des premières application web qui répertorie de nombreuse crèches et assistantes
+                    maternelles pour le besoin et le confort des parents.
+                    Lorem ipsum dolor amet fam hot chicken austin, man bun pour-over truffaut mlkshk ennui knausgaard tacos.
+                    XOXO venmo schlitz, la croix pop-up messenger bag hell of cloud bread. Put a bird on it gluten-free
+                    disrupt hammock, pabst gochujang adaptogen scenester godard authentic hot chicken flexitarian normcore.
+                    Pour-over man bun slow-carb tumblr, 3 wolf moon neutra pop-up yuccie fashion axe knausgaard cred ugh
+                    copper mug schlitz narwhal. Hell of cronut seitan shoreditch bespoke sriracha pug iPhone vexillologist
+                    poke ugh enamel pin palo santo. Coloring book hot chicken keffiyeh, umami authentic plaid vexillologist
+                    hoodie chartreuse forage next level swag pitchfork vaporware.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="espParents" class="home"></div>
+
+    <div class="txt1">
+        <div class="titreTxt1"><p>Espace Parents</p></div></br>
+
+        <p>Vous êtes parents et à la recherche d'une crèche ou d'une nourrice agrée ? Inscrivez-vous gratuitement sur
+            Candy Crèche !
+            Notre application web vous propose de trouver rapidement un endroit le plus proche où faire garder vos enfants.
+        </p>
+        <div class="button">
+            <a href="#">Inscription</a>
+            <a href="#">Connexion</a>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div id="espCreches" class="home2"></div>
+
+    <div class="txt2">
+        <div class="titreTxt2"><p>Espace Entreprises</p></div></br>
+        <p>Vous êtes parents et à la recherche d'une crèche ou d'une nourrice agrée ? Inscrivez-vous gratuitement sur
+            Candy Crèche !
+            Notre application web vous propose de trouver rapidement un endroit le plus proche où faire garder vos enfants.
+        </p>
+
+        <div class="button">
+            <a href="#">Inscription</a>
+            <a href="#">Connexion</a>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="wrap">
+        <div class="equipe">
+            <p>Notre équipe de développeurs</p>
+            <div class="imgEquipe">
+                <img src="/asset/img/equipe.jpg" alt="Collègue01"/>
+                <div class="nom">
+                    <p>Baptiste Angot</p>
+                </div>
+            </div>
+
+            <div class="imgEquipe">
+                <img src="/asset/img/equipe.jpg" alt="Collègue02"/>
+                <div class="nom">
+                    <p>Léo Fouqier</p>
+                </div>
+            </div>
+
+
+            <div class="imgEquipe">
+                <img src="/asset/img/equipe.jpg" alt="Collègue03"/>
+                <div class="nom">
+                    <p>Nicolas Dufresne</p>
+                </div>
+            </div>
+
+
+            <div class="imgEquipe">
+                <img src="/asset/img/equipe.jpg" alt="Collègue04"/>
+                <div class="nom">
+                    <p>Quentin Leroy</p>
+                </div>
+            </div>
+
+            <div class="imgEquipe">
+                <img src="/asset/img/equipe.jpg" alt="Collègue05"/>
+                <div class="nom">
+                    <p>Jean-Baptiste de Saint-Léger</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+
+    <div class="clear"></div>
+
 {% endblock %}
