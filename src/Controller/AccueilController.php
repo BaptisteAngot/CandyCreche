@@ -26,4 +26,14 @@ class AccueilController extends AbstractController
             'controller_name' => "Profil Parent",
         ]);
     }
+
+    /**
+     * @Route("/listeStructures", name="listeStructures")
+     */
+    public function listeStructures()
+    {
+        return $this->render('listeStructures/listeStructures.html.twig',[
+            'controller_name' => "Profil Parent",
+        ]);
+    }
 }
