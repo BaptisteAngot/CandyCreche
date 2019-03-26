@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccueilController!{% endblock %}
+
+{% block header %}{% endblock %}
+{% block body %}
+
+    <div class="fond">
+        <section id="image_nom">
+            <div class="img_profil"></div>
+        </section>
+
+        <section id="info_Parents">
+            <div class="div_info">
+                <h2>Informations du compte</h2>
+                <hr/>
+                <p>Adresse mail:</p>
+                <p>Mot de passe:</p>
+                <button name="update_info" class="update_info">Modifier vos informations</button>
+            </div>
+            <div class="div_info">
+                <h2>Vos informations</h2>
+                <hr/>
+                <p>Nom:</p>
+                <p>Prénom:</p>
+                <p>Adresse:</p>
+                <p>Téléphone:</p>
+                <p>Âge:</p>
+            </div>
+            <div class="div_info">
+                <h2>Informations de l'enfant</h2>
+                <hr/>
+                <p>Nom:</p>
+                <p>Prénom:</p>
+                <p>Âge:</p>
+                <p>Maladie:</p>
+                <p>Allergie:</p>
+                <p>Info(s) complémentaire(s):</p>
+            </div>
+            <div class="div_info">
+                <h2>Informations de l'enfant</h2>
+                <hr/>
+                <p>Nom:</p>
+                <p>Prénom:</p>
+                <p>Âge:</p>
+                <p>Maladie:</p>
+                <p>Allergie:</p>
+                <p>Info(s) complémentaire(s):</p>
+            </div>
+            <div class="clear"></div>
+        </section>
+    </div>
+
+{% endblock %}

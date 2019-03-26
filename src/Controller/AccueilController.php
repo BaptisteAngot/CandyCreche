@@ -16,4 +16,14 @@ class AccueilController extends AbstractController
             'controller_name' => 'AccueilController',
         ]);
     }
+
+    /**
+     * @Route("/profilparent", name="profilparent")
+     */
+    public function profil()
+    {
+        return $this->render('profilParents/profilParents.html.twig',[
+            'controller_name' => "Profil Parent",
+        ]);
+    }
 }
