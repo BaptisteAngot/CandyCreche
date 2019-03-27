@@ -53,6 +53,11 @@ class Parents
      */
     private $parents_id_child;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $token;
+
     public function __construct()
     {
         $this->parents_id_child = new ArrayCollection();
@@ -162,6 +167,18 @@ class Parents
                 $parentsIdChild->setIdParent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getToken(): ?string
+    {
+        return $this->token;
+    }
+
+    public function setToken(string $token): self
+    {
+        $this->token = $token;
 
         return $this;
     }
