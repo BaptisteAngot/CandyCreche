@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\PivotProChild;
+use App\Entity\PivotChildStructure;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method PivotProChild|null find($id, $lockMode = null, $lockVersion = null)
- * @method PivotProChild|null findOneBy(array $criteria, array $orderBy = null)
- * @method PivotProChild[]    findAll()
- * @method PivotProChild[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method PivotChildStructure|null find($id, $lockMode = null, $lockVersion = null)
+ * @method PivotChildStructure|null findOneBy(array $criteria, array $orderBy = null)
+ * @method PivotChildStructure[]    findAll()
+ * @method PivotChildStructure[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PivotProChildRepository extends ServiceEntityRepository
+class PivotChildStructureRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, PivotProChild::class);
+        parent::__construct($registry, PivotChildStructure::class);
     }
 
     // /**
-    //  * @return PivotProChild[] Returns an array of PivotProChild objects
+    //  * @return PivotChildStructure[] Returns an array of PivotChildStructure objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class PivotProChildRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?PivotProChild
+    public function findOneBySomeField($value): ?PivotChildStructure
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')

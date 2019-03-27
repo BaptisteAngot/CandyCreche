@@ -31,36 +31,37 @@ class Parents
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $mail;
+    private $parents_mail;
 
     /**
-     * @ORM\Column(type="string", length=300)
+     * @ORM\Column(type="string", length=255)
      */
     private $parents_password;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $created_at;
+    private $parents_created_at;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
-    private $updated_at;
+    private $parents_updated_at;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Child", mappedBy="id_parent")
+     * @ORM\OneToMany(targetEntity="App\Entity\Child", mappedBy="Child_id_parent")
      */
-    private $parents_id_child;
+    private $children;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToMany(targetEntity="App\Entity\Opinion", mappedBy="opinion_id_parents")
      */
-    private $token;
+    private $opinions;
 
     public function __construct()
     {
-        $this->parents_id_child = new ArrayCollection();
+        $this->children = new ArrayCollection();
+        $this->opinions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -92,14 +93,14 @@ class Parents
         return $this;
     }
 
-    public function getMail(): ?string
+    public function getParentsMail(): ?string
     {
-        return $this->mail;
+        return $this->parents_mail;
     }
 
-    public function setMail(string $mail): self
+    public function setParentsMail(string $parents_mail): self
     {
-        $this->mail = $mail;
+        $this->parents_mail = $parents_mail;
 
         return $this;
     }
@@ -116,26 +117,26 @@ class Parents
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getParentsCreatedAt(): ?\DateTimeInterface
     {
-        return $this->created_at;
+        return $this->parents_created_at;
     }
 
-    public function setCreatedAt(\DateTimeInterface $created_at): self
+    public function setParentsCreatedAt(\DateTimeInterface $parents_created_at): self
     {
-        $this->created_at = $created_at;
+        $this->parents_created_at = $parents_created_at;
 
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
+    public function getParentsUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->updated_at;
+        return $this->parents_updated_at;
     }
 
-    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    public function setParentsUpdatedAt(?\DateTimeInterface $parents_updated_at): self
     {
-        $this->updated_at = $updated_at;
+        $this->parents_updated_at = $parents_updated_at;
 
         return $this;
     }
@@ -143,42 +144,61 @@ class Parents
     /**
      * @return Collection|Child[]
      */
-    public function getParentsIdChild(): Collection
+    public function getChildren(): Collection
     {
-        return $this->parents_id_child;
+        return $this->children;
     }
 
-    public function addParentsIdChild(Child $parentsIdChild): self
+    public function addChild(Child $child): self
     {
-        if (!$this->parents_id_child->contains($parentsIdChild)) {
-            $this->parents_id_child[] = $parentsIdChild;
-            $parentsIdChild->setIdParent($this);
+        if (!$this->children->contains($child)) {
+            $this->children[] = $child;
+            $child->setChildIdParent($this);
         }
 
         return $this;
     }
 
-    public function removeParentsIdChild(Child $parentsIdChild): self
+    public function removeChild(Child $child): self
     {
-        if ($this->parents_id_child->contains($parentsIdChild)) {
-            $this->parents_id_child->removeElement($parentsIdChild);
+        if ($this->children->contains($child)) {
+            $this->children->removeElement($child);
             // set the owning side to null (unless already changed)
-            if ($parentsIdChild->getIdParent() === $this) {
-                $parentsIdChild->setIdParent(null);
+            if ($child->getChildIdParent() === $this) {
+                $child->setChildIdParent(null);
             }
         }
 
         return $this;
     }
 
-    public function getToken(): ?string
+    /**
+     * @return Collection|Opinion[]
+     */
+    public function getOpinions(): Collection
     {
-        return $this->token;
+        return $this->opinions;
     }
 
-    public function setToken(string $token): self
+    public function addOpinion(Opinion $opinion): self
     {
-        $this->token = $token;
+        if (!$this->opinions->contains($opinion)) {
+            $this->opinions[] = $opinion;
+            $opinion->setOpinionIdParents($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOpinion(Opinion $opinion): self
+    {
+        if ($this->opinions->contains($opinion)) {
+            $this->opinions->removeElement($opinion);
+            // set the owning side to null (unless already changed)
+            if ($opinion->getOpinionIdParents() === $this) {
+                $opinion->setOpinionIdParents(null);
+            }
+        }
 
         return $this;
     }

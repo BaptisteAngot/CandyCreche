@@ -21,65 +21,65 @@ class Child
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $child_name;
+    private $Child_name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $child_firstname;
+    private $Child_firstname;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $child_years;
+    private $Child_years;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $child_other;
+    private $Child_Others;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $child_created_at;
+    private $Child_created_at;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $child_updated_at;
+    private $Child_updated_at;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Parents", inversedBy="parents_id_child")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Parents", inversedBy="children")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $id_parent;
+    private $Child_id_parent;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Disease", mappedBy="disease_id_child")
      */
-    private $disease;
+    private $diseases;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Allergy", mappedBy="allergy_id_child")
      */
-    private $allergy;
+    private $allergies;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Equipment", mappedBy="equipment_id_enfant")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Equipment", mappedBy="equipment_id_child")
      */
-    private $equiment;
+    private $equipment;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\PivotProChild", mappedBy="pivot_child_id")
+     * @ORM\OneToMany(targetEntity="App\Entity\PivotChildStructure", mappedBy="Pivot_id_child")
      */
-    private $pivotProChildren;
+    private $pivotChildStructures;
 
     public function __construct()
     {
-        $this->disease = new ArrayCollection();
-        $this->allergy = new ArrayCollection();
-        $this->equiment = new ArrayCollection();
-        $this->pivotProChildren = new ArrayCollection();
+        $this->diseases = new ArrayCollection();
+        $this->allergies = new ArrayCollection();
+        $this->equipment = new ArrayCollection();
+        $this->pivotChildStructures = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -89,84 +89,84 @@ class Child
 
     public function getChildName(): ?string
     {
-        return $this->child_name;
+        return $this->Child_name;
     }
 
-    public function setChildName(string $child_name): self
+    public function setChildName(string $Child_name): self
     {
-        $this->child_name = $child_name;
+        $this->Child_name = $Child_name;
 
         return $this;
     }
 
     public function getChildFirstname(): ?string
     {
-        return $this->child_firstname;
+        return $this->Child_firstname;
     }
 
-    public function setChildFirstname(string $child_firstname): self
+    public function setChildFirstname(string $Child_firstname): self
     {
-        $this->child_firstname = $child_firstname;
+        $this->Child_firstname = $Child_firstname;
 
         return $this;
     }
 
     public function getChildYears(): ?int
     {
-        return $this->child_years;
+        return $this->Child_years;
     }
 
-    public function setChildYears(int $child_years): self
+    public function setChildYears(int $Child_years): self
     {
-        $this->child_years = $child_years;
+        $this->Child_years = $Child_years;
 
         return $this;
     }
 
-    public function getChildOther(): ?string
+    public function getChildOthers(): ?string
     {
-        return $this->child_other;
+        return $this->Child_Others;
     }
 
-    public function setChildOther(?string $child_other): self
+    public function setChildOthers(?string $Child_Others): self
     {
-        $this->child_other = $child_other;
+        $this->Child_Others = $Child_Others;
 
         return $this;
     }
 
     public function getChildCreatedAt(): ?\DateTimeInterface
     {
-        return $this->child_created_at;
+        return $this->Child_created_at;
     }
 
-    public function setChildCreatedAt(\DateTimeInterface $child_created_at): self
+    public function setChildCreatedAt(\DateTimeInterface $Child_created_at): self
     {
-        $this->child_created_at = $child_created_at;
+        $this->Child_created_at = $Child_created_at;
 
         return $this;
     }
 
     public function getChildUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->child_updated_at;
+        return $this->Child_updated_at;
     }
 
-    public function setChildUpdatedAt(?\DateTimeInterface $child_updated_at): self
+    public function setChildUpdatedAt(?\DateTimeInterface $Child_updated_at): self
     {
-        $this->child_updated_at = $child_updated_at;
+        $this->Child_updated_at = $Child_updated_at;
 
         return $this;
     }
 
-    public function getIdParent(): ?Parents
+    public function getChildIdParent(): ?Parents
     {
-        return $this->id_parent;
+        return $this->Child_id_parent;
     }
 
-    public function setIdParent(?Parents $id_parent): self
+    public function setChildIdParent(?Parents $Child_id_parent): self
     {
-        $this->id_parent = $id_parent;
+        $this->Child_id_parent = $Child_id_parent;
 
         return $this;
     }
@@ -174,15 +174,15 @@ class Child
     /**
      * @return Collection|Disease[]
      */
-    public function getDisease(): Collection
+    public function getDiseases(): Collection
     {
-        return $this->disease;
+        return $this->diseases;
     }
 
     public function addDisease(Disease $disease): self
     {
-        if (!$this->disease->contains($disease)) {
-            $this->disease[] = $disease;
+        if (!$this->diseases->contains($disease)) {
+            $this->diseases[] = $disease;
             $disease->addDiseaseIdChild($this);
         }
 
@@ -191,8 +191,8 @@ class Child
 
     public function removeDisease(Disease $disease): self
     {
-        if ($this->disease->contains($disease)) {
-            $this->disease->removeElement($disease);
+        if ($this->diseases->contains($disease)) {
+            $this->diseases->removeElement($disease);
             $disease->removeDiseaseIdChild($this);
         }
 
@@ -202,15 +202,15 @@ class Child
     /**
      * @return Collection|Allergy[]
      */
-    public function getAllergy(): Collection
+    public function getAllergies(): Collection
     {
-        return $this->allergy;
+        return $this->allergies;
     }
 
     public function addAllergy(Allergy $allergy): self
     {
-        if (!$this->allergy->contains($allergy)) {
-            $this->allergy[] = $allergy;
+        if (!$this->allergies->contains($allergy)) {
+            $this->allergies[] = $allergy;
             $allergy->addAllergyIdChild($this);
         }
 
@@ -219,8 +219,8 @@ class Child
 
     public function removeAllergy(Allergy $allergy): self
     {
-        if ($this->allergy->contains($allergy)) {
-            $this->allergy->removeElement($allergy);
+        if ($this->allergies->contains($allergy)) {
+            $this->allergies->removeElement($allergy);
             $allergy->removeAllergyIdChild($this);
         }
 
@@ -230,61 +230,59 @@ class Child
     /**
      * @return Collection|Equipment[]
      */
-    public function getEquiment(): Collection
+    public function getEquipment(): Collection
     {
-        return $this->equiment;
+        return $this->equipment;
     }
 
-    public function addEquiment(Equipment $equiment): self
+    public function addEquipment(Equipment $equipment): self
     {
-        if (!$this->equiment->contains($equiment)) {
-            $this->equiment[] = $equiment;
-            $equiment->addEquipmentIdEnfant($this);
+        if (!$this->equipment->contains($equipment)) {
+            $this->equipment[] = $equipment;
+            $equipment->addEquipmentIdChild($this);
         }
 
         return $this;
     }
 
-    public function removeEquiment(Equipment $equiment): self
+    public function removeEquipment(Equipment $equipment): self
     {
-        if ($this->equiment->contains($equiment)) {
-            $this->equiment->removeElement($equiment);
-            $equiment->removeEquipmentIdEnfant($this);
+        if ($this->equipment->contains($equipment)) {
+            $this->equipment->removeElement($equipment);
+            $equipment->removeEquipmentIdChild($this);
         }
 
         return $this;
     }
 
     /**
-     * @return Collection|PivotProChild[]
+     * @return Collection|PivotChildStructure[]
      */
-    public function getPivotProChildren(): Collection
+    public function getPivotChildStructures(): Collection
     {
-        return $this->pivotProChildren;
+        return $this->pivotChildStructures;
     }
 
-    public function addPivotProChild(PivotProChild $pivotProChild): self
+    public function addPivotChildStructure(PivotChildStructure $pivotChildStructure): self
     {
-        if (!$this->pivotProChildren->contains($pivotProChild)) {
-            $this->pivotProChildren[] = $pivotProChild;
-            $pivotProChild->setPivotChildId($this);
+        if (!$this->pivotChildStructures->contains($pivotChildStructure)) {
+            $this->pivotChildStructures[] = $pivotChildStructure;
+            $pivotChildStructure->setPivotIdChild($this);
         }
 
         return $this;
     }
 
-    public function removePivotProChild(PivotProChild $pivotProChild): self
+    public function removePivotChildStructure(PivotChildStructure $pivotChildStructure): self
     {
-        if ($this->pivotProChildren->contains($pivotProChild)) {
-            $this->pivotProChildren->removeElement($pivotProChild);
+        if ($this->pivotChildStructures->contains($pivotChildStructure)) {
+            $this->pivotChildStructures->removeElement($pivotChildStructure);
             // set the owning side to null (unless already changed)
-            if ($pivotProChild->getPivotChildId() === $this) {
-                $pivotProChild->setPivotChildId(null);
+            if ($pivotChildStructure->getPivotIdChild() === $this) {
+                $pivotChildStructure->setPivotIdChild(null);
             }
         }
 
         return $this;
     }
-
-
 }

@@ -44,7 +44,7 @@ class Disease
     private $disease_updated_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Child", inversedBy="disease")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Child", inversedBy="diseases")
      */
     private $disease_id_child;
 
