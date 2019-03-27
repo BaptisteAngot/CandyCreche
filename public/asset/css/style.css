@@ -18,6 +18,10 @@ body {
     margin: 0 auto;
 }
 
+.block {
+    width: 100%;
+    height: 65px;
+}
 /***********************Navbar********Logo/Menu*******************************/
 
 .navbar {
@@ -815,16 +819,22 @@ body {
 
 /************************************************Liste entreprises*****************************************************/
 
+.fond_liste_structures {
+    background-image: url("../img/4.jpg");
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
 .liste_structures {
     width: 100%;
-    height: 100vh;
 }
 
 
 .informations_structures_visible{
-    background-color: orange;
     width: 100%;
-    padding-top: 100px;
+    padding: 1%;
+    background-color: #EEEEEE;
 }
 
 .banniere_structures{
@@ -832,19 +842,12 @@ body {
     height: 100%;
     float: left;
     text-align: center;
-    background-color: #00E676;
 }
 
-/*figcaption{*/
-    /*font-weight: bold;*/
-    /*font-size: 1.2em;*/
-    /*margin-left: -15px;*/
-    /*padding-top: 10px;*/
-    /*padding-bottom: 10px;*/
-/*}*/
 
 .profil_description {
-    width: 100%;
+    width: 60%;
+    float: left;
 }
 
 .profil_description h1{
@@ -861,6 +864,12 @@ body {
 .statut{
     float: right;
     width: 20%;
+    height: 100%;
+}
+.statut p{
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 2.5%;
 }
 
 .informations_structures_details h1{
