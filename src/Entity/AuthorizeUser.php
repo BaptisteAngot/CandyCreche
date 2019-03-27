@@ -19,27 +19,22 @@ class AuthorizeUser
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $authorize_login;
+    private $Authorize_login;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $authorize_password;
+    private $Authorize_password;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $authorize_created_at;
+    private $Authorize_created_at;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $authorize_updated_at;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Structure", inversedBy="authorizeUsers")
-     */
-    private $authorize_id_structure;
+    private $Authorize_updated_at;
 
     public function getId(): ?int
     {
@@ -48,60 +43,48 @@ class AuthorizeUser
 
     public function getAuthorizeLogin(): ?string
     {
-        return $this->authorize_login;
+        return $this->Authorize_login;
     }
 
-    public function setAuthorizeLogin(string $authorize_login): self
+    public function setAuthorizeLogin(string $Authorize_login): self
     {
-        $this->authorize_login = $authorize_login;
+        $this->Authorize_login = $Authorize_login;
 
         return $this;
     }
 
     public function getAuthorizePassword(): ?string
     {
-        return $this->authorize_password;
+        return $this->Authorize_password;
     }
 
-    public function setAuthorizePassword(string $authorize_password): self
+    public function setAuthorizePassword(string $Authorize_password): self
     {
-        $this->authorize_password = $authorize_password;
+        $this->Authorize_password = $Authorize_password;
 
         return $this;
     }
 
     public function getAuthorizeCreatedAt(): ?\DateTimeInterface
     {
-        return $this->authorize_created_at;
+        return $this->Authorize_created_at;
     }
 
-    public function setAuthorizeCreatedAt(\DateTimeInterface $authorize_created_at): self
+    public function setAuthorizeCreatedAt(\DateTimeInterface $Authorize_created_at): self
     {
-        $this->authorize_created_at = $authorize_created_at;
+        $this->Authorize_created_at = $Authorize_created_at;
 
         return $this;
     }
 
     public function getAuthorizeUpdatedAt(): ?\DateTimeInterface
     {
-        return $this->authorize_updated_at;
+        return $this->Authorize_updated_at;
     }
 
-    public function setAuthorizeUpdatedAt(?\DateTimeInterface $authorize_updated_at): self
+    public function setAuthorizeUpdatedAt(?\DateTimeInterface $Authorize_updated_at): self
     {
-        $this->authorize_updated_at = $authorize_updated_at;
-
-        return $this;
-    }
-
-    public function getAuthorizeIdStructure(): ?Structure
-    {
-        return $this->authorize_id_structure;
-    }
-
-    public function setAuthorizeIdStructure(?Structure $authorize_id_structure): self
-    {
-        $this->authorize_id_structure = $authorize_id_structure;
+        $this->Authorize_updated_at = $Authorize_updated_at;
 
         return $this;
     }

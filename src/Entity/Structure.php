@@ -39,6 +39,11 @@ class Structure
     private $structure_zipcode;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $structure_phone;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $structure_type;
@@ -46,17 +51,32 @@ class Structure
     /**
      * @ORM\Column(type="integer")
      */
-    private $structure_SIRET;
+    private $structure_siret;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $structure_numberspace;
+    private $structure_nbspace;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $structure_type_alimentation;
+    private $structure_typefood;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $structure_mail;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $structure_password;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $structure_token;
 
     /**
      * @ORM\Column(type="datetime")
@@ -71,38 +91,24 @@ class Structure
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $strucutre_mail;
+    private $structure_statuspaiement;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToMany(targetEntity="App\Entity\Opinion", mappedBy="opinion_id_structure")
      */
-    private $structure_password;
+    private $opinions;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToMany(targetEntity="App\Entity\PivotChildStructure", mappedBy="Pivot_id_structure")
      */
-    private $structure_token;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $structure_status_paiement;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\AuthorizeUser", mappedBy="authorize_id_structure")
-     */
-    private $authorizeUsers;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\PivotProChild", mappedBy="pivot_id_structure")
-     */
-    private $pivotProChildren;
+    private $pivotChildStructures;
 
     public function __construct()
     {
-        $this->authorizeUsers = new ArrayCollection();
-        $this->pivotProChildren = new ArrayCollection();
+        $this->opinions = new ArrayCollection();
+        $this->pivotChildStructures = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
@@ -157,6 +163,18 @@ class Structure
         return $this;
     }
 
+    public function getStructurePhone(): ?int
+    {
+        return $this->structure_phone;
+    }
+
+    public function setStructurePhone(int $structure_phone): self
+    {
+        $this->structure_phone = $structure_phone;
+
+        return $this;
+    }
+
     public function getStructureType(): ?string
     {
         return $this->structure_type;
@@ -169,74 +187,50 @@ class Structure
         return $this;
     }
 
-    public function getStructureSIRET(): ?int
+    public function getStructureSiret(): ?int
     {
-        return $this->structure_SIRET;
+        return $this->structure_siret;
     }
 
-    public function setStructureSIRET(int $structure_SIRET): self
+    public function setStructureSiret(int $structure_siret): self
     {
-        $this->structure_SIRET = $structure_SIRET;
+        $this->structure_siret = $structure_siret;
 
         return $this;
     }
 
-    public function getStructureNumberspace(): ?int
+    public function getStructureNbspace(): ?int
     {
-        return $this->structure_numberspace;
+        return $this->structure_nbspace;
     }
 
-    public function setStructureNumberspace(int $structure_numberspace): self
+    public function setStructureNbspace(int $structure_nbspace): self
     {
-        $this->structure_numberspace = $structure_numberspace;
+        $this->structure_nbspace = $structure_nbspace;
 
         return $this;
     }
 
-    public function getStructureTypeAlimentation(): ?string
+    public function getStructureTypefood(): ?string
     {
-        return $this->structure_type_alimentation;
+        return $this->structure_typefood;
     }
 
-    public function setStructureTypeAlimentation(string $structure_type_alimentation): self
+    public function setStructureTypefood(string $structure_typefood): self
     {
-        $this->structure_type_alimentation = $structure_type_alimentation;
+        $this->structure_typefood = $structure_typefood;
 
         return $this;
     }
 
-    public function getStructureCreatedAt(): ?\DateTimeInterface
+    public function getStructureMail(): ?string
     {
-        return $this->structure_created_at;
+        return $this->structure_mail;
     }
 
-    public function setStructureCreatedAt(\DateTimeInterface $structure_created_at): self
+    public function setStructureMail(string $structure_mail): self
     {
-        $this->structure_created_at = $structure_created_at;
-
-        return $this;
-    }
-
-    public function getStructureUpdatedAt(): ?\DateTimeInterface
-    {
-        return $this->structure_updated_at;
-    }
-
-    public function setStructureUpdatedAt(?\DateTimeInterface $structure_updated_at): self
-    {
-        $this->structure_updated_at = $structure_updated_at;
-
-        return $this;
-    }
-
-    public function getStrucutreMail(): ?string
-    {
-        return $this->strucutre_mail;
-    }
-
-    public function setStrucutreMail(string $strucutre_mail): self
-    {
-        $this->strucutre_mail = $strucutre_mail;
+        $this->structure_mail = $structure_mail;
 
         return $this;
     }
@@ -265,43 +259,67 @@ class Structure
         return $this;
     }
 
-    public function getStructureStatusPaiement(): ?string
+    public function getStructureCreatedAt(): ?\DateTimeInterface
     {
-        return $this->structure_status_paiement;
+        return $this->structure_created_at;
     }
 
-    public function setStructureStatusPaiement(string $structure_status_paiement): self
+    public function setStructureCreatedAt(\DateTimeInterface $structure_created_at): self
     {
-        $this->structure_status_paiement = $structure_status_paiement;
+        $this->structure_created_at = $structure_created_at;
+
+        return $this;
+    }
+
+    public function getStructureUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->structure_updated_at;
+    }
+
+    public function setStructureUpdatedAt(?\DateTimeInterface $structure_updated_at): self
+    {
+        $this->structure_updated_at = $structure_updated_at;
+
+        return $this;
+    }
+
+    public function getStructureStatuspaiement(): ?string
+    {
+        return $this->structure_statuspaiement;
+    }
+
+    public function setStructureStatuspaiement(string $structure_statuspaiement): self
+    {
+        $this->structure_statuspaiement = $structure_statuspaiement;
 
         return $this;
     }
 
     /**
-     * @return Collection|AuthorizeUser[]
+     * @return Collection|Opinion[]
      */
-    public function getAuthorizeUsers(): Collection
+    public function getOpinions(): Collection
     {
-        return $this->authorizeUsers;
+        return $this->opinions;
     }
 
-    public function addAuthorizeUser(AuthorizeUser $authorizeUser): self
+    public function addOpinion(Opinion $opinion): self
     {
-        if (!$this->authorizeUsers->contains($authorizeUser)) {
-            $this->authorizeUsers[] = $authorizeUser;
-            $authorizeUser->setAuthorizeIdStructure($this);
+        if (!$this->opinions->contains($opinion)) {
+            $this->opinions[] = $opinion;
+            $opinion->setOpinionIdStructure($this);
         }
 
         return $this;
     }
 
-    public function removeAuthorizeUser(AuthorizeUser $authorizeUser): self
+    public function removeOpinion(Opinion $opinion): self
     {
-        if ($this->authorizeUsers->contains($authorizeUser)) {
-            $this->authorizeUsers->removeElement($authorizeUser);
+        if ($this->opinions->contains($opinion)) {
+            $this->opinions->removeElement($opinion);
             // set the owning side to null (unless already changed)
-            if ($authorizeUser->getAuthorizeIdStructure() === $this) {
-                $authorizeUser->setAuthorizeIdStructure(null);
+            if ($opinion->getOpinionIdStructure() === $this) {
+                $opinion->setOpinionIdStructure(null);
             }
         }
 
@@ -309,28 +327,28 @@ class Structure
     }
 
     /**
-     * @return Collection|PivotProChild[]
+     * @return Collection|PivotChildStructure[]
      */
-    public function getPivotProChildren(): Collection
+    public function getPivotChildStructures(): Collection
     {
-        return $this->pivotProChildren;
+        return $this->pivotChildStructures;
     }
 
-    public function addPivotProChild(PivotProChild $pivotProChild): self
+    public function addPivotChildStructure(PivotChildStructure $pivotChildStructure): self
     {
-        if (!$this->pivotProChildren->contains($pivotProChild)) {
-            $this->pivotProChildren[] = $pivotProChild;
-            $pivotProChild->addPivotIdStructure($this);
+        if (!$this->pivotChildStructures->contains($pivotChildStructure)) {
+            $this->pivotChildStructures[] = $pivotChildStructure;
+            $pivotChildStructure->addPivotIdStructure($this);
         }
 
         return $this;
     }
 
-    public function removePivotProChild(PivotProChild $pivotProChild): self
+    public function removePivotChildStructure(PivotChildStructure $pivotChildStructure): self
     {
-        if ($this->pivotProChildren->contains($pivotProChild)) {
-            $this->pivotProChildren->removeElement($pivotProChild);
-            $pivotProChild->removePivotIdStructure($this);
+        if ($this->pivotChildStructures->contains($pivotChildStructure)) {
+            $this->pivotChildStructures->removeElement($pivotChildStructure);
+            $pivotChildStructure->removePivotIdStructure($this);
         }
 
         return $this;

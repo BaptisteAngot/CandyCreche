@@ -34,13 +34,13 @@ class Equipment
     private $equipment_updated_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Child", inversedBy="equiment")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Child", inversedBy="equipment")
      */
-    private $equipment_id_enfant;
+    private $equipment_id_child;
 
     public function __construct()
     {
-        $this->equipment_id_enfant = new ArrayCollection();
+        $this->equipment_id_child = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -87,24 +87,24 @@ class Equipment
     /**
      * @return Collection|Child[]
      */
-    public function getEquipmentIdEnfant(): Collection
+    public function getEquipmentIdChild(): Collection
     {
-        return $this->equipment_id_enfant;
+        return $this->equipment_id_child;
     }
 
-    public function addEquipmentIdEnfant(Child $equipmentIdEnfant): self
+    public function addEquipmentIdChild(Child $equipmentIdChild): self
     {
-        if (!$this->equipment_id_enfant->contains($equipmentIdEnfant)) {
-            $this->equipment_id_enfant[] = $equipmentIdEnfant;
+        if (!$this->equipment_id_child->contains($equipmentIdChild)) {
+            $this->equipment_id_child[] = $equipmentIdChild;
         }
 
         return $this;
     }
 
-    public function removeEquipmentIdEnfant(Child $equipmentIdEnfant): self
+    public function removeEquipmentIdChild(Child $equipmentIdChild): self
     {
-        if ($this->equipment_id_enfant->contains($equipmentIdEnfant)) {
-            $this->equipment_id_enfant->removeElement($equipmentIdEnfant);
+        if ($this->equipment_id_child->contains($equipmentIdChild)) {
+            $this->equipment_id_child->removeElement($equipmentIdChild);
         }
 
         return $this;
