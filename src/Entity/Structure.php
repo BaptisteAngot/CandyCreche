@@ -108,6 +108,11 @@ class Structure
      */
     private $structure_photo;
 
+    /**
+     * @ORM\Column(type="string", length=500)
+     */
+    private $description;
+
 
     public function __construct()
     {
@@ -368,6 +373,18 @@ class Structure
     public function setStructurePhoto(string $structure_photo): self
     {
         $this->structure_photo = $structure_photo;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
