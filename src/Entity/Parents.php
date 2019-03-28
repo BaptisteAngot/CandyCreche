@@ -58,6 +58,17 @@ class Parents
      */
     private $opinions;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $parents_token;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $parents_photo;
+
+
     public function __construct()
     {
         $this->children = new ArrayCollection();
@@ -202,4 +213,29 @@ class Parents
 
         return $this;
     }
+
+    public function getParentsToken(): ?string
+    {
+        return $this->parents_token;
+    }
+
+    public function setParentsToken(string $parents_token): self
+    {
+        $this->parents_token = $parents_token;
+
+        return $this;
+    }
+
+    public function getParentsPhoto(): ?string
+    {
+        return $this->parents_photo;
+    }
+
+    public function setParentsPhoto(?string $parents_photo): self
+    {
+        $this->parents_photo = $parents_photo;
+
+        return $this;
+    }
+
 }
