@@ -103,6 +103,12 @@ class Structure
      */
     private $pivotChildStructures;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $structure_photo;
+
+
     public function __construct()
     {
         $this->opinions = new ArrayCollection();
@@ -353,4 +359,17 @@ class Structure
 
         return $this;
     }
+
+    public function getStructurePhoto(): ?string
+    {
+        return $this->structure_photo;
+    }
+
+    public function setStructurePhoto(string $structure_photo): self
+    {
+        $this->structure_photo = $structure_photo;
+
+        return $this;
+    }
+
 }
