@@ -238,4 +238,9 @@ class Parents
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->parents_mail;
+    }
+
 }

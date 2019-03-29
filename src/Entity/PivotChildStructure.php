@@ -76,4 +76,5 @@ class PivotChildStructure
 
         return $this;
     }
+
 }

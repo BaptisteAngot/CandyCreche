@@ -1,0 +1,4 @@
+easy_admin:
+  entities:
+    PivotChildStructure:
+      class: App\Entity\PivotChildStructure

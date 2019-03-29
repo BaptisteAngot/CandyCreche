@@ -20,7 +20,7 @@ class PivotChildStructureRepository extends ServiceEntityRepository
     }
 
     // /**
-    //  * @return PivotChildStructure[] Returns an array of PivotChildStructure objects
+    //  * @return PivotChildStructure.yaml[] Returns an array of PivotChildStructure.yaml objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class PivotChildStructureRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?PivotChildStructure
+    public function findOneBySomeField($value): ?PivotChildStructure.yaml
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')

@@ -113,11 +113,17 @@ class Structure
      */
     private $description;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AuthorizeUser", mappedBy="relation")
+     */
+    private $authorizeUsers;
+
 
     public function __construct()
     {
         $this->opinions = new ArrayCollection();
         $this->pivotChildStructures = new ArrayCollection();
+        $this->authorizeUsers = new ArrayCollection();
     }
 
 
@@ -389,4 +395,39 @@ class Structure
         return $this;
     }
 
+    /**
+     * @return Collection|AuthorizeUser[]
+     */
+    public function getAuthorizeUsers(): Collection
+    {
+        return $this->authorizeUsers;
+    }
+
+    public function addAuthorizeUser(AuthorizeUser $authorizeUser): self
+    {
+        if (!$this->authorizeUsers->contains($authorizeUser)) {
+            $this->authorizeUsers[] = $authorizeUser;
+            $authorizeUser->setRelation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAuthorizeUser(AuthorizeUser $authorizeUser): self
+    {
+        if ($this->authorizeUsers->contains($authorizeUser)) {
+            $this->authorizeUsers->removeElement($authorizeUser);
+            // set the owning side to null (unless already changed)
+            if ($authorizeUser->getRelation() === $this) {
+                $authorizeUser->setRelation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->structure_name;
+    }
 }

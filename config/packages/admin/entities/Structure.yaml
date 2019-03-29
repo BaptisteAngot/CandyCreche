@@ -1,0 +1,19 @@
+easy_admin:
+  entities:
+    Structure:
+      class: App\Entity\Structure
+      list:
+        fields:
+          - {property: 'id', label: 'ID Structure', type: 'integer'}
+          - {property: 'structure_name', label: 'Nom structure', type: 'string'}
+          - {property: 'structure_location', label: 'Adresse', type: 'string'}
+          - {property: 'structure_city', label: 'Ville', type: 'string'}
+          - {property: 'structure_zipcode', label: 'Code postal', type: 'integer'}
+          - {property: 'structure_phone', label: 'Téléphone structure', type: 'integer'}
+          - {property: 'structure_statuspaiement', label: 'Paiement', type: 'string'}
+          - {property: 'description', label: 'Description structure', type: 'string'}
+          - {property: 'structure_name', label: 'Nom structure', type: 'string'}
+          - {property: 'structure_type', label: 'Type de structure', type: 'string'}
+          - {property: 'structure_siret', label: 'SIRET', type: 'integer'}
+          - {property: 'structure_nbspace', label: 'Nombre de place', type: 'integer'}
+          - {property: 'structure_typefood', label: 'Type alimentation', type: 'string'}
