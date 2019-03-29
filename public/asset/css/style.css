@@ -1018,3 +1018,84 @@ body {
     shadow: 5px;
     cursor: pointer;
 }
+
+/*****************************************Structure Détails********************************************/
+
+.wrapper{
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.fond_creche{
+    background-color: rgb(255, 220, 150);
+}
+
+#informations_details{
+    background-color: white;
+    -webkit-box-shadow: -1px 5px 83px -4px rgba(0,0,0,0.93);
+    -moz-box-shadow: -1px 5px 83px -4px rgba(0,0,0,0.93);
+    box-shadow: -1px 5px 83px -4px rgba(0,0,0,0.93);
+}
+
+.banniere_details{
+    display: block;
+    margin: 1%;
+    float: inherit;
+    text-align: center;
+}
+
+.banniere_details img{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    width: 25%;
+    border: 5px solid rgb(255, 220, 150);
+    opacity: .99;
+}
+
+.banniere_details .haut{
+    text-align:center;
+    color:#222222;
+    width:100%;
+    position: absolute;
+    left:0;
+    top:21%;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.banniere_details .bas{
+    text-align:center;
+    color:#222222;
+    width:100%;
+    position:absolute;
+    left:0;
+    top:25%;
+    font-size: 2em;
+}
+
+.banniere_details img:hover{
+    opacity: 0.5;
+}
+
+.description_details{
+    margin: 2%;
+    text-align: center;
+    width: 60%;
+    font-size:1.5em;
+    float: left;
+}
+
+.description_details h1{
+    margin: 2%;
+    font-size: 2em;
+}
+
+.sup_details{
+    margin: 2%;
+    text-align: center;
+    width:40%;
+    font-size:1.5em;
+    float: right;
+}
