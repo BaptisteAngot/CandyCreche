@@ -96,7 +96,7 @@ class AuthorizeUser
 
     public function __toString()
     {
-        return $this->Authorize_login;
+        return strval($this->id);
     }
 
     public function getRelation(): ?Structure

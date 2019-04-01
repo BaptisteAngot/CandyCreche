@@ -112,6 +112,6 @@ class Equipment
 
     public function __toString()
     {
-        return $this->equipment_name;
+        return strval($this->id);
     }
 }

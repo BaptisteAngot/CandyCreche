@@ -5,10 +5,14 @@ easy_admin:
       list:
         fields:
           - {property: 'id', label: 'ID Maladie', type: 'integer'}
-          - {property: 'disease_id_child', label: 'Enfant', type: 'string'}
+          - {property: 'disease_id_child', label: 'ID Enfant', type: 'array'}
           - {property: 'disease_name', label: 'Nom maladie', type: 'string'}
           - {property: 'disease_therapy', label: 'Traitement maladie', type: 'string'}
           - {property: 'disease_severity', label: 'Severité', type: 'string'}
-          - {property: 'disease_therapy', label: 'Traitement maladie', type: 'string'}
           - {property: 'disease_created_at', label: 'Créer le', type: 'datetime'}
           - {property: 'disease_updated_at', label: 'Modifier le', type: 'datetime'}
+#      form:
+#        fields:
+#          - { property: 'disease_name', label: 'Nom maladie:', type: 'text'}
+#          - { property: 'disease_therapy', label: 'Traitement :', type: 'text'}
+#          - {property: 'disease_severity', label: 'Severité :', type: 'text'}

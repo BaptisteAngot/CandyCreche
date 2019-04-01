@@ -3,14 +3,9 @@ easy_admin:
     Parents:
       class: App\Entity\Parents
       list:
-        fields: ['id', 'parents_name', 'parents_firstname', 'parents_mail','parents_token','parents_created_at', 'parents_updated_at']
-#      form:
-#        fields:
-#          - { property: 'parents_name' }
-#          - { property: 'parents_firstname' }
-#          - { property: 'parents_mail' }
-#          - { property: 'parents_password' }
-#          - { property: 'parents_token' }
-#          - { property: 'parents_token' }
-#          - { property: 'parents_created_at'}
-#          - { property: 'parents_updated_at'}
+        fields: ['id', 'parents_name', 'parents_firstname', 'parents_mail','parents_created_at', 'parents_updated_at']
+      form:
+        fields:
+        - { property: 'parents_name', label: 'Nom parent :', type: 'text'}
+        - { property: 'parents_firstname', label: 'Prénom parent :', type: 'text'}
+        - { property: 'parents_mail', label: 'Mail du parent :', type: 'email'}

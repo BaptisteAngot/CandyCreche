@@ -147,6 +147,6 @@ class Disease
 
     public function __toString()
     {
-        return $this->disease_name;
+        return strval($this->id);
     }
 }

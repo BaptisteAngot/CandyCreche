@@ -17,3 +17,4 @@ easy_admin:
           - {property: 'structure_siret', label: 'SIRET', type: 'integer'}
           - {property: 'structure_nbspace', label: 'Nombre de place', type: 'integer'}
           - {property: 'structure_typefood', label: 'Type alimentation', type: 'string'}
+          - {property: 'status', label: 'status', type: 'bool'}

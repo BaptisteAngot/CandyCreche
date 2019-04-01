@@ -240,7 +240,7 @@ class Parents
 
     public function __toString()
     {
-        return $this->parents_mail;
+        return strval($this->id);
     }
 
 }

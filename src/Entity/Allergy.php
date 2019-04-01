@@ -146,7 +146,7 @@ class Allergy
 
     public function __toString()
     {
-        return $this->allergy_name;
+        return strval($this->id);
     }
 
 }

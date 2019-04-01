@@ -301,6 +301,6 @@ class Child
 
     public function __toString()
     {
-        return $this->Child_name;
+        return strval($this->id);
     }
 }
