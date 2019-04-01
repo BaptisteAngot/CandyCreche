@@ -17,4 +17,31 @@ easy_admin:
           - {property: 'structure_siret', label: 'SIRET', type: 'integer'}
           - {property: 'structure_nbspace', label: 'Nombre de place', type: 'integer'}
           - {property: 'structure_typefood', label: 'Type alimentation', type: 'string'}
-          - {property: 'status', label: 'status', type: 'bool'}
+          - {property: 'status', label: 'status', type: 'string'}
+      form:
+        fields:
+          - {property: 'structure_name', label: 'Nom structure', type: 'text'}
+          - {property: 'structure_location', label: 'Adresse', type: 'text'}
+          - {property: 'structure_city', label: 'Ville', type: 'text'}
+          - {property: 'structure_zipcode', label: 'Code postal', type: 'integer'}
+          - {property: 'structure_type', label: 'Type de structure', type: 'text'}
+          - {property: 'structure_siret', label: 'SIRET', type: 'integer'}
+          - {property: 'structure_nbspace', label: 'Nombre de place', type: 'integer'}
+          - {property: 'structure_typefood', label: 'Type alimentation', type: 'text'}
+          - {property: 'structure_mail', label: 'Adresse mail', type: 'text'}
+          - {property: 'structure_password', label: 'Mot de passe', type: 'text'}
+          - {property: 'structure_token', label: 'Token', type: 'integer'}
+          - {property: 'structure_statuspaiement', label: 'Paiement', type: 'text'}
+          - {property: 'description', label: 'Description structure', type: 'text'}
+          - {property: 'status', label: 'status', type: 'text'}
+          - {property: 'structure_created_at', label: 'Créer le :', type: 'datetime'}
+          - {property: 'structure_phone', label: 'Téléphone structure', type: 'integer'}
+
+
+
+
+
+
+
+
+
