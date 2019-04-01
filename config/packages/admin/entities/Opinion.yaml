@@ -10,4 +10,8 @@ easy_admin:
           - {property: 'opinion_rate', label: 'Note', type: 'string'}
           - {property: 'opinion_comment', label: 'Commentaire', type: 'string'}
       form:
-        fields: ['opinion_id_parents','opinion_id_structure','opinion_rate','opinion_comment']
+        fields:
+          - { property: 'opinion_id_parents', label: 'ID Parent:'}
+          - { property: 'opinion_id_structure', label: 'ID Structure :'}
+          - {property: 'opinion_rate', label: 'Note :', type: 'integer'}
+          - {property: 'opinion_comment', label: 'Commentaire', type: 'text'}
