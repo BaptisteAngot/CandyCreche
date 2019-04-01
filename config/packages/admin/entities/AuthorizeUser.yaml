@@ -1,0 +1,9 @@
+easy_admin:
+  entities:
+    AuthorizeUser:
+      class: App\Entity\AuthorizeUser
+      list:
+        fields:
+          - {property: 'id', label: 'ID utilisateur', type: 'integer'}
+          - {property: 'authorize_login', label: 'Login', type: 'string'}
+          - {property: 'relation', label: 'Nom structure', type: 'string'}

@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\This;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DiseaseRepository")
@@ -142,5 +143,10 @@ class Disease
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return strval($this->id);
     }
 }

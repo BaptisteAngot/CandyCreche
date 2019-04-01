@@ -108,11 +108,27 @@ class Structure
      */
     private $structure_photo;
 
+    /**
+     * @ORM\Column(type="string", length=500)
+     */
+    private $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AuthorizeUser", mappedBy="relation")
+     */
+    private $authorizeUsers;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $status;
+
 
     public function __construct()
     {
         $this->opinions = new ArrayCollection();
         $this->pivotChildStructures = new ArrayCollection();
+        $this->authorizeUsers = new ArrayCollection();
     }
 
 
@@ -372,4 +388,63 @@ class Structure
         return $this;
     }
 
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AuthorizeUser[]
+     */
+    public function getAuthorizeUsers(): Collection
+    {
+        return $this->authorizeUsers;
+    }
+
+    public function addAuthorizeUser(AuthorizeUser $authorizeUser): self
+    {
+        if (!$this->authorizeUsers->contains($authorizeUser)) {
+            $this->authorizeUsers[] = $authorizeUser;
+            $authorizeUser->setRelation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAuthorizeUser(AuthorizeUser $authorizeUser): self
+    {
+        if ($this->authorizeUsers->contains($authorizeUser)) {
+            $this->authorizeUsers->removeElement($authorizeUser);
+            // set the owning side to null (unless already changed)
+            if ($authorizeUser->getRelation() === $this) {
+                $authorizeUser->setRelation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return strval($this->id);
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
 }

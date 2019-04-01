@@ -164,12 +164,25 @@ class Child
         return $this->Child_id_parent;
     }
 
+    public function getChildIdParentID(): ?Parents
+    {
+        return $this->Child_id_parent;
+    }
+
     public function setChildIdParent(?Parents $Child_id_parent): self
     {
         $this->Child_id_parent = $Child_id_parent;
 
         return $this;
     }
+
+    public function setChildIdParentId(?Parents $Child_id_parent): self
+    {
+        $this->Child_id_parent = $Child_id_parent;
+
+        return $this;
+    }
+
 
     /**
      * @return Collection|Disease[]
@@ -284,5 +297,10 @@ class Child
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return strval($this->id);
     }
 }

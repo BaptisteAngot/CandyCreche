@@ -36,6 +36,16 @@ class Opinion
      */
     private $opinion_updated_at;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $opinion_rate;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $opinion_comment;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,5 +97,34 @@ class Opinion
         $this->opinion_updated_at = $opinion_updated_at;
 
         return $this;
+    }
+
+    public function getOpinionRate(): ?int
+    {
+        return $this->opinion_rate;
+    }
+
+    public function setOpinionRate(int $opinion_rate): self
+    {
+        $this->opinion_rate = $opinion_rate;
+
+        return $this;
+    }
+
+    public function getOpinionComment(): ?string
+    {
+        return $this->opinion_comment;
+    }
+
+    public function setOpinionComment(?string $opinion_comment): self
+    {
+        $this->opinion_comment = $opinion_comment;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return strval($this->id);
     }
 }

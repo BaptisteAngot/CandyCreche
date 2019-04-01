@@ -1,0 +1,13 @@
+easy_admin:
+  entities:
+    Allergy:
+      class: App\Entity\Allergy
+      list:
+        fields:
+        - {property: 'id', label: 'ID Allergy', type: 'integer'}
+        - {property: 'allergy_id_child', label: 'ID enfant', type: 'array'}
+        - {property: 'allergy_name', label: 'Nom allergie', type: 'string'}
+        - {property: 'allergy_therapy', label: 'Traitement', type: 'string'}
+        - {property: 'allergy_severity', label: 'Severité', type: 'string'}
+        - {property: 'allergy_created_at', label: 'Créer le', type: 'datetime'}
+        - {property: 'allergy_updated_at', label: 'Dernière modification', type: 'datetime'}
