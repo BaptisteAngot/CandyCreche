@@ -1061,7 +1061,7 @@ body {
     position: absolute;
     left:0;
     top:21%;
-    font-size: 2em;
+    font-size: 1.5vw;
     font-weight: bold;
 }
 
@@ -1072,7 +1072,7 @@ body {
     position:absolute;
     left:0;
     top:25%;
-    font-size: 2em;
+    font-size: 1vw;
 }
 
 .banniere_details img:hover{
@@ -1090,12 +1090,60 @@ body {
 .description_details h1{
     margin: 2%;
     font-size: 2em;
+    font-weight: bold;
 }
 
 .sup_details{
     margin: 2%;
-    text-align: center;
-    width:40%;
+    width: 30%;
     font-size:1.5em;
-    float: right;
+    float: left;
+}
+
+.sup_details h1{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.avis_details{
+    width: 65%;
+    margin:2%;
+    font-size: 4em;
+    float: left;
+    text-align: center;
+}
+
+.statut_details{
+    font-size: 1.8em;
+    text-align: center;
+    float: left;
+    margin:2%;
+    width: 25%;
+}
+
+.commentaires_details{
+    width: 100%;
+    margin:2%;
+    font-size: 4em;
+    float: left;
+    text-align: center;
+}
+
+.hr{
+    width: 50%;
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 2% 2% 2% 25%;
+    float: left;
+}
+
+@media screen and (max-width: 950px) {
+    .banniere_details .haut {
+        margin-top: -15%;
+    }
+
+    .banniere_details .bas{
+        margin-top: -15%;
+    }
 }
