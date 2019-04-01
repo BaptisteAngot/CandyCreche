@@ -48,7 +48,7 @@ body {
 }
 
 .navbar div.logo a:hover {
-    color: rgba(255, 220, 150);
+    color: rgb(255, 220, 150);
 }
 
 .navbar div.main_list {
@@ -79,7 +79,7 @@ body {
 }
 
 .navbar div.main_list ul li a:hover {
-    color: rgba(255, 220, 150);
+    color: rgb(255, 220, 150);
     transition: 0.5s;
 }
 
@@ -276,7 +276,7 @@ body {
     }
 }
 
-/**************************************************Page d'acceuil******************************************************/
+/**************************************************Page d'accueil******************************************************/
 
 #parallax-world-of-ugg h2 {
     font-family: 'Oswald', sans-serif;
@@ -524,7 +524,7 @@ body {
     left: 0;
     bottom: 0;
     border-top: solid;
-    border-top-color: rgba(255, 220, 150);
+    border-top-color: rgb(255, 220, 150);
 }
 
 /*****************************************************Footer Social Icons**********************************************/
@@ -605,7 +605,7 @@ body {
     width: 100%;
     padding: 1%;
     text-align: center;
-    background-color: rgba(255, 220, 150);
+    background-color: rgb(255, 220, 150);
 }
 
 /******************************************************Notre équipe****************************************************/
@@ -648,7 +648,7 @@ body {
     padding-bottom: 30%;
 }
 
-/************************************profilParents JB-jauné************************************************************/
+/************************************profilParents*********************************************************************/
 
 #image_nom {
     background-image: url('../img/6.jpg');
@@ -895,6 +895,7 @@ body {
         font-size: 2.4em;
         margin-left: 5%;
     }
+
     .img_pourquoi_candy_creche {
         width: 100%;
     }
@@ -903,6 +904,7 @@ body {
 /************************************************Liste entreprises*****************************************************/
 
 .fond_liste_structures {
+    padding: 15px;
     background-image: url("../img/4.jpg");
     width: 100%;
     background-position: center;
@@ -910,7 +912,9 @@ body {
 }
 
 .liste_structures {
-    width: 100%;
+    margin: 20px auto;
+    width: 45%;
+    min-width: 400px;
 }
 
 .informations_structures_visible {
@@ -918,72 +922,91 @@ body {
     padding: 2.5%;
     background-color: white;
     transition: 0.5s;
-
-    box-shadow: 8px 8px 12px #aaa;
-
+    box-shadow: 8px 8px 10px #222;
     -webkit-transform: scale(1);
     transform: scale(1);
-    -webkit-transition: .3s ease-in-out;
-    transition: .3s ease-in-out;
 }
 
 .informations_structures_visible:hover {
+    box-shadow: none;
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
     z-index: 5;
 }
 
-.banniere_structures {
-    width: 20%;
-    height: 100%;
-    float: left;
+.img_structure {
     text-align: center;
 }
 
-.banniere_structures img {
+.img_structure img {
+    transition: 0.5s;
+    width: 30%;
+    min-width: 150px;
+    margin: 10px auto;
+    height: 100%;
     border-radius: 50%;
 }
 
-.profil_description {
-    width: 60%;
-    float: left;
+.img_structure img:hover {
+    transition: 0.5s;
+    box-shadow: none;
+    border-radius: 10%;
 }
 
-.profil_description h1 {
+.titre_crèche {
     text-align: center;
+    font-weight: bold;
     font-size: 2em;
+    width:50%;
+    margin: 0 auto;
+    padding: 15px;
+    border: 2px solid #222;
+}
+
+.profil_description {
+    width: 90%;
+    margin: 10px auto;
 }
 
 .profil_description p {
     padding: 10px;
     text-align: justify;
     font-size: 1.3em;
-    padding-bottom: 50px;
+    padding:15px;
 }
 
 .voir_la_page a {
-    color: black;
+    white-space: nowrap;
+    box-sizing: border-box;
+    font-weight: bold;
+    padding: 15px;
+    width: 20%;
+    margin: 10px auto;
+    min-width: 150px;
+    color: rgb(255, 220, 150);
     text-align: center;
     display: block;
     text-decoration: none;
     font-size: 2em;
+    border: 2px solid rgb(255, 220, 150);
     transition: 0.5s;
 }
 
 .voir_la_page a:hover {
-    color: rgba(255, 220, 150);
+    background-color: rgb(255, 220, 150);
+    color: white;
 }
 
-.statut {
-    float: right;
-    width: 20%;
-    height: 100%;
-}
-
-.statut p {
+.places {
     text-align: center;
-    font-size: 1.5em;
-    margin-top: 2.5%;
+    margin: 10px auto;
+    padding: 15px;
+    min-width: 50px;
+    width: 25%;
+    background-color: #222222;
+    color: orange;
+    font-size: 2.5vh;
+    font-weight: bold;
 }
 
 .informations_structures_details h1 {
