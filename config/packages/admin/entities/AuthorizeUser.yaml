@@ -10,6 +10,7 @@ easy_admin:
       form:
         fields:
           - {property: 'authorize_login', label: 'Login utilisateur', type: 'text'}
+          - {property: 'authorize_password', label: 'Mot de passe', type: 'text'}
           - {property: 'authorize_created_at', label: 'Date de création', type: 'datetime'}
           - {property: 'authorize_updated_at', label: 'Date de dernière modification', type: 'datetime'}
           - {property: 'relation', label: 'ID Structure'}

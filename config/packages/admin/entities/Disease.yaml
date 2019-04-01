@@ -16,4 +16,5 @@ easy_admin:
           - { property: 'disease_name', label: 'Nom maladie:', type: 'text'}
           - { property: 'disease_therapy', label: 'Traitement :', type: 'text'}
           - {property: 'disease_severity', label: 'Severité :', type: 'text'}
+          - {property: 'disease_created_at', label: 'Créer le :', type: 'datetime'}
           - {property: 'disease_id_child', label: 'ID Enfant'}
