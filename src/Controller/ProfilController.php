@@ -36,6 +36,7 @@ class ProfilController extends AbstractController
             'namechild' => $enfant->getChildName(),
             'firstnamechild' => $enfant->getChildFirstname(),
             'yearschild' => $enfant->getChildYears(),
+            'otherchild' => $enfant->getChildOthers(),
             'diseasename' => $maladie->getDiseaseName()
         ]);
     }
