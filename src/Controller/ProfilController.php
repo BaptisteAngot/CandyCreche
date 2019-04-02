@@ -18,9 +18,11 @@ class ProfilController extends AbstractController
             ->getRepository(Parents::class)
             ->find($id);
 
-//        return $parent;
-        return $this->render('profil/index.html.twig', [
+        return $this->render('profilParents/profilParents.html.twig', [
             'controller_name' => 'ProfilController',
+            'mail' => $parent->getParentsMail(),
+            'name' => $parent->getParentsName(),
+            'firstname' => $parent->getParentsFirstname()
         ]);
     }
 }
