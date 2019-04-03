@@ -3,14 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Parents;
-use App\Form\RegistrationsFormType;
+use App\Form\RegistrationsParentsFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class RegistrationController extends AbstractController
+class RegistrationParentsController extends AbstractController
 {
     /**
      * @Route("/register_parents", name="app_register")
@@ -18,7 +18,7 @@ class RegistrationController extends AbstractController
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $user = new Parents();
-        $form = $this->createForm(RegistrationsFormType::class, $user);
+        $form = $this->createForm(RegistrationsParentsFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -39,7 +39,7 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('accueil');
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render('registration/registerParents.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }
