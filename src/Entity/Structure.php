@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StructureRepository")
- * @UniqueEntity(fields={"parents_mail"}, errorPath="parents_mail", message="Cet adresse mail existe déjà")
+ * @UniqueEntity(fields={"structure_mail"}, errorPath="structure_mail", message="Cet adresse mail existe déjà")
  */
 class Structure  implements UserInterface
 {

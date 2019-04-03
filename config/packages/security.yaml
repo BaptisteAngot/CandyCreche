@@ -1,6 +1,9 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     encoders:
+        App\Entity\Structure:
+            algorithm: bcrypt
+            cost: 13
         App\Entity\Parents:
             algorithm: bcrypt
             cost: 13
