@@ -18,27 +18,31 @@
                 <p>Nom: {{ name }}</p>
                 <p>Prénom: {{ firstname }}</p>
             </div>
+            {% for enfant in enfants %}
+
             <div class="div_info">
-                {{ dump(test)}}
                 <h2>Informations de l'enfant</h2>
                 <hr/>
-                {#<p>Nom: {{ namechild }}</p>#}
-                {#<p>Prénom: {{ firstnamechild }}</p>#}
-                {#<p>Âge: {{ yearschild }}</p>#}
+                {#{{ dump(enfant) }}#}
+                <p>Nom: {{ enfant.childName }}</p>
+                <p>Prénom: {{ enfant.childFirstname }}</p>
+                <p>Âge: {{ enfant.childYears}}</p>
                 {#<p>Maladie: {{ diseasename }}</p>#}
                 {#<p>Allergie:</p>#}
-                {#<p>Info(s) complémentaire(s): {{ otherchild }}</p>#}
+                <p>Info(s) complémentaire(s): {{ enfant.childOthers }}</p>
             </div>
-            <div class="div_info">
-                <h2>Informations de l'enfant</h2>
-                <hr/>
-                <p>Nom:</p>
-                <p>Prénom:</p>
-                <p>Âge:</p>
-                <p>Maladie:</p>
-                <p>Allergie:</p>
-                <p>Info(s) complémentaire(s):</p>
-            </div>
+            {% endfor %}
+
+            {#<div class="div_info">#}
+                {#<h2>Informations de l'enfant</h2>#}
+                {#<hr/>#}
+                {#<p>Nom:</p>#}
+                {#<p>Prénom:</p>#}
+                {#<p>Âge:</p>#}
+                {#<p>Maladie:</p>#}
+                {#<p>Allergie:</p>#}
+                {#<p>Info(s) complémentaire(s):</p>#}
+            {#</div>#}
             <div class="clear"></div>
         </section>
     </div>

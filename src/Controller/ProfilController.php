@@ -31,7 +31,7 @@ class ProfilController extends AbstractController
             'mail' => $parent->getParentsMail(),
             'name' => $parent->getParentsName(),
             'firstname' => $parent->getParentsFirstname(),
-            'test' => $enfant
+            'enfants' => $enfant
 //            'namechild' => $enfant->getChildName(),
 //            'firstnamechild' => $enfant->getChildFirstname(),
 //            'yearschild' => $enfant->getChildYears(),
