@@ -22,22 +22,35 @@ class ProfilController extends AbstractController
             ->find($id);
 
 
-        $enfant = $this->getDoctrine()
+        $enfants = $this->getDoctrine()
             ->getRepository(Child::class)
             ->findBy(['Child_id_parent' => $parent->getId()]);
+
+        $i= 0;
+        foreach ($enfants as $enfant)
+        {
+            $IDChild[$i] = $enfant->getId();
+            foreach ($IDChild as $idenfant)
+            {
+                $maladies = $this->getDoctrine()
+                    ->getRepository(Child::class)
+                    ->findBy(['disease_id_child',$idenfant]);
+            }
+            $i++;
+        }
+
+
+
+
+
 
         return $this->render('profilParents/profilParents.html.twig', [
             'controller_name' => 'ProfilController',
             'mail' => $parent->getParentsMail(),
             'name' => $parent->getParentsName(),
             'firstname' => $parent->getParentsFirstname(),
-            'enfants' => $enfant
-//            'namechild' => $enfant->getChildName(),
-//            'firstnamechild' => $enfant->getChildFirstname(),
-//            'yearschild' => $enfant->getChildYears(),
-//            'otherchild' => $enfant->getChildOthers(),
-//            'diseasename' => $maladie->getDiseaseName(),
-//            'test' => $maladie->getResult(),
+            'IDChildlist' => $IDChild,
+            'maladie' => $maladies
         ]);
     }
 }
