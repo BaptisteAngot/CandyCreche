@@ -21,4 +21,13 @@ class SecurityController extends AbstractController
 
         return $this->render('security/loginParents.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
+
+    /**
+     * @Route("/logout", name="app_logout", methods={"GET"})
+     */
+    public function logout()
+    {
+//        throw new \Exception('Will be intercepted before getting here');
+        return $this->render(':accueil:index.html.twig');
+    }
 }
