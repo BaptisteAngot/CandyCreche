@@ -13,23 +13,19 @@
             {% endif %}
 
             <h1 class="login_form_h1">Connexion <br> Espace Parents</h1>
-            <div id="login_form_mail">
+
+            <section id="login_form_mail">
                 <label for="login_form_mail" class="login_form_label_mail">Adresse Mail</label>
-                <input type="text" value="{{ last_username }}" name="parents_mail" id="login_form_mail"
-                       class="form_control_parents"
-                       placeholder="Adresse Mail" required autofocus>
-            </div>
+                <input type="text" value="{{ last_username }}" name="parents_mail" id="login_form_mail" class="form_control_parents" placeholder="Adresse Mail" required autofocus>
+            </section>
 
             <div class="clear"></div>
 
-            <div id="login_form_password">
+            <section id="login_form_password">
                 <label for="login_form_password" class="login_form_label_password">Mot de passe</label>
-                <input type="password" name="password" id="login_form_password" class="form_control_password"
-                       placeholder="Mot de passe"
-                       required>
-
+                <input type="password" name="password" id="login_form_password" class="form_control_password" placeholder="Mot de passe" required>
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-            </div>
+            </section>
 
             <div class="clear"></div>
 
@@ -42,10 +38,11 @@
             {#</label>#}
             {#</div>#}
 
+            <div class="hr"></div>
 
-            <button class="login_form_submit" type="submit">
-                Se connecter
-            </button>
+            <button class="login_form_submit" type="submit">Se connecter</button>
         </form>
     </div>
+
+    <div class="clear"></div>
 {% endblock %}
