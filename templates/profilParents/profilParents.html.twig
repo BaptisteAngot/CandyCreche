@@ -5,30 +5,39 @@
 {% block header %}{% endblock %}
 {% block body %}
 
+
     <div class="fond">
         <section id="image_nom">
             <div class="img_profil"></div>
         </section>
 
+
         <section id="info_Parents">
             <div class="div_info">
                 <h2>Vos informations</h2>
                 <hr/>
-                <p>Adresse mail: {{ mail }}</p>
-                <p>Nom: {{ name }}</p>
-                <p>Prénom: {{ firstname }}</p>
+                <p>Adresse mail: {{ parents.parentsMail }}</p>
+                <p>Nom: {{ parents.parentsName }}</p>
+                <p>Prénom: {{ parents.parentsFirstname }}</p>
             </div>
 
             {% for enfant in enfants %}
-
             <div class="div_info">
                 <h2>Informations de l'enfant</h2>
                 <hr/>
                 <p>Nom: {{ enfant.childName }}</p>
                 <p>Prénom: {{ enfant.childFirstname }}</p>
                 <p>Âge: {{ enfant.childYears}}</p>
-                <p>Maladie: </p>
-                <p>Allergie:</p>
+
+                {% for maladie in enfant.diseases %}
+                    <p>Maladie: {{ maladie.disease_name }}</p>
+                {% endfor %}
+                {% for allergie in enfant.allergies %}
+                    <p>Allergie: {{ allergie.allergy_name }}</p>
+                {% endfor %}
+                {% for equipment in enfant.equipment %}
+                    <p>Equipement: {{ equipment.equipment_name }}</p>
+                {% endfor %}
                 <p>Info(s) complémentaire(s): {{ enfant.childOthers }}</p>
             </div>
             {% endfor %}

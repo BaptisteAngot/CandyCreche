@@ -25,7 +25,7 @@ class Disease
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $disease_name;
+    public $disease_name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)

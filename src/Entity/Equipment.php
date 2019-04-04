@@ -21,7 +21,7 @@ class Equipment
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $equipment_name;
+    public $equipment_name;
 
     /**
      * @ORM\Column(type="datetime")
