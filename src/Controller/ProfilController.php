@@ -22,7 +22,7 @@ class ProfilController extends AbstractController
         $parent = $this->getDoctrine()
             ->getRepository(Parents::class)
             ->find($id);
-        
+
         $enfants = $parent->getChildren();
 
         return $this->render('profilParents/profilParents.html.twig', [
