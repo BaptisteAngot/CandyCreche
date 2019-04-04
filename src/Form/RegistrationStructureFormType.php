@@ -14,6 +14,18 @@ class RegistrationStructureFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('structureMail')
+            ->add('structureName')
+            ->add('structureLocation')
+            ->add('structureCity')
+            ->add('structureZipcode')
+            ->add('structureSiret')
+            ->add('structurePhone')
+            ->add('structureType')
+            ->add('structureNbspace')
+            ->add('structureTypefood')
+            ->add('description')
+
+            ->add('structureLocation')
             ->add('structurePassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options' => ['label' => 'Mot de passe'],

@@ -140,6 +140,9 @@ class Structure  implements UserInterface
         $this->opinions = new ArrayCollection();
         $this->pivotChildStructures = new ArrayCollection();
         $this->authorizeUsers = new ArrayCollection();
+        $this->structure_statuspaiement = "Impaye";
+        $this->status = "Need verif";
+
     }
 
     public function getUsername()
