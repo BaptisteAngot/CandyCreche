@@ -4,8 +4,11 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\This;
+use Doctrine\Common;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DiseaseRepository")
@@ -22,7 +25,7 @@ class Disease
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $disease_name;
+    public $disease_name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -149,4 +152,7 @@ class Disease
     {
         return strval($this->id);
     }
+
+
+
 }

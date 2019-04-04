@@ -21,7 +21,7 @@ class Allergy
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $allergy_name;
+    public $allergy_name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
