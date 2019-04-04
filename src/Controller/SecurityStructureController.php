@@ -7,10 +7,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-class SecurityController extends AbstractController
+class SecurityStructureController extends AbstractController
 {
     /**
-     * @Route("/login_parents", name="app_login_parents")
+     * @Route("/login_structure", name="app_login_structure")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
@@ -19,6 +19,6 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('security/loginParents.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/loginStructure.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
 }

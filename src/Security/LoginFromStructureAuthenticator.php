@@ -2,8 +2,7 @@
 
 namespace App\Security;
 
-use App\Entity\Parents;
-
+use App\Entity\Structure;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +19,7 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
+class LoginFromStructureAuthenticator extends AbstractFormLoginAuthenticator
 {
     use TargetPathTrait;
 
@@ -39,20 +38,20 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     public function supports(Request $request)
     {
-        return 'app_login_parents' === $request->attributes->get('_route')
+        return 'app_login_structure' === $request->attributes->get('_route')
             && $request->isMethod('POST');
     }
 
     public function getCredentials(Request $request)
     {
         $credentials = [
-            'parents_mail' => $request->request->get('parents_mail'),
+            'structure_mail' => $request->request->get('structure_mail'),
             'password' => $request->request->get('password'),
             'csrf_token' => $request->request->get('_csrf_token'),
         ];
         $request->getSession()->set(
             Security::LAST_USERNAME,
-            $credentials['parents_mail']
+            $credentials['structure_mail']
         );
 
         return $credentials;
@@ -65,11 +64,11 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
             throw new InvalidCsrfTokenException();
         }
 
-        $user = $this->entityManager->getRepository(Parents::class)->findOneBy(['parents_mail' => $credentials['parents_mail']]);
+        $user = $this->entityManager->getRepository(Structure::class)->findOneBy(['structure_mail' => $credentials['structure_mail']]);
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Parents_mail could not be found.');
+            throw new CustomUserMessageAuthenticationException('Structure_mail could not be found.');
         }
 
         return $user;
@@ -92,6 +91,6 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     protected function getLoginUrl()
     {
-        return $this->urlGenerator->generate('app_login_parents');
+        return $this->urlGenerator->generate('app_login_structure');
     }
 }
