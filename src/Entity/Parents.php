@@ -5,13 +5,21 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ParentsRepository")
+ * @UniqueEntity(fields={"parents_mail"}, errorPath="parents_mail", message="Cet adresse mail existe déjà")
  */
-class Parents
+class Parents implements UserInterface
 {
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -72,10 +80,41 @@ class Parents
 
     public function __construct()
     {
+        $this->parents_token = bin2hex(random_bytes(50));
+        $this->parents_created_at = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
         $this->children = new ArrayCollection();
         $this->opinions = new ArrayCollection();
     }
 
+    public function getUsername()
+    {
+        return $this->parents_mail;
+    }
+
+    public function getPassword()
+    {
+        return $this->parents_password;
+    }
+
+    public function getSalt()
+    {
+        // The bcrypt and argon2i algorithms don't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
+    }
+
+    public function getRoles() : array
+    {
+        return $this->roles;
+
+        $roles = ['ROLE_PARENT'];
+
+        return array_unique($roles);
+    }
+
+    public function eraseCredentials()
+    {
+    }
     public function getId(): ?int
     {
         return $this->id;

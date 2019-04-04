@@ -5,12 +5,21 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StructureRepository")
+ * @UniqueEntity(fields={"structure_mail"}, errorPath="structure_mail", message="Cet adresse mail existe déjà")
  */
-class Structure
+class Structure  implements UserInterface
 {
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -126,16 +135,51 @@ class Structure
 
     public function __construct()
     {
+        $this->structure_token = bin2hex(random_bytes(50));
+        $this->structure_created_at = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
         $this->opinions = new ArrayCollection();
         $this->pivotChildStructures = new ArrayCollection();
         $this->authorizeUsers = new ArrayCollection();
+        $this->structure_statuspaiement = "Impaye";
+        $this->status = "Need verif";
+
     }
 
+    public function getUsername()
+    {
+        return $this->structure_mail;
+    }
+
+    public function getPassword()
+    {
+        return $this->structure_password;
+    }
+
+    public function getSalt()
+    {
+        // The bcrypt and argon2i algorithms don't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    public function getRoles() : array
+    {
+        return $this->roles;
+
+        $roles = ['ROLE_STRUCTURE'];
+
+        return array_unique($roles);
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
+
 
     public function getStructureName(): ?string
     {

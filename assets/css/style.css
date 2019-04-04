@@ -31,7 +31,7 @@ body {
     height: 65px;
     line-height: 65px;
     text-align: center;
-    position: fixed;
+    /*position: fixed;*/
     z-index: 10;
 }
 
@@ -1179,3 +1179,6 @@ body {
     }
 }
 
+form {
+    margin-top: 200px;
+}
