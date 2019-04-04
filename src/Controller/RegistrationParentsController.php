@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class RegistrationParentsController extends AbstractController
 {
     /**
-     * @Route("/register_parents", name="app_register")
+     * @Route("/register_parents", name="app_register_parents")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
