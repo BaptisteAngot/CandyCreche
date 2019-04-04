@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Child;
 use App\Entity\Disease;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -19,32 +20,22 @@ class DiseaseRepository extends ServiceEntityRepository
         parent::__construct($registry, Disease::class);
     }
 
-    // /**
-    //  * @return Disease[] Returns an array of Disease objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('d.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Disease
+    public function getDisease($id)
     {
-        return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $em = $this->getEntityManager();
+        $repository = $em->getRepository(Child::class);
+        $query = $repository->createQueryBuilder('u')
+            ->innerJoin('u.disease_id_child','g')
+            ->where('g.id = :child_id')
+            ->setParameter('child_id', $id)
+            ->getQuery()->getResult();
+
+//        $qb = $this->getEntityManager()->createQueryBuilder();
+//        $qb->select('disease_id','toto')
+//            ->from('disease_child','toto')
+//            ->where('child_id =?1')
+//            ->setParameter(1,$id);
+//        return $qb->getQuery()->getArrayResult();
     }
-    */
 }
