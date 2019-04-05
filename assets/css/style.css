@@ -1186,7 +1186,8 @@ form {
 
 /********************************* Calendar *****************************************/
 
-#calendar-holder{
-    max-width: 2%;
-    color:red;
+.calendarjs {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
 }

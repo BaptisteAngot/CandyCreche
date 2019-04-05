@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <a href="{{ path('booking_new') }}">Create new booking</a>
-
-    {% include '@Calendar/calendar.html' %}
+    <div class="calendarjs">
+        <a href="{{ path('booking_new') }}">Create new booking</a>
+        {% include '@Calendar/calendar.html' %}
+    </div>
 {% endblock %}
 
 {% block javascripts %}
