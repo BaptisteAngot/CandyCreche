@@ -168,10 +168,8 @@ class Structure  implements UserInterface
 
     public function getRoles() : array
     {
-        return $this->roles;
-
-        $roles = ['ROLE_STRUCTURE'];
-
+        $roles = $this->roles;
+        $roles[] = 'ROLE_STRUCTURE';
         return array_unique($roles);
     }
 
