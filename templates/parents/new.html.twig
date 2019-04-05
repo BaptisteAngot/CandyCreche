@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Parents{% endblock %}
+
+{% block body %}
+    {{ include('parents/_form.html.twig') }}
+
+    <a href="{{ path('parents_index') }}">back to list</a>
+{% endblock %}

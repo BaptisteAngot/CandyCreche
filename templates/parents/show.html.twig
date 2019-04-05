@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Parents{% endblock %}
+
+{% block body %}
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Roles</th>
+                <td>{{ parent.roles ? parent.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ parent.id }}</td>
+            </tr>
+            <tr>
+                <th>Parents_name</th>
+                <td>{{ parent.parentsName }}</td>
+            </tr>
+            <tr>
+                <th>Parents_firstname</th>
+                <td>{{ parent.parentsFirstname }}</td>
+            </tr>
+            <tr>
+                <th>Parents_mail</th>
+                <td>{{ parent.parentsMail }}</td>
+            </tr>
+            <tr>
+                <th>Parents_password</th>
+                <td>{{ parent.parentsPassword }}</td>
+            </tr>
+            <tr>
+                <th>Parents_created_at</th>
+                <td>{{ parent.parentsCreatedAt ? parent.parentsCreatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Parents_updated_at</th>
+                <td>{{ parent.parentsUpdatedAt ? parent.parentsUpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Parents_token</th>
+                <td>{{ parent.parentsToken }}</td>
+            </tr>
+            <tr>
+                <th>Parents_photo</th>
+                <td>{{ parent.parentsPhoto }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('parents_index') }}">back to list</a>
+
+    <a href="{{ path('parents_edit', {'id': parent.id}) }}">edit</a>
+
+    {{ include('parents/_delete_form.html.twig') }}
+{% endblock %}
