@@ -8,7 +8,10 @@ security:
             algorithm: bcrypt
             cost: 13
     providers:
-        in_memory: { memory: ~ }
+        users:
+            entity:
+                class: 'App\Entity\Parents'
+                property: 'parents_mail'
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -20,6 +23,9 @@ security:
                     - App\Security\LoginFormAuthenticator
                     - App\Security\LoginFromStructureAuthenticator
                 entry_point: App\Security\LoginFromStructureAuthenticator
+            logout:
+                path: /logout
+                target: /
 
             # activate different ways to authenticate
 
