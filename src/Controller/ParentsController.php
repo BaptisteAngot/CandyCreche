@@ -16,27 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ParentsController extends AbstractController
 {
     /**
-     * @Route("/", name="parents_index", methods={"GET"})
-     */
-    public function index(ParentsRepository $parentsRepository): Response
-    {
-        return $this->render('parents/index.html.twig', [
-            'parents' => $parentsRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="parents_show", methods={"GET"})
-     */
-    public function show(Parents $parent): Response
-    {
-        return $this->render('parents/show.html.twig', [
-            'parent' => $parent,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}/edit", name="parents_edit", methods={"GET","POST"})
+     * @Route("/{id}", name="parents_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Parents $parent): Response
     {
@@ -58,7 +38,7 @@ class ParentsController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="parents_delete", methods={"DELETE"})
+     * @Route("/{id}/delete", name="parents_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Parents $parent): Response
     {
