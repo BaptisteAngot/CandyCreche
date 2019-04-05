@@ -780,129 +780,6 @@ body {
     background-color: #EEEEEE;
 }
 
-/*******************************************************Responsive*****************************************************/
-
-@media screen and (max-width: 950px) {
-    .navTrigger {
-        display: block;
-    }
-
-    .navbar div.logo {
-        margin-left: 15px;
-    }
-
-    .navbar div.main_list {
-        width: 100%;
-        height: 0;
-        overflow: hidden;
-    }
-
-    .navbar div.show_list {
-        height: auto;
-        display: none;
-    }
-
-    .navbar div.main_list ul {
-        flex-direction: column;
-        width: 100%;
-        height: 100vh;
-        min-width: 400px;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        background-color: #111;
-        background-position: center top;
-    }
-
-    .navbar div.main_list ul li {
-        width: 100%;
-        text-align: right;
-    }
-
-    .navbar div.main_list ul li a {
-        text-align: center;
-        width: 100%;
-        font-size: 3rem;
-        padding: 20px;
-    }
-
-    .navbar div.media_button {
-        display: block;
-    }
-
-    .div_info {
-        width: 90%;
-        margin-left: 5%;
-    }
-
-    .img_profil {
-        height: 150px;
-        width: 150px;
-        margin-top: 65px;
-    }
-
-}
-
-@media screen and (max-width: 680px) {
-
-    .qui_somme_nous h2 {
-        font-size: 3em;
-    }
-
-    .qui_somme_nous .txt_qui_somme_nous p {
-        font-size: 1.5em;
-        text-align: justify;
-    }
-
-    .pourquoi_candy_creche h2 {
-        font-size: 3em;
-    }
-
-    .pourquoi_candy_creche .txt_pourquoi_candy_creche p {
-        font-size: 1.5em;
-        text-align: justify;
-    }
-
-    .div_espace_parents_txt {
-        width: 100%;
-        font-size: 1.5em;
-        text-align: justify;
-        margin-left: 25%;
-    }
-
-    .div_espace_entreprises_txt {
-        width: 100%;
-        font-size: 1.5em;
-        text-align: justify;
-        margin-left: 25%;
-    }
-
-    .equipe p {
-        text-align: center;
-        padding: 3%;
-        font-size: 2em;
-    }
-
-    #parallax-world-of-ugg .parallax-two {
-        width: 100%;
-        height: 30vh;
-    }
-
-    #parallax-world-of-ugg .parallax-three {
-        width: 100%;
-        height: 30vh;
-    }
-
-    #parallax-world-of-ugg h3 {
-        font-size: 2.4em;
-        margin-left: 5%;
-    }
-
-    .img_pourquoi_candy_creche {
-        width: 100%;
-    }
-}
-
 /************************************************Liste entreprises*****************************************************/
 
 .fond_liste_structures {
@@ -1154,12 +1031,12 @@ body {
 /***********************************login_form (parents/structure)**************************************************/
 
 .wrap_login_form_parents {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
-    background-image:  url("../img/9.jpg");
+    background-image: url("../img/9.jpg");
     background-position: bottom;
     background-size: cover;
-    height: 80vh;
+    height: 800px;
     margin-top: 10px;
     margin-bottom: 10px;
     -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
@@ -1168,12 +1045,12 @@ body {
 }
 
 .wrap_login_form_structure {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
-    background-image:  url("../img/10.jpg");
+    background-image: url("../img/10.jpg");
     background-position: bottom;
     background-size: cover;
-    height: 80vh;
+    height: 800px;
     margin-top: 10px;
     margin-bottom: 10px;
     -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
@@ -1187,7 +1064,9 @@ body {
     padding: 3%;
     float: left;
     background: rgba(255, 220, 150, .6);
-    border-right: solid 2px white;
+    border-right: solid 1px white;
+    transition: 0.5s;
+
 }
 
 .wrap_login_form_parents form {
@@ -1196,14 +1075,16 @@ body {
     padding: 3%;
     float: right;
     background: rgba(255, 220, 150, .4);
-    border-left: solid 2px white;
+    border-left: solid 1px white;
+    transition: 0.5s;
+
 }
 
 .login_form_h1 {
     font-size: 3em;
     color: white;
     text-align: center;
-    margin-top:30%;
+    margin-top: 30%;
 }
 
 #login_form_mail {
@@ -1219,7 +1100,7 @@ body {
 }
 
 .form_control_parents {
-    border: 2px solid;
+    border: 3px solid;
     border-color: transparent;
     float: right;
     padding: 15px 20px;
@@ -1227,12 +1108,12 @@ body {
 }
 
 .form_control_parents:focus {
-    border: 2px solid;
+    border: 3px solid;
     border-color: #7abaff;
 }
 
 .form_control_structure {
-    border: 2px solid;
+    border: 3px solid;
     border-color: transparent;
     float: right;
     padding: 15px 20px;
@@ -1240,7 +1121,7 @@ body {
 }
 
 .form_control_structure:focus {
-    border: 2px solid;
+    border: 3px solid;
     border-color: #7abaff;
 }
 
@@ -1284,20 +1165,17 @@ body {
     background: #7abaff;
 }
 
-
 /***********************************register_form (parents/structure)**************************************************/
 
 .wrap_register {
-    width: 100%;
-    background-image: url("../img/11.jpg");
-    background-position: center;
-    background-size: cover;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
-    height: 80vh;
-    margin-bottom: 10px;
+    background-image: url("../img/11.jpg");
+    background-position: bottom;
+    background-size: cover;
+    height: 900px;
     margin-top: 10px;
-
+    margin-bottom: 10px;
     -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
@@ -1311,8 +1189,8 @@ body {
     float: right;
     background: rgba(255, 220, 150, .4);
     border-left: solid 2px white;
+    transition: 0.5s;
 }
-
 
 .register_form_h1 {
     margin-top: 5%;
@@ -1336,10 +1214,148 @@ body {
     float: right;
     padding: 15px 20px;
     border-radius: 25px;
-    margin: 5% 0 4% 0 ;
+    margin: 4% 0 4% 0;
 }
 
 .register_form_mail input:focus {
     border: 2px solid;
     border-color: #7abaff;
+}
+
+/*******************************************************Responsive*****************************************************/
+
+@media screen and (max-width: 950px) {
+    .navTrigger {
+        display: block;
+    }
+
+    .navbar div.logo {
+        margin-left: 15px;
+    }
+
+    .navbar div.main_list {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .navbar div.show_list {
+        height: auto;
+        display: none;
+    }
+
+    .navbar div.main_list ul {
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        min-width: 400px;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #111;
+        background-position: center top;
+    }
+
+    .navbar div.main_list ul li {
+        width: 100%;
+        text-align: right;
+    }
+
+    .navbar div.main_list ul li a {
+        text-align: center;
+        width: 100%;
+        font-size: 3rem;
+        padding: 20px;
+    }
+
+    .navbar div.media_button {
+        display: block;
+    }
+
+    .div_info {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .img_profil {
+        height: 150px;
+        width: 150px;
+        margin-top: 65px;
+    }
+
+}
+
+@media screen and (max-width: 680px) {
+
+    .qui_somme_nous h2 {
+        font-size: 3em;
+    }
+
+    .qui_somme_nous .txt_qui_somme_nous p {
+        font-size: 1.5em;
+        text-align: justify;
+    }
+
+    .pourquoi_candy_creche h2 {
+        font-size: 3em;
+    }
+
+    .pourquoi_candy_creche .txt_pourquoi_candy_creche p {
+        font-size: 1.5em;
+        text-align: justify;
+    }
+
+    .div_espace_parents_txt {
+        width: 100%;
+        font-size: 1.5em;
+        text-align: justify;
+        margin-left: 25%;
+    }
+
+    .div_espace_entreprises_txt {
+        width: 100%;
+        font-size: 1.5em;
+        text-align: justify;
+        margin-left: 25%;
+    }
+
+    .equipe p {
+        text-align: center;
+        padding: 3%;
+        font-size: 2em;
+    }
+
+    #parallax-world-of-ugg .parallax-two {
+        width: 100%;
+        height: 30vh;
+    }
+
+    #parallax-world-of-ugg .parallax-three {
+        width: 100%;
+        height: 30vh;
+    }
+
+    #parallax-world-of-ugg h3 {
+        font-size: 2.4em;
+        margin-left: 5%;
+    }
+
+    .img_pourquoi_candy_creche {
+        width: 100%;
+    }
+
+    .wrap_login_form_parents form {
+        transition: 0.5s;
+        width: 100%;
+    }
+
+    .wrap_login_form_structure form {
+        transition: 0.5s;
+        width: 100%;
+    }
+
+    .wrap_register form{
+        transition: 0.5s;
+        width: 100%;
+    }
 }
