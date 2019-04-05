@@ -10,5 +10,4 @@ easy_admin:
         - { property: 'parents_firstname', label: 'Prénom parent :', type: 'text'}
         - { property: 'parents_mail', label: 'Mail du parent :', type: 'email'}
         - { property: 'parents_password', label: 'Mot de passe :', type: 'text'}
-        - { property: 'parents_created_at', label: 'Créer le :', type: 'datetime'}
-        - { property: 'parents_token', label: 'Token :', type: 'integer'}
+        - { property: 'parents_token', label: 'Token :', type: 'text'}

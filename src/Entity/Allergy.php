@@ -51,6 +51,7 @@ class Allergy
     public function __construct()
     {
         $this->allergy_id_child = new ArrayCollection();
+        $this->allergy_created_at = new \DateTime('now',new \DateTimeZone('Europe/Paris'));
     }
 
     public function getId(): ?int
