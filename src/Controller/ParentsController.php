@@ -16,6 +16,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class ParentsController extends AbstractController
 {
     /**
+     * @Route("/", name="parents_index", methods={"GET"})
+     */
+    public function index(ParentsRepository $parentsRepository): Response
+    {
+        return $this->render('parents/index.html.twig', [
+            'parents' => $parentsRepository->findAll(),
+        ]);
+    }
+
+    /**
      * @Route("/{id}", name="parents_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Parents $parent): Response
@@ -42,7 +52,7 @@ class ParentsController extends AbstractController
      */
     public function delete(Request $request, Parents $parent): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$parent->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $parent->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($parent);
             $entityManager->flush();
