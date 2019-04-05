@@ -5,14 +5,10 @@ namespace App\Controller;
 use App\Entity\Child;
 use App\Entity\Disease;
 use App\Entity\Parents;
-use phpDocumentor\Reflection\Types\This;
 use App\Repository\DiseaseRepository;
-use Doctrine\ORM\Query\ResultSetMapping;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Form\ParentsType;
-use App\Repository\ParentsRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -39,7 +35,7 @@ class ProfilController extends AbstractController
     /**
      * @Route("/profil/edit/{id}", name="parents_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Parents $parent): Response
+    public function editParents(Request $request, Parents $parent): Response
     {
         $form = $this->createForm(ParentsType::class, $parent);
         $form->handleRequest($request);
@@ -68,7 +64,8 @@ class ProfilController extends AbstractController
             $entityManager->remove($parent);
             $entityManager->flush();
         }
+        SecurityController::logout();
 
-        return $this->redirectToRoute('profil');
+        return $this->redirectToRoute('accueil');
     }
 }
