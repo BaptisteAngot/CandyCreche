@@ -41,6 +41,7 @@ class Equipment
     public function __construct()
     {
         $this->equipment_id_child = new ArrayCollection();
+        $this->equipment_created_at = new \DateTime('now',new \DateTimeZone('Europe/Paris'));
     }
 
     public function getId(): ?int

@@ -80,6 +80,7 @@ class Child
         $this->allergies = new ArrayCollection();
         $this->equipment = new ArrayCollection();
         $this->pivotChildStructures = new ArrayCollection();
+        $this->Child_created_at = new \DateTime('now',new \DateTimeZone('Europe/Paris'));
     }
 
     public function getId(): ?int

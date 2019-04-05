@@ -12,6 +12,5 @@ easy_admin:
       form:
         fields:
         - { property: 'equipment_name', label: 'Nom équipement:', type: 'text'}
-        - { property: 'equipment_created_at', label: 'Créer le :', type: 'datetime'}
         - { property: 'equipment_updated_at', label: 'Dernière modification', type: 'datetime'}
         - { property: 'equipment_id_child', label: 'ID enfant'}
