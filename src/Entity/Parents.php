@@ -81,6 +81,7 @@ class Parents implements UserInterface
     public function __construct()
     {
         $this->parents_token = bin2hex(random_bytes(50));
+        $this->roles = ['ROLE_PARENTS'];
         $this->parents_created_at = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
         $this->children = new ArrayCollection();
         $this->opinions = new ArrayCollection();
@@ -105,11 +106,14 @@ class Parents implements UserInterface
 
     public function getRoles() : array
     {
-        return $this->roles;
-
-        $roles = ['ROLE_PARENT'];
-
+        $roles = $this->roles;
+        $roles[] = 'ROLE_PARENT';
         return array_unique($roles);
+//        return $this->roles;
+//
+//        $roles = ['ROLE_PARENT'];
+//
+//        return array_unique($roles);
     }
 
     public function eraseCredentials()
