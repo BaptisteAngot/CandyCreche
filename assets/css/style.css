@@ -1183,3 +1183,10 @@ body {
 form {
     margin-top: 200px;
 }
+
+/********************************* Calendar *****************************************/
+
+#calendar-holder{
+    max-width: 2%;
+    color:red;
+}
