@@ -30,11 +30,10 @@ easy_admin:
           - {property: 'structure_typefood', label: 'Type alimentation', type: 'text'}
           - {property: 'structure_mail', label: 'Adresse mail', type: 'text'}
           - {property: 'structure_password', label: 'Mot de passe', type: 'text'}
-          - {property: 'structure_token', label: 'Token', type: 'integer'}
+          - {property: 'structure_token', label: 'Token', type: 'text'}
           - {property: 'structure_statuspaiement', label: 'Paiement', type: 'text'}
           - {property: 'description', label: 'Description structure', type: 'text'}
           - {property: 'status', label: 'status', type: 'text'}
-          - {property: 'structure_created_at', label: 'Créer le :', type: 'datetime'}
           - {property: 'structure_phone', label: 'Téléphone structure', type: 'integer'}
 
 

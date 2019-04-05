@@ -18,5 +18,4 @@ easy_admin:
         - { property: 'child_firstname', label: 'Prénom de l enfant :', type: 'text'}
         - { property: 'child_years', label: 'Age de l enfant :', type: 'number'}
         - { property: 'child_others', label: 'Autre :', type: 'text'}
-        - { property: 'child_created_at', label: 'Créer le :', type: 'datetime'}
         - { property: 'Child_id_parent', label: 'Parents'}
