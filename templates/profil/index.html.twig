@@ -1,20 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfilController!{% endblock %}
+{% block title %}{{ controller_name }}{% endblock %}
 
+{% block header %}{% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {{ dump(structure) }}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Admin/Projets/CandyCreche/src/Controller/ProfilController.php'|file_link(0) }}">src/Controller/ProfilController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Admin/Projets/CandyCreche/templates/profil/index.html.twig'|file_link(0) }}">templates/profil/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <div class="fond">
+        <section id="image_nom">
+            <div class="img_profil"></div>
+        </section>
+
+
+        {#<section id="info_Parents">#}
+            {#<div class="div_info">#}
+                {#<h2>Vos informations</h2>#}
+                {#<hr/>#}
+                {#<p>Adresse mail: {{ parents.parentsMail }}</p>#}
+                {#<p>Nom: {{ parents.parentsName }}</p>#}
+                {#<p>Prénom: {{ parents.parentsFirstname }}</p>#}
+            {#</div>#}
+
+            {#{% for enfant in enfants %}#}
+                {#<div class="div_info">#}
+                    {#<h2>Informations de l'enfant</h2>#}
+                    {#<hr/>#}
+                    {#<p>Nom: {{ enfant.childName }}</p>#}
+                    {#<p>Prénom: {{ enfant.childFirstname }}</p>#}
+                    {#<p>Âge: {{ enfant.childYears}}</p>#}
+
+                    {#{% for maladie in enfant.diseases %}#}
+                        {#<p>Maladie: {{ maladie.disease_name }}</p>#}
+                    {#{% endfor %}#}
+                    {#{% for allergie in enfant.allergies %}#}
+                        {#<p>Allergie: {{ allergie.allergy_name }}</p>#}
+                    {#{% endfor %}#}
+                    {#{% for equipment in enfant.equipment %}#}
+                        {#<p>Equipement: {{ equipment.equipment_name }}</p>#}
+                    {#{% endfor %}#}
+                    {#<p>Info(s) complémentaire(s): {{ enfant.childOthers }}</p>#}
+                {#</div>#}
+            {#{% endfor %}#}
+
+            <div class="clear"></div>
+        </section>
+    </div>
+
 {% endblock %}
