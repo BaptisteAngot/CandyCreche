@@ -6,32 +6,20 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Roles</th>
-                <th>Id</th>
                 <th>Parents_name</th>
                 <th>Parents_firstname</th>
                 <th>Parents_mail</th>
-                <th>Parents_password</th>
                 <th>Parents_created_at</th>
-                <th>Parents_updated_at</th>
-                <th>Parents_token</th>
-                <th>Parents_photo</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for parent in parents %}
             <tr>
-                <td>{{ parent.roles ? parent.roles|json_encode : '' }}</td>
-                <td>{{ parent.id }}</td>
                 <td>{{ parent.parentsName }}</td>
                 <td>{{ parent.parentsFirstname }}</td>
                 <td>{{ parent.parentsMail }}</td>
-                <td>{{ parent.parentsPassword }}</td>
                 <td>{{ parent.parentsCreatedAt ? parent.parentsCreatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ parent.parentsUpdatedAt ? parent.parentsUpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ parent.parentsToken }}</td>
-                <td>{{ parent.parentsPhoto }}</td>
                 <td>
                     <a href="{{ path('parents_show', {'id': parent.id}) }}">show</a>
                     <a href="{{ path('parents_edit', {'id': parent.id}) }}">edit</a>
@@ -44,6 +32,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('parents_new') }}">Create new</a>
 {% endblock %}

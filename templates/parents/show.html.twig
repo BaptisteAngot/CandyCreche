@@ -6,14 +6,6 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Roles</th>
-                <td>{{ parent.roles ? parent.roles|json_encode : '' }}</td>
-            </tr>
-            <tr>
-                <th>Id</th>
-                <td>{{ parent.id }}</td>
-            </tr>
-            <tr>
                 <th>Parents_name</th>
                 <td>{{ parent.parentsName }}</td>
             </tr>
@@ -26,24 +18,8 @@
                 <td>{{ parent.parentsMail }}</td>
             </tr>
             <tr>
-                <th>Parents_password</th>
-                <td>{{ parent.parentsPassword }}</td>
-            </tr>
-            <tr>
                 <th>Parents_created_at</th>
                 <td>{{ parent.parentsCreatedAt ? parent.parentsCreatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Parents_updated_at</th>
-                <td>{{ parent.parentsUpdatedAt ? parent.parentsUpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Parents_token</th>
-                <td>{{ parent.parentsToken }}</td>
-            </tr>
-            <tr>
-                <th>Parents_photo</th>
-                <td>{{ parent.parentsPhoto }}</td>
             </tr>
         </tbody>
     </table>
