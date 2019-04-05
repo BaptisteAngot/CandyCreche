@@ -1,11 +1,6 @@
 <?php
 
 namespace App\Controller;
-
-use App\Entity\Parents;
-use phpDocumentor\Reflection\Types\This;
-use Doctrine\ORM\Query\ResultSetMapping;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
@@ -14,27 +9,27 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 class ProfilController extends AbstractController
 {
     /**
-     * @Route("/profil/{id}", name="profil")
+     * @Route("/profil", name="profil")
      */
-    public function index($id, AuthorizationCheckerInterface $authChecker)
+    public function index(AuthorizationCheckerInterface $authChecker)
     {
-
         if (true === $authChecker->isGranted('ROLE_PARENT'))
         {
-            $parent = $this->getDoctrine()
-                ->getRepository(Parents::class)
-                ->find($id);
-
-            $enfants = $parent->getChildren();
+            $parent = $this->getUser();
 
             return $this->render('profilParents/profilParents.html.twig', [
                 'controller_name' => 'Profil',
                 'parents' => $parent,
-                'enfants' => $enfants,
+                'enfants' => $parent->getChildren(),
             ]);
         }
         elseif(true === $authChecker->isGranted('ROLE_STRUCTURE'))
         {
+            $structure = $this->getUser();
+
+            return $this->render('profil/index.html.twig',[
+                'structure' => $structure,
+            ]);
         }
         else
         {
