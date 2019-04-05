@@ -26,29 +26,6 @@ class ParentsController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="parents_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $parent = new Parents();
-        $form = $this->createForm(ParentsType::class, $parent);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($parent);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('parents_index');
-        }
-
-        return $this->render('parents/new.html.twig', [
-            'parent' => $parent,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/{id}", name="parents_show", methods={"GET"})
      */
     public function show(Parents $parent): Response
