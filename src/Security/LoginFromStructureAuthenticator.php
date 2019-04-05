@@ -93,4 +93,12 @@ class LoginFromStructureAuthenticator extends AbstractFormLoginAuthenticator
     {
         return $this->urlGenerator->generate('app_login_structure');
     }
+
+    /**
+     * Tells Symfony to use this provider for this User class.
+     */
+    public function supportsClass($class)
+    {
+        return Structure::class === $class;
+    }
 }

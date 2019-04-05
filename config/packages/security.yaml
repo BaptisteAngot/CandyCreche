@@ -8,12 +8,17 @@ security:
             algorithm: bcrypt
             cost: 13
     providers:
-        users:
-            entity:
-                class: 'App\Entity\Parents'
-                property: 'parents_mail'
-#                class: 'App\Entity\Structure'
-#                property: 'structure_mail'
+        chain_provider:
+            chain:
+                providers: [parents, structure]
+        parents:
+            entity: { class: App\Entity\Parents, property: parents_mail}
+        structure:
+            entity: { class: App\Entity\Structure, property: structure_mail}
+#        users:
+#            entity:
+#                class: 'App\Entity\Parents'
+#                property: 'parents_mail'
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
