@@ -12,6 +12,8 @@ security:
             entity:
                 class: 'App\Entity\Parents'
                 property: 'parents_mail'
+#                class: 'App\Entity\Structure'
+#                property: 'structure_mail'
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
