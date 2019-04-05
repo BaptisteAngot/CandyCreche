@@ -1,0 +1,1185 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+    font-size: 10px;
+    scroll-behavior: smooth;
+    background-color: #FFFFFF;
+}
+
+.wrap {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.block {
+    width: 100%;
+    height: 65px;
+}
+
+/***********************Navbar********Logo/Menu*******************************/
+
+.navbar {
+    background-color: #222222;
+    width: 100%;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    /*position: fixed;*/
+    z-index: 10;
+}
+
+.navbar div.logo {
+    float: left;
+    padding-left: 3rem;
+}
+
+.navbar div.logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 2.5rem;
+    transition: 0.5s;
+}
+
+.navbar div.logo a:hover {
+    color: rgb(255, 220, 150);
+}
+
+.navbar div.main_list {
+    float: right;
+}
+
+.navbar div.main_list ul {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar div.main_list ul li {
+    width: auto;
+    height: 65px;
+    padding: 0;
+    padding-right: 3rem;
+}
+
+.navbar div.main_list ul li a {
+    text-decoration: none;
+    color: #fff;
+    line-height: 65px;
+    font-size: 2.4rem;
+}
+
+.navbar div.main_list ul li a:hover {
+    color: rgb(255, 220, 150);
+    transition: 0.5s;
+}
+
+.navTrigger {
+    display: none;
+}
+
+.navTrigger {
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    margin: auto;
+    position: absolute;
+    right: 30px;
+    top: 0;
+    bottom: 0;
+}
+
+.navTrigger i {
+    background-color: #fff;
+    border-radius: 2px;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+}
+
+.navTrigger i:nth-child(1) {
+    -webkit-animation: outT 0.8s backwards;
+    animation: outT 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(2) {
+    margin: 5px 0;
+    -webkit-animation: outM 0.8s backwards;
+    animation: outM 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger i:nth-child(3) {
+    -webkit-animation: outBtm 0.8s backwards;
+    animation: outBtm 0.8s backwards;
+    -webkit-animation-direction: reverse;
+    animation-direction: reverse;
+}
+
+.navTrigger.active i:nth-child(1) {
+    -webkit-animation: inT 0.8s forwards;
+    animation: inT 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(2) {
+    -webkit-animation: inM 0.8s forwards;
+    animation: inM 0.8s forwards;
+}
+
+.navTrigger.active i:nth-child(3) {
+    -webkit-animation: inBtm 0.8s forwards;
+    animation: inBtm 0.8s forwards;
+}
+
+@-webkit-keyframes inM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes inM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes outM {
+    50% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes outM {
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes inT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@keyframes inT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outT {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@keyframes outT {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes inBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@keyframes inBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@-webkit-keyframes outBtm {
+    0% {
+        -webkit-transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        -webkit-transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+@keyframes outBtm {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-9px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-9px) rotate(135deg);
+    }
+}
+
+/**************************************************Page d'accueil******************************************************/
+
+#parallax-world-of-ugg h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 70px;
+    letter-spacing: 10px;
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    text-transform: uppercase;
+    z-index: 10;
+    opacity: .9;
+}
+
+#parallax-world-of-ugg h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 60px;
+    letter-spacing: 10px;
+    text-align: center;
+    color: white;
+    font-weight: 400;
+    text-transform: uppercase;
+    z-index: 10;
+    opacity: .9;
+}
+
+#parallax-world-of-ugg .parallax-one {
+    padding-top: 200px;
+    padding-bottom: 200px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-image: linear-gradient(to right bottom, rgba(255, 220, 150, 0.8), rgba(255, 220, 200, 0.2)), url("../img/4.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+#parallax-world-of-ugg .parallax-two {
+    padding-top: 330px;
+    padding-bottom: 330px;
+    overflow: hidden;
+    position: relative;
+    width: 50%;
+    -webkit-clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 0% 50%, 0% 0%);
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 0% 50%, 0% 0%);
+    background-image: linear-gradient(to right bottom, rgba(255, 220, 150, 0.8), rgba(255, 220, 150, 0.2)), url("../img/1.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: left;
+}
+
+#parallax-world-of-ugg .parallax-three {
+    padding-top: 300px;
+    padding-bottom: 300px;
+    overflow: hidden;
+    position: relative;
+    width: 50%;
+    -webkit-clip-path: polygon(100% 100%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+    clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+    background-image: linear-gradient(to right bottom, rgba(255, 220, 150, 0.8), rgba(255, 220, 150, 0.2)), url("../img/1.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    float: right;
+}
+
+/* Media Queries */
+/**************************/
+
+@media screen and (max-width: 767px) {
+    #parallax-world-of-ugg h2 {
+        font-size: 30px;
+    }
+
+    #parallax-world-of-ugg .parallax-one, #parallax-world-of-ugg .parallax-two, #parallax-world-of-ugg .parallax-three {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    #parallax-world-of-ugg .block {
+        padding: 30px 15px;
+        width: 290px;
+    }
+}
+
+/**************************************************Qui sommes-nous?****************************************************/
+.qui_somme_nous {
+
+    width: 100%;
+    height: 100%;
+    background-position: center top;
+    background-size: cover;
+    padding-bottom: 15%;
+}
+
+.qui_somme_nous h2 {
+    padding-top: 5%;
+    text-align: center;
+    font-size: 5em;
+    margin-bottom: 10%;
+}
+
+.qui_somme_nous .txt_qui_somme_nous p {
+    width: 100%;
+    height: 100%;
+    font-size: 2em;
+    text-align: justify;
+}
+
+/**************************************************Pourquoi Candy Crèche ?*********************************************/
+.pourquoi_candy_creche {
+    margin-top: 10%;
+    width: 100%;
+    height: 100%;
+    background-position: center top;
+    background-size: cover;
+    padding-bottom: 15%;
+}
+
+.pourquoi_candy_creche h2 {
+    padding-top: 5%;
+    text-align: center;
+    font-size: 5em;
+    margin-bottom: 10%;
+}
+
+.pourquoi_candy_creche .txt_pourquoi_candy_creche p {
+    width: 100%;
+    height: 100%;
+    font-size: 2em;
+    text-align: justify;
+}
+
+.img_pourquoi_candy_creche {
+    margin-top: 10vh;
+    background-image: linear-gradient(to right bottom, rgba(255, 220, 150, 0.8), rgba(255, 220, 150, 0.2)), url("../img/8.jpg");
+    -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 50% 100%, 50% 75%, 0% 75%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 50% 100%, 50% 75%, 0% 75%);
+    width: 50%;
+    height: 40vh;
+    background-position: center;
+    float: right;
+    border-radius: 10px;
+}
+
+/**************************************************espace_parents******************************************************/
+#parallax-two-parents {
+    width: 100%;
+    height: 20vh;
+}
+
+.div_espace_parents_txt {
+    float: right;
+    height: 100%;
+    width: 50%;
+    font-size: 2em;
+    text-align: justify;
+    padding: 3%;
+    margin: 10% 0 0 0;
+
+}
+
+.div_espace_parents_txt .div_espace_parents_txt_titre {
+    text-align: center;
+    font-size: 2em;
+}
+
+.div_espace_parents_txt .button {
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    margin-top: 5%
+}
+
+.div_espace_parents_txt .button a {
+    text-decoration: none;
+    color: #000;
+    transition: 0.5s;
+    padding: 5%;
+}
+
+.div_espace_parents_txt .button a:hover {
+    color: orange;
+}
+
+/**************************************************espace_entreprise******************************************************/
+#parallax-two-entreprises {
+    width: 100%;
+    height: 15vh;
+}
+
+.div_espace_entreprises_txt {
+    float: right;
+    height: 100%;
+    width: 50%;
+    font-size: 2em;
+    text-align: justify;
+    padding: 3%;
+    margin: 10% 0 0 0;
+
+}
+
+.div_espace_entreprises_txt .titreTxt2 {
+    text-align: center;
+    font-size: 2em;
+}
+
+.div_espace_entreprises_txt .button {
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    margin-top: 5%
+}
+
+.div_espace_entreprises_txt .button a {
+    text-decoration: none;
+    color: #000;
+    transition: 0.5s;
+    padding: 5%;
+}
+
+.div_espace_entreprises_txt .button a:hover {
+    color: orange;
+}
+
+/****************************************************Footer************************************************************/
+#footer {
+    background-color: #222222;
+    color: #FFF;
+    vertical-align: baseline;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border-top: solid;
+    border-top-color: rgb(255, 220, 150);
+}
+
+/*****************************************************Footer Social Icons**********************************************/
+
+.columns {
+    width: 33.3333%;
+    float: left;
+    font-size: 1.3em;
+    text-align: justify;
+    padding: 3%;
+}
+
+.social-icons li {
+    float: left;
+    margin-right: 5px;
+    list-style-type: none;
+}
+
+.social-icons {
+    margin: 5px;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+.social-icons li a {
+    width: 46px;
+    height: 46px;
+    display: block;
+    background: url('../img/social-icons.png');
+}
+
+.social-icons li a.facebook:hover {
+    background: url('../img/social-icons.png') no-repeat 0 -47px;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.twitter {
+    background: url('../img/social-icons.png') no-repeat -52px 0;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.twitter:hover {
+    background: url('../img/social-icons.png') no-repeat -52px -47px;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.dribble {
+    background: url('../img/social-icons.png') no-repeat -104px 0;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.dribble:hover {
+    background: url('../img/social-icons.png') no-repeat -104px -47px;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.rss {
+    background: url('../img/social-icons.png') no-repeat -156px 0;
+    width: 46px;
+    height: 46px;
+}
+
+.social-icons li a.rss:hover {
+    background: url('../img/social-icons.png') no-repeat -156px -47px;
+    width: 46px;
+    height: 46px;
+}
+
+.copyright {
+    font-size: 1.3em;
+    color: black;
+    font-weight: bold;
+    width: 100%;
+    padding: 1%;
+    text-align: center;
+    background-color: rgb(255, 220, 150);
+}
+
+/******************************************************Notre équipe****************************************************/
+
+.equipe {
+    margin-top: 20%;
+}
+
+.equipe p {
+    text-align: center;
+    padding: 3%;
+    font-size: 4em;
+}
+
+.equipe .imgEquipe {
+    width: 20%;
+    float: left;
+    padding: 2%;
+}
+
+.equipe .imgEquipe img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 8px 8px 12px #aaa;
+
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+
+.equipe .imgEquipe img:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}
+
+.equipe .nom {
+    width: 100%;
+    font-size: 0.7em;
+    padding-bottom: 30%;
+}
+
+/************************************profilParents*********************************************************************/
+
+#image_nom {
+    background-image: url('../img/6.jpg');
+    background-position: bottom;
+    width: 100%;
+    padding: 6%;
+}
+
+.img_profil {
+    background-image: url('../img/profil_parents.jpeg');
+    background-position: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+    height: 200px;
+    width: 200px;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px black;
+    transition: 0.3s;
+    margin-top: 50px;
+}
+
+.img_profil:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+#info_Parents {
+    width: 100%;
+}
+
+.div_info {
+    float: left;
+    box-sizing: border-box;
+    margin: 0 0.6%;
+    height: 100%;
+    min-height: 400px;
+    width: 32%;
+    min-width: 140px;
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 2%;
+    background-color: white;
+    font-size: 1.5em;
+}
+
+#info_Parents h2 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    height: 50px;
+    text-align: center;
+    font-size: 2em;
+}
+
+#info_Parents p {
+    margin-left: 5px;
+    margin-top: 25px;
+}
+
+#info_Entreprise {
+    width: 100%;
+}
+
+#info_Entreprise .div_info {
+    height: 400px;
+    float: right;
+    width: 48%;
+    min-width: 140px;
+    margin-top: 150px;
+    margin-right: 25px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 8px black;
+    background-color: white;
+}
+
+.info_activite1 {
+    width: 48%;
+    float: right;
+}
+
+.info_activite1 p {
+    padding-top: 20px;
+}
+
+.info_activite2 {
+    width: 48%;
+    float: right;
+}
+
+.info_activite2 p {
+    padding-top: 20px;
+}
+
+#info_Entreprise h2 {
+    margin-bottom: 30px;
+    height: 50px;
+    text-align: center;
+}
+
+#info_Entreprise p {
+    margin-left: 5px;
+    margin-top: 25px;
+}
+
+.div_info hr {
+    width: 30%;
+    transition: 0.25s;
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 0 auto;
+}
+
+.div_info:hover > hr {
+    width: 80%;
+    transition: 0.25s;
+}
+
+.update_info:active {
+    background-color: orange;
+    box-shadow: 0 5px #95a5a6;
+    transform: translateY(4px);
+    transition: 0.05s;
+}
+
+.fond {
+    background-color: #EEEEEE;
+}
+
+/*******************************************************Responsive*****************************************************/
+
+@media screen and (max-width: 950px) {
+    .navTrigger {
+        display: block;
+    }
+
+    .navbar div.logo {
+        margin-left: 15px;
+    }
+
+    .navbar div.main_list {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .navbar div.show_list {
+        height: auto;
+        display: none;
+    }
+
+    .navbar div.main_list ul {
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        min-width: 400px;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #111;
+        background-position: center top;
+    }
+
+    .navbar div.main_list ul li {
+        width: 100%;
+        text-align: right;
+    }
+
+    .navbar div.main_list ul li a {
+        text-align: center;
+        width: 100%;
+        font-size: 3rem;
+        padding: 20px;
+    }
+
+    .navbar div.media_button {
+        display: block;
+    }
+
+    .div_info {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .img_profil {
+        height: 150px;
+        width: 150px;
+        margin-top: 65px;
+    }
+
+}
+
+@media screen and (max-width: 680px) {
+
+    .qui_somme_nous h2 {
+        font-size: 3em;
+    }
+
+    .qui_somme_nous .txt_qui_somme_nous p {
+        font-size: 1.5em;
+        text-align: justify;
+    }
+
+    .pourquoi_candy_creche h2 {
+        font-size: 3em;
+    }
+
+    .pourquoi_candy_creche .txt_pourquoi_candy_creche p {
+        font-size: 1.5em;
+        text-align: justify;
+    }
+
+    .div_espace_parents_txt {
+        width: 100%;
+        font-size: 1.5em;
+        text-align: justify;
+        margin-left: 25%;
+    }
+
+    .div_espace_entreprises_txt {
+        width: 100%;
+        font-size: 1.5em;
+        text-align: justify;
+        margin-left: 25%;
+    }
+
+    .equipe p {
+        text-align: center;
+        padding: 3%;
+        font-size: 2em;
+    }
+
+    #parallax-world-of-ugg .parallax-two {
+        width: 100%;
+        height: 30vh;
+    }
+
+    #parallax-world-of-ugg .parallax-three {
+        width: 100%;
+        height: 30vh;
+    }
+
+    #parallax-world-of-ugg h3 {
+        font-size: 2.4em;
+        margin-left: 5%;
+    }
+
+    .img_pourquoi_candy_creche {
+        width: 100%;
+    }
+}
+
+/************************************************Liste entreprises*****************************************************/
+
+.fond_liste_structures {
+    padding: 15px;
+    background-image: url("../img/4.jpg");
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.liste_structures {
+    margin: 20px auto;
+    width: 45%;
+    min-width: 400px;
+}
+
+.informations_structures_visible {
+
+    width: 100%;
+    padding: 2.5%;
+    background-color: white;
+    transition: 0.5s;
+    box-shadow: 8px 8px 10px #222;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.informations_structures_visible:hover {
+    margin: calc(20px * 1.1) auto;
+    box-shadow: none;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.img_structure {
+    text-align: center;
+}
+
+.img_structure img {
+    transition: 0.5s;
+    width: 30%;
+    min-width: 150px;
+    margin: 10px auto;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.img_structure img:hover {
+     transition: 0.5s;
+     box-shadow: none;
+     border-radius: 10%;
+ }
+
+.titre_crèche {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2em;
+    width:50%;
+    margin: 0 auto;
+    padding: 15px;
+    border: 2px solid #222;
+}
+
+.profil_description {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.profil_description p {
+    padding: 10px;
+    text-align: justify;
+    font-size: 1.3em;
+    padding:15px;
+}
+
+.voir_la_page a {
+    white-space: nowrap;
+    box-sizing: border-box;
+    font-weight: bold;
+    padding: 15px;
+    width: 20%;
+    margin: 10px auto;
+    min-width: 150px;
+    color: rgb(255, 220, 150);
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    font-size: 2em;
+    border: 2px solid rgb(255, 220, 150);
+    transition: 0.5s;
+}
+
+.voir_la_page a:hover {
+    background-color: rgb(255, 220, 150);
+    color: white;
+}
+
+.txtPlaces {
+    font-size: 1.5em;
+    text-align: center;
+    width:100%;
+    margin: 0 auto;
+}
+
+.places {
+    text-align: center;
+    margin: 10px auto;
+    padding: 15px;
+    min-width: 150px;
+    width: 20%;
+    background-color: #222222;
+    color: orange;
+    font-size: 2.5vh;
+    font-weight: bold;
+}
+
+.informations_structures_details h1 {
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+#informations_structures {
+    width: 100%;
+    height: 100%;
+    background-color: #22222277;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+}
+
+.informations_structures_details {
+    justify-content: center;
+    width: 50%;
+    background-color: white;
+    margin: auto;
+    padding: 2%;
+    float: inherit;
+}
+
+.fermer_onglet {
+    float: right;
+}
+
+.fermer_onglet:hover {
+    shadow: 5px;
+    cursor: pointer;
+}
+
+/*****************************************Structure Détails********************************************/
+
+.wrapper{
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.fond_creche{
+    background-color: rgb(255, 220, 150);
+}
+
+#informations_details{
+    background-color: white;
+    -webkit-box-shadow: -1px 5px 83px -4px rgba(0,0,0,0.93);
+    -moz-box-shadow: -1px 5px 83px -4px rgba(0,0,0,0.93);
+    box-shadow: -1px 5px 83px -4px rgba(0,0,0,0.93);
+}
+
+.banniere_details{
+    display: block;
+    margin: 1%;
+    float: inherit;
+    text-align: center;
+}
+
+.banniere_details img{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    width: 25%;
+    border: 5px solid rgb(255, 220, 150);
+    opacity: .99;
+}
+
+.banniere_details .haut{
+    text-align:center;
+    color:#222222;
+    width:100%;
+    position: absolute;
+    left:0;
+    top:21%;
+    font-size: 1.5vw;
+    font-weight: bold;
+}
+
+.banniere_details .bas{
+    text-align:center;
+    color:#222222;
+    width:100%;
+    position:absolute;
+    left:0;
+    top:25%;
+    font-size: 1vw;
+}
+
+.banniere_details img:hover{
+    opacity: 0.5;
+}
+
+.description_details{
+    margin: 2%;
+    text-align: center;
+    width: 60%;
+    font-size:1.5em;
+    float: left;
+}
+
+.description_details h1{
+    margin: 2%;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.sup_details{
+    margin: 2%;
+    width: 30%;
+    font-size:1.5em;
+    float: left;
+}
+
+.sup_details h1{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.avis_details{
+    width: 65%;
+    margin:2%;
+    font-size: 4em;
+    float: left;
+    text-align: center;
+}
+
+.statut_details{
+    font-size: 1.8em;
+    text-align: center;
+    float: left;
+    margin:2%;
+    width: 25%;
+}
+
+.commentaires_details{
+    width: 100%;
+    margin:2%;
+    font-size: 4em;
+    float: left;
+    text-align: center;
+}
+
+.hr{
+    width: 50%;
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 2% 2% 2% 25%;
+    float: left;
+}
+
+@media screen and (max-width: 950px) {
+    .banniere_details .haut {
+        margin-top: -15%;
+    }
+
+    .banniere_details .bas{
+        margin-top: -15%;
+    }
+}
+
+form {
+    margin-top: 200px;
+}

@@ -1,0 +1,16 @@
+easy_admin:
+  entities:
+    AuthorizeUser:
+      class: App\Entity\AuthorizeUser
+      list:
+        fields:
+          - {property: 'id', label: 'ID utilisateur', type: 'integer'}
+          - {property: 'authorize_login', label: 'Login', type: 'string'}
+          - {property: 'relation', label: 'Nom structure', type: 'string'}
+      form:
+        fields:
+          - {property: 'authorize_login', label: 'Login utilisateur', type: 'text'}
+          - {property: 'authorize_password', label: 'Mot de passe', type: 'text'}
+          - {property: 'authorize_created_at', label: 'Date de création', type: 'datetime'}
+          - {property: 'authorize_updated_at', label: 'Date de dernière modification', type: 'datetime'}
+          - {property: 'relation', label: 'ID Structure'}

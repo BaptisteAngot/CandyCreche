@@ -1,0 +1,17 @@
+easy_admin:
+  entities:
+    Opinion:
+      class: App\Entity\Opinion
+      list:
+        fields:
+          - {property: 'id', label: 'ID Opinion', type: 'integer'}
+          - {property: 'opinion_id_parents', label: 'ID Parent', type: 'string'}
+          - {property: 'opinion_id_structure', label: 'ID Structure', type: 'string'}
+          - {property: 'opinion_rate', label: 'Note', type: 'string'}
+          - {property: 'opinion_comment', label: 'Commentaire', type: 'string'}
+      form:
+        fields:
+          - { property: 'opinion_id_parents', label: 'ID Parent:'}
+          - { property: 'opinion_id_structure', label: 'ID Structure :'}
+          - {property: 'opinion_rate', label: 'Note :', type: 'integer'}
+          - {property: 'opinion_comment', label: 'Commentaire', type: 'text'}

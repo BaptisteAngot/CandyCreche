@@ -21,7 +21,7 @@ class Allergy
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $allergy_name;
+    public $allergy_name;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -51,6 +51,7 @@ class Allergy
     public function __construct()
     {
         $this->allergy_id_child = new ArrayCollection();
+        $this->allergy_created_at = new \DateTime('now',new \DateTimeZone('Europe/Paris'));
     }
 
     public function getId(): ?int
@@ -143,4 +144,10 @@ class Allergy
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return strval($this->id);
+    }
+
 }

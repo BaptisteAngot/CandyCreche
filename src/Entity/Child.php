@@ -80,6 +80,7 @@ class Child
         $this->allergies = new ArrayCollection();
         $this->equipment = new ArrayCollection();
         $this->pivotChildStructures = new ArrayCollection();
+        $this->Child_created_at = new \DateTime('now',new \DateTimeZone('Europe/Paris'));
     }
 
     public function getId(): ?int
@@ -164,12 +165,25 @@ class Child
         return $this->Child_id_parent;
     }
 
+    public function getChildIdParentID(): ?Parents
+    {
+        return $this->Child_id_parent;
+    }
+
     public function setChildIdParent(?Parents $Child_id_parent): self
     {
         $this->Child_id_parent = $Child_id_parent;
 
         return $this;
     }
+
+    public function setChildIdParentId(?Parents $Child_id_parent): self
+    {
+        $this->Child_id_parent = $Child_id_parent;
+
+        return $this;
+    }
+
 
     /**
      * @return Collection|Disease[]
@@ -284,5 +298,10 @@ class Child
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return strval($this->id);
     }
 }

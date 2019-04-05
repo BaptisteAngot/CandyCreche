@@ -1,0 +1,13 @@
+easy_admin:
+  entities:
+    Parents:
+      class: App\Entity\Parents
+      list:
+        fields: ['id', 'parents_name', 'parents_firstname', 'parents_mail','parents_created_at', 'parents_updated_at']
+      form:
+        fields:
+        - { property: 'parents_name', label: 'Nom parent :', type: 'text'}
+        - { property: 'parents_firstname', label: 'Prénom parent :', type: 'text'}
+        - { property: 'parents_mail', label: 'Mail du parent :', type: 'email'}
+        - { property: 'parents_password', label: 'Mot de passe :', type: 'text'}
+        - { property: 'parents_token', label: 'Token :', type: 'text'}

@@ -1,0 +1,21 @@
+easy_admin:
+  entities:
+    Child:
+      class: App\Entity\Child
+      list:
+        fields:
+          - {property: 'id', label: 'ID Enfant', type: 'integer'}
+          - {property: 'child_name', label: 'Nom', type: 'string'}
+          - {property: 'child_firstname', label: 'Prénom', type: 'string'}
+          - {property: 'child_years', label: 'Age', type: 'integer'}
+          - {property: 'child_others', label: 'Autre', type: 'string'}
+          - { property: 'child_id_parent_id', label: 'ID Parents :', type: 'string'}
+          - { property: 'child_created_at', label: 'Créer le :', type: 'datetime'}
+          - { property: 'child_updated_at', label: 'Modifier le :', type: 'datetime'}
+      form:
+        fields:
+        - { property: 'child_name', label: 'Nom de l enfant :', type: 'text'}
+        - { property: 'child_firstname', label: 'Prénom de l enfant :', type: 'text'}
+        - { property: 'child_years', label: 'Age de l enfant :', type: 'number'}
+        - { property: 'child_others', label: 'Autre :', type: 'text'}
+        - { property: 'Child_id_parent', label: 'Parents'}

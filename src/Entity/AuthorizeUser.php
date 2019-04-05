@@ -36,6 +36,11 @@ class AuthorizeUser
      */
     private $Authorize_updated_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Structure", inversedBy="authorizeUsers")
+     */
+    private $relation;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +90,23 @@ class AuthorizeUser
     public function setAuthorizeUpdatedAt(?\DateTimeInterface $Authorize_updated_at): self
     {
         $this->Authorize_updated_at = $Authorize_updated_at;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return strval($this->id);
+    }
+
+    public function getRelation(): ?Structure
+    {
+        return $this->relation;
+    }
+
+    public function setRelation(?Structure $relation): self
+    {
+        $this->relation = $relation;
 
         return $this;
     }

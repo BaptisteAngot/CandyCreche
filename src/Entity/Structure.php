@@ -5,12 +5,21 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StructureRepository")
+ * @UniqueEntity(fields={"structure_mail"}, errorPath="structure_mail", message="Cet adresse mail existe déjà")
  */
-class Structure
+class Structure  implements UserInterface
 {
+
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -104,22 +113,73 @@ class Structure
     private $pivotChildStructures;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $structure_photo;
+
+    /**
+     * @ORM\Column(type="string", length=500)
+     */
+    private $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AuthorizeUser", mappedBy="relation")
+     */
+    private $authorizeUsers;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $status;
 
 
     public function __construct()
     {
+        $this->structure_token = bin2hex(random_bytes(50));
+        $this->structure_created_at = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
         $this->opinions = new ArrayCollection();
         $this->pivotChildStructures = new ArrayCollection();
+        $this->authorizeUsers = new ArrayCollection();
+        $this->structure_statuspaiement = "Impaye";
+        $this->status = "Need verif";
+
     }
 
+    public function getUsername()
+    {
+        return $this->structure_mail;
+    }
+
+    public function getPassword()
+    {
+        return $this->structure_password;
+    }
+
+    public function getSalt()
+    {
+        // The bcrypt and argon2i algorithms don't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    public function getRoles() : array
+    {
+        return $this->roles;
+
+        $roles = ['ROLE_STRUCTURE'];
+
+        return array_unique($roles);
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
+
 
     public function getStructureName(): ?string
     {
@@ -372,4 +432,63 @@ class Structure
         return $this;
     }
 
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AuthorizeUser[]
+     */
+    public function getAuthorizeUsers(): Collection
+    {
+        return $this->authorizeUsers;
+    }
+
+    public function addAuthorizeUser(AuthorizeUser $authorizeUser): self
+    {
+        if (!$this->authorizeUsers->contains($authorizeUser)) {
+            $this->authorizeUsers[] = $authorizeUser;
+            $authorizeUser->setRelation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAuthorizeUser(AuthorizeUser $authorizeUser): self
+    {
+        if ($this->authorizeUsers->contains($authorizeUser)) {
+            $this->authorizeUsers->removeElement($authorizeUser);
+            // set the owning side to null (unless already changed)
+            if ($authorizeUser->getRelation() === $this) {
+                $authorizeUser->setRelation(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return strval($this->id);
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
 }

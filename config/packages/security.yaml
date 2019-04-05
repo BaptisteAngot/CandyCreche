@@ -1,13 +1,31 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    encoders:
+        App\Entity\Structure:
+            algorithm: bcrypt
+            cost: 13
+        App\Entity\Parents:
+            algorithm: bcrypt
+            cost: 13
     providers:
-        in_memory: { memory: ~ }
+        users:
+            entity:
+                class: 'App\Entity\Parents'
+                property: 'parents_mail'
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
+                    - App\Security\LoginFromStructureAuthenticator
+                entry_point: App\Security\LoginFromStructureAuthenticator
+            logout:
+                path: /logout
+                target: /
 
             # activate different ways to authenticate
 

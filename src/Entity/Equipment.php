@@ -21,7 +21,7 @@ class Equipment
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $equipment_name;
+    public $equipment_name;
 
     /**
      * @ORM\Column(type="datetime")
@@ -41,6 +41,7 @@ class Equipment
     public function __construct()
     {
         $this->equipment_id_child = new ArrayCollection();
+        $this->equipment_created_at = new \DateTime('now',new \DateTimeZone('Europe/Paris'));
     }
 
     public function getId(): ?int
@@ -108,5 +109,10 @@ class Equipment
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return strval($this->id);
     }
 }

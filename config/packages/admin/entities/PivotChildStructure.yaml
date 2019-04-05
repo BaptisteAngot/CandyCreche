@@ -1,0 +1,13 @@
+easy_admin:
+  entities:
+    PivotChildStructure:
+      class: App\Entity\PivotChildStructure
+      list:
+        fields:
+        - {property: 'id', label: 'ID Pivot', type: 'integer'}
+        - {property: 'Pivot_id_child', label: 'ID Enfant', type: 'string'}
+        - {property: 'Pivot_id_structure', label: 'ID Structure', type: 'array'}
+      form:
+        fields:
+          - {property: 'Pivot_id_child', label: 'ID Enfant'}
+          - {property: 'Pivot_id_structure', label: 'ID Structure'}

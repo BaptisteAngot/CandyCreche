@@ -1,0 +1,21 @@
+easy_admin:
+  design:
+    menu:
+      - label: 'Parents'
+        icon: 'users'
+        children:
+          - {entity: 'Parents'}
+          - {entity: 'Child'}
+          - {entity: 'Disease'}
+          - {entity: 'Equipment'}
+          - {entity: 'Allergy'}
+      - label: 'Entreprise'
+        icon: 'address-card'
+        children:
+          - {entity: 'Structure'}
+          - {entity: 'AuthorizeUser'}
+      - label: 'Pivot'
+        icon: 'cogs'
+        children:
+        - {entity: 'Opinion'}
+        - {entity: 'PivotChildStructure'}

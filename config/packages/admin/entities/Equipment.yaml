@@ -1,0 +1,16 @@
+easy_admin:
+  entities:
+    Equipment:
+      class: App\Entity\Equipment
+      list:
+        fields:
+        - {property: 'id', label: 'ID Equipement', type: 'integer'}
+        - {property: 'equipment_id_child', label: 'ID Enfant', type: 'array'}
+        - {property: 'equipment_name', label: 'Nom Equipement', type: 'string'}
+        - {property: 'equipment_created_at', label: 'Créer le', type: 'datetime'}
+        - {property: 'equipment_updated_at', label: 'Modifier le', type: 'datetime'}
+      form:
+        fields:
+        - { property: 'equipment_name', label: 'Nom équipement:', type: 'text'}
+        - { property: 'equipment_updated_at', label: 'Dernière modification', type: 'datetime'}
+        - { property: 'equipment_id_child', label: 'ID enfant'}
