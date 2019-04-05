@@ -1094,7 +1094,7 @@ body {
 
 .login_form_label_mail {
     float: left;
-    font-size: 2em;
+    font-size: 20px;
     text-align: center;
     color: white;
 }
@@ -1132,7 +1132,7 @@ body {
 
 .login_form_label_password {
     float: left;
-    font-size: 2em;
+    font-size: 20px;
     color: white;
 }
 
@@ -1184,6 +1184,16 @@ body {
 
 }
 
+.parentsMail label { font-size: 0; }
+.parentsMail label:before { content: "Adresse Mail"; font-size: 20px; }
+.parentsMail input:placeholder { content: "Adresse Mail"; font-size: 20px; color: black;}
+.parentsName label { font-size: 0; }
+.parentsName label:before { content: "Nom de famille"; font-size: 20px; }
+.parentsFirstname label { font-size: 0; }
+.parentsFirstname label:before { content: "Prénom d'un parent"; font-size: 20px; }
+
+
+
 .wrap_register_stucture {
     max-width: 1200px;
     margin: 0 auto;
@@ -1203,9 +1213,9 @@ body {
     width: 65%;
     height: 100%;
     padding: 3%;
-    float: right;
+    float: left;
     background: rgba(255, 220, 150, .4);
-    border-left: solid 2px white;
+    border-right: solid 1px white;
     transition: 0.5s;
 }
 
@@ -1216,7 +1226,7 @@ body {
     padding: 3%;
     float: right;
     background: rgba(255, 220, 150, .4);
-    border-left: solid 2px white;
+    border-left: solid 1px white;
     transition: 0.5s;
 }
 
@@ -1230,14 +1240,14 @@ body {
 .register_form_mail {
     float: left;
     width: 100%;
-    font-size: 2em;
+    font-size: 20px;
     color: white;
     margin-top: 5%;
 }
 .register_form_mail_box1 {
     float: left;
     width: 45%;
-    font-size: 2em;
+    font-size: 20px;
     color: white;
     margin-top: 5%;
 }
@@ -1260,7 +1270,7 @@ body {
 .register_form_mail_box2 {
     float: right;
     width: 45%;
-    font-size: 2em;
+    font-size: 20px;
     color: white;
     margin-top: 5%;
 }
