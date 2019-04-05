@@ -1,29 +1,37 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
 
     <div class="block"></div>
-    <h1>Register</h1>
 
-    {{ form_start(registrationForm) }}
+    <div class="wrap_register_stucture">
+        {{ form_start(registrationForm) }}
+        <h1 class="register_form_h1">Inscription <br> Espace Structure</h1>
+        <div class="register_form_mail_box1">
+            {{ form_row(registrationForm.structureName) }}
+            {{ form_row(registrationForm.structureLocation) }}
+            {{ form_row(registrationForm.structureCity) }}
+            {{ form_row(registrationForm.structureZipcode) }}
+            {{ form_row(registrationForm.structureSiret) }}
+            {{ form_row(registrationForm.structurePhone) }}
+        </div>
+        <div class="register_form_mail_box2">
+            {{ form_row(registrationForm.structureType) }}
+            {{ form_row(registrationForm.structureNbspace) }}
+            {{ form_row(registrationForm.structureTypefood) }}
+            {{ form_row(registrationForm.description) }}
+            {{ form_row(registrationForm.structureMail) }}
+            {{ form_row(registrationForm.structurePassword) }}
 
-    {{ form_row(registrationForm.structureName) }}
-    {{ form_row(registrationForm.structureLocation) }}
-    {{ form_row(registrationForm.structureCity) }}
-    {{ form_row(registrationForm.structureZipcode) }}
-    {{ form_row(registrationForm.structureSiret) }}
-    {{ form_row(registrationForm.structurePhone) }}
-    {{ form_row(registrationForm.structureType) }}
-    {{ form_row(registrationForm.structureNbspace) }}
-    {{ form_row(registrationForm.structureTypefood) }}
-    {{ form_row(registrationForm.description) }}
+        </div>
+        <div class="hr"></div>
 
-    {{ form_row(registrationForm.structureMail) }}
-    {{ form_row(registrationForm.structurePassword) }}
+        <input class="register_form_submit" type="submit" value="Je m'inscris">
+        {{ form_end(registrationForm) }}
+    </div>
 
 
-    <input type="submit" value="Register">
-    {{ form_end(registrationForm) }}
-
+    <div class="clear"></div>
 
 {% endblock body %}

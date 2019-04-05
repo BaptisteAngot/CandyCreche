@@ -1163,6 +1163,8 @@ body {
 
 .login_form_submit:hover {
     background: #7abaff;
+    cursor: pointer;
+
 }
 
 /***********************************register_form (parents/structure)**************************************************/
@@ -1181,6 +1183,32 @@ body {
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
 
 }
+
+.wrap_register_stucture {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-image: url("../img/13.jpg");
+    background-position: bottom;
+    background-size: cover;
+    height: 950px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+
+}
+
+.wrap_register_stucture form {
+    width: 65%;
+    height: 100%;
+    padding: 3%;
+    float: right;
+    background: rgba(255, 220, 150, .4);
+    border-left: solid 2px white;
+    transition: 0.5s;
+}
+
 
 .wrap_register form {
     width: 40%;
@@ -1206,6 +1234,53 @@ body {
     color: white;
     margin-top: 5%;
 }
+.register_form_mail_box1 {
+    float: left;
+    width: 45%;
+    font-size: 2em;
+    color: white;
+    margin-top: 5%;
+}
+
+.register_form_mail_box1 input {
+     width: 100%;
+     border: 2px solid;
+     border-color: transparent;
+     float: right;
+     padding: 15px 20px;
+     border-radius: 25px;
+     margin: 4% 0 4% 0;
+ }
+
+.register_form_mail_box1 input:focus {
+    border: 2px solid;
+    border-color: #7abaff;
+}
+
+.register_form_mail_box2 {
+    float: right;
+    width: 45%;
+    font-size: 2em;
+    color: white;
+    margin-top: 5%;
+}
+
+.register_form_mail_box2 input {
+    width: 100%;
+    border: 2px solid;
+    border-color: transparent;
+    float: right;
+    padding: 15px 20px;
+    border-radius: 25px;
+    margin: 4% 0 4% 0;
+}
+
+.register_form_mail_box2 input:focus {
+    border: 2px solid;
+    border-color: #7abaff;
+}
+
+
 
 .register_form_mail input {
     width: 100%;
@@ -1220,6 +1295,23 @@ body {
 .register_form_mail input:focus {
     border: 2px solid;
     border-color: #7abaff;
+}
+
+.register_form_submit {
+    width: 100%;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: #005cbf;
+    color: white;
+    font-size: 1.5em;
+    transition: 1s;
+    margin-top: 2%;
+}
+
+.register_form_submit:hover {
+    background: #7abaff;
+    cursor: pointer;
 }
 
 /*******************************************************Responsive*****************************************************/
@@ -1358,4 +1450,15 @@ body {
         transition: 0.5s;
         width: 100%;
     }
+    .wrap_register_stucture form{
+        transition: 0.5s;
+        width: 100%;
+    }
+    .register_form_mail_box1 {
+        font-size: 1.5em;
+    }
+    .register_form_mail_box2 {
+        font-size: 1.5em;
+    }
+
 }
