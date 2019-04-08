@@ -46,7 +46,7 @@ class ProfilController extends AbstractController
     /**
      * @Route("/profil/edit", name="parents_edit", methods={"GET","POST"})
      */
-    public function editParents(Request $request, AuthorizationCheckerInterface $authChecker): Response
+    public function edit(Request $request, AuthorizationCheckerInterface $authChecker): Response
     {
         if (true === $authChecker->isGranted('ROLE_PARENT')) {
             $user = $this->getUser();
