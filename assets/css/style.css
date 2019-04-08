@@ -28,11 +28,13 @@ body {
 .navbar {
     background-color: #222222;
     width: 100%;
-    height: 65px;
+    height: 71px;
     line-height: 65px;
     text-align: center;
     position: fixed;
     z-index: 10;
+    border-bottom: solid;
+    border-bottom-color: rgba(255, 220, 150);
 }
 
 .navbar div.logo {
@@ -76,11 +78,6 @@ body {
     color: #fff;
     line-height: 65px;
     font-size: 2.4rem;
-}
-
-.navbar div.main_list ul li a:hover {
-    color: rgba(255, 220, 150);
-    transition: 0.5s;
 }
 
 .navTrigger {
@@ -398,6 +395,9 @@ body {
     text-align: justify;
 }
 
+.qui_somme_nous hr {
+    color: black;
+}
 /**************************************************Pourquoi Candy Crèche ?*********************************************/
 .pourquoi_candy_creche {
     margin-top: 10%;
@@ -435,7 +435,6 @@ body {
     float: right;
     border-radius: 10px;
 }
-
 /**************************************************espace_parents******************************************************/
 #parallax-two-parents {
     width: 100%;
@@ -539,6 +538,14 @@ body {
     padding: 3%;
 }
 
+.column-info a {
+    text-decoration: none;
+    color: white;
+}
+.column-info a:hover {
+    text-decoration: none;
+    color:rgba(255, 220, 150) ;
+}
 .social-icons li {
     float: left;
     margin-right: 5px;
@@ -603,7 +610,6 @@ body {
 .copyright {
     font-size: 1.3em;
     color: black;
-    font-weight: bold;
     width: 100%;
     padding: 1%;
     text-align: center;
@@ -612,23 +618,25 @@ body {
 
 /******************************************************Notre équipe****************************************************/
 
-.equipe {
-    margin-top: 20%;
+#equipe {
+    margin-top: 15%;
 }
 
-.equipe p {
+#equipe p {
     text-align: center;
     padding: 3%;
     font-size: 4em;
 }
 
-.equipe .imgEquipe {
+#equipe .imgEquipe {
     width: 20%;
     float: left;
     padding: 2%;
+    margin-bottom: 10%;
+
 }
 
-.equipe .imgEquipe img {
+#equipe .imgEquipe img {
     width: 100%;
     border-radius: 50%;
     box-shadow: 8px 8px 12px #aaa;
@@ -639,12 +647,12 @@ body {
     transition: .3s ease-in-out;
 }
 
-.equipe .imgEquipe img:hover {
+#equipe .imgEquipe img:hover {
     -webkit-transform: scale(1.3);
     transform: scale(1.3);
 }
 
-.equipe .nom {
+#equipe .nom {
     width: 100%;
     font-size: 0.7em;
     padding-bottom: 30%;
@@ -1326,7 +1334,7 @@ body {
 
 /*******************************************************Responsive*****************************************************/
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1100px) {
     .navTrigger {
         display: block;
     }
@@ -1349,25 +1357,30 @@ body {
     .navbar div.main_list ul {
         flex-direction: column;
         width: 100%;
-        height: 100vh;
-        min-width: 400px;
+        height: 100%;
         right: 0;
         left: 0;
         bottom: 0;
-        background-color: #111;
+        background-color: #222222;
+        min-width: 350px;
         background-position: center top;
     }
 
     .navbar div.main_list ul li {
         width: 100%;
-        text-align: right;
+        text-align: center;
     }
 
+    .navbar div.main_list ul li:hover {
+        background-color: #ffd47d;
+        transition: 0.5s;
+    }
     .navbar div.main_list ul li a {
         text-align: center;
         width: 100%;
-        font-size: 3rem;
+        font-size: 2.5rem;
         padding: 20px;
+        color: white;
     }
 
     .navbar div.media_button {
@@ -1421,7 +1434,7 @@ body {
         margin-left: 25%;
     }
 
-    .equipe p {
+    #equipe p {
         text-align: center;
         padding: 3%;
         font-size: 2em;
