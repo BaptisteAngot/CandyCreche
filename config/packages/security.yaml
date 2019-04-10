@@ -28,25 +28,29 @@ security:
 #            pattern: ^/(_(profiler|wdt)|css|images|js)/
 #            security: false
         parents:
-            pattern: /login_parents
+            pattern: ^/parents/login_parents
             anonymous: true
             provider: parents
             guard:
                 authenticators:
                     - App\Security\LoginFormAuthenticator
+            form_login:
+                login_path: /parents/login_parents
+                check_path: /parents/login_parents
             logout:
                 path: /logout
                 target: /
         structures:
-            pattern: /login_structure
+            pattern: ^/structures/login_structure
             provider: structures
+            anonymous: true
             guard:
                 authenticators:
                     - App\Security\LoginFromStructureAuthenticator
                 entry_point: App\Security\LoginFromStructureAuthenticator
             form_login:
-                login_path: /login_structure
-                check_path: /login_structure
+                login_path: /structures/login_structure
+                check_path: /structures/login_structure
             logout:
                 path: /logout
                 target: /
