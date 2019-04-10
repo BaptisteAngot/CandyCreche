@@ -9,37 +9,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
- * @Route("/child")
+ * @Route("/profil/child")
  */
 class ChildController extends AbstractController
 {
     /**
      * @Route("/", name="child_index")
      */
-    public function index(AuthorizationCheckerInterface $authChecker)
-    {
-        if (true === $authChecker->isGranted('ROLE_PARENT')) {
-            $parent = $this->getUser();
-
-            return $this->render('child/index.html.twig', [
-                'children' => $parent->getChildren(),
-            ]);
-        } else {
-            return $this->render('403/403.html.twig', [
-                'erreur' => 'ACCES FORBIDEN'
-            ]);
-        }
-    }
-
-    /**
-     * @Route("/new", name="child_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
+    public function index(Request $request): Response
     {
         $child = new Child();
         $form = $this->createForm(ChildType::class, $child);
@@ -50,7 +29,7 @@ class ChildController extends AbstractController
             $entityManager->persist($child);
             $entityManager->flush();
 
-            return $this->redirectToRoute('child_index');
+            return $this->redirectToRoute('profil');
         }
 
         return $this->render('child/new.html.twig', [
@@ -60,7 +39,7 @@ class ChildController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="child_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="child_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Child $child): Response
     {
@@ -70,7 +49,9 @@ class ChildController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('child_index');
+            return $this->redirectToRoute('profil', [
+                'id' => $child->getId(),
+            ]);
         }
 
         return $this->render('child/edit.html.twig', [
@@ -84,12 +65,12 @@ class ChildController extends AbstractController
      */
     public function delete(Request $request, Child $child): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $child->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$child->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($child);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('child_index');
+        return $this->redirectToRoute('profil');
     }
 }
