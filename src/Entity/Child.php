@@ -50,7 +50,7 @@ class Child
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Parents", inversedBy="children")
-     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $Child_id_parent;
 
