@@ -26,6 +26,7 @@ class ChildController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $child->setChildCreatedAt(new \DateTime('now'));
             $entityManager->persist($child);
             $entityManager->flush();
 
@@ -47,11 +48,10 @@ class ChildController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $child->setChildUpdatedAt(new \DateTime('now'));
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('profil', [
-                'id' => $child->getId(),
-            ]);
+            return $this->redirectToRoute('profil');
         }
 
         return $this->render('child/edit.html.twig', [

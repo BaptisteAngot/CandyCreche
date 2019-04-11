@@ -2,28 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Child;
+use App\Entity\Disease;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ChildType extends AbstractType
+class DiseaseType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Child_name')
-            ->add('Child_firstname')
-            ->add('Child_years')
-            ->add('Child_Others')
-            ->add('Child_id_parent')
+            ->add('disease_name')
+            ->add('disease_therapy')
+            ->add('disease_severity')
+            ->add('disease_created_at')
+            ->add('disease_updated_at')
+            ->add('disease_id_child')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Child::class,
+            'data_class' => Disease::class,
         ]);
     }
 }

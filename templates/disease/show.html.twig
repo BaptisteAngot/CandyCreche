@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Disease{% endblock %}
+
+{% block body %}
+    <h1>Disease</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ disease.id }}</td>
+            </tr>
+            <tr>
+                <th>Disease_name</th>
+                <td>{{ disease.diseaseName }}</td>
+            </tr>
+            <tr>
+                <th>Disease_therapy</th>
+                <td>{{ disease.diseaseTherapy }}</td>
+            </tr>
+            <tr>
+                <th>Disease_severity</th>
+                <td>{{ disease.diseaseSeverity }}</td>
+            </tr>
+            <tr>
+                <th>Disease_created_at</th>
+                <td>{{ disease.diseaseCreatedAt ? disease.diseaseCreatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Disease_updated_at</th>
+                <td>{{ disease.diseaseUpdatedAt ? disease.diseaseUpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('disease_index') }}">back to list</a>
+
+    <a href="{{ path('disease_edit', {'id': disease.id}) }}">edit</a>
+
+    {{ include('disease/_delete_form.html.twig') }}
+{% endblock %}

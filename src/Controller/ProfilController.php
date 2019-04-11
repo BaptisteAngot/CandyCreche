@@ -54,6 +54,7 @@ class ProfilController extends AbstractController
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
+                $user->setParentsUpdatedAt(new \DateTime('now'));
                 $this->getDoctrine()->getManager()->flush();
 
                 return $this->redirectToRoute('profil');
