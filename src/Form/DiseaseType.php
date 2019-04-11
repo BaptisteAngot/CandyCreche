@@ -15,9 +15,6 @@ class DiseaseType extends AbstractType
             ->add('disease_name')
             ->add('disease_therapy')
             ->add('disease_severity')
-            ->add('disease_created_at')
-            ->add('disease_updated_at')
-            ->add('disease_id_child')
         ;
     }
 

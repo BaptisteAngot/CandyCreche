@@ -40,6 +40,7 @@
                 {% endfor %}
                 <p>Info(s) complémentaire(s): {{ enfant.childOthers }}</p>
                 <a href="{{ path('child_edit', {'id': enfant.id}) }}">Modifier Informations</a>
+                <a href="{{ path('disease_index', {'id': enfant.id}) }}">Ajouter Maladie</a>
             </div>
             {% endfor %}
             <div class="clear"></div>

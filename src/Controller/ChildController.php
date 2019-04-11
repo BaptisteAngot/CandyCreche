@@ -9,6 +9,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
  * @Route("/profil/child")
@@ -18,60 +21,81 @@ class ChildController extends AbstractController
     /**
      * @Route("/", name="child_index")
      */
-    public function index(Request $request): Response
+    public function index(Request $request, AuthorizationCheckerInterface $authChecker): Response
     {
-        $child = new Child();
-        $form = $this->createForm(ChildType::class, $child);
-        $form->handleRequest($request);
+        if (true === $authChecker->isGranted('ROLE_PARENT')) {
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $child->setChildCreatedAt(new \DateTime('now'));
-            $child->setChildIdParent($user = $this->getUser()->getId());
-            $entityManager->persist($child);
-            $entityManager->flush();
+            $child = new Child();
+            $form = $this->createForm(ChildType::class, $child);
+            $form->handleRequest($request);
 
-            return $this->redirectToRoute('profil');
+            if ($form->isSubmitted() && $form->isValid()) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $child->setChildCreatedAt(new \DateTime('now'));
+                $child->setChildIdParent($user = $this->getUser()->getId());
+                $entityManager->persist($child);
+                $entityManager->flush();
+
+                return $this->redirectToRoute('profil');
+            }
+
+            return $this->render('child/index.html.twig', [
+                'child' => $child,
+                'form' => $form->createView(),
+            ]);
+        } else {
+            return $this->render('403/403.html.twig', ['erreur' => 'ACCES FORBIDEN']);
         }
 
-        return $this->render('child/new.html.twig', [
-            'child' => $child,
-            'form' => $form->createView(),
-        ]);
     }
 
     /**
      * @Route("/edit/{id}", name="child_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Child $child): Response
+    public
+    function edit(Request $request, Child $child, AuthorizationCheckerInterface $authChecker): Response
     {
-        $form = $this->createForm(ChildType::class, $child);
-        $form->handleRequest($request);
+        if (true === $authChecker->isGranted('ROLE_PARENT')) {
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $child->setChildUpdatedAt(new \DateTime('now'));
-            $this->getDoctrine()->getManager()->flush();
+            $enfants= $this->getUser()->getChildren();
+            \Doctrine\Common\Util\Debug::dump($enfants);
 
-            return $this->redirectToRoute('profil');
+            $form = $this->createForm(ChildType::class, $child);
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $child->setChildUpdatedAt(new \DateTime('now'));
+                $this->getDoctrine()->getManager()->flush();
+
+                return $this->redirectToRoute('profil');
+            }
+
+            return $this->render('child/edit.html.twig', [
+                'child' => $child,
+                'form' => $form->createView(),
+            ]);
+        } else {
+            return $this->render('403/403.html.twig', ['erreur' => 'ACCES FORBIDEN']);
         }
-
-        return $this->render('child/edit.html.twig', [
-            'child' => $child,
-            'form' => $form->createView(),
-        ]);
     }
 
     /**
      * @Route("/{id}", name="child_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Child $child): Response
+    public
+    function delete(Request $request, Child $child, AuthorizationCheckerInterface $authChecker): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$child->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($child);
-            $entityManager->flush();
-        }
+        if (true === $authChecker->isGranted('ROLE_PARENT')) {
 
-        return $this->redirectToRoute('profil');
+            if ($this->isCsrfTokenValid('delete' . $child->getId(), $request->request->get('_token'))) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->remove($child);
+                $entityManager->flush();
+            }
+
+            return $this->redirectToRoute('profil');
+        } else {
+            return $this->render('403/403.html.twig', ['erreur' => 'ACCES FORBIDEN']);
+        }
     }
 }

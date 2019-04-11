@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Child;
 use App\Entity\Disease;
 use App\Form\DiseaseType;
 use App\Repository\DiseaseRepository;
@@ -16,19 +17,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class DiseaseController extends AbstractController
 {
     /**
-     * @Route("/", name="disease_index", methods={"GET"})
+     * @Route("/{id}", name="disease_index", methods={"GET","POST"})
      */
-    public function index(DiseaseRepository $diseaseRepository): Response
-    {
-        return $this->render('disease/index.html.twig', [
-            'diseases' => $diseaseRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/new", name="disease_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
+    public function index(Child $child,Request $request, DiseaseRepository $diseaseRepository): Response
     {
         $disease = new Disease();
         $form = $this->createForm(DiseaseType::class, $disease);
@@ -36,25 +27,16 @@ class DiseaseController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($disease);
+            $disease->addDiseaseIdChild($child);
+            $disease->setDiseaseCreatedAt(new \DateTime('now'));
             $entityManager->flush();
 
-            return $this->redirectToRoute('disease_index');
+            return $this->redirectToRoute('profil');
         }
 
-        return $this->render('disease/new.html.twig', [
+        return $this->render('disease/index.html.twig', [
             'disease' => $disease,
             'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="disease_show", methods={"GET"})
-     */
-    public function show(Disease $disease): Response
-    {
-        return $this->render('disease/show.html.twig', [
-            'disease' => $disease,
         ]);
     }
 
@@ -81,7 +63,7 @@ class DiseaseController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="disease_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="disease_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Disease $disease): Response
     {
