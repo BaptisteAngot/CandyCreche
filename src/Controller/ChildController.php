@@ -57,23 +57,36 @@ class ChildController extends AbstractController
     {
         if (true === $authChecker->isGranted('ROLE_PARENT')) {
 
-            $enfants= $this->getUser()->getChildren();
-            \Doctrine\Common\Util\Debug::dump($enfants);
+            $enfants = $this->getUser()->getChildren();
+            $i = 0;
+            $parent = false;
 
-            $form = $this->createForm(ChildType::class, $child);
-            $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()) {
-                $child->setChildUpdatedAt(new \DateTime('now'));
-                $this->getDoctrine()->getManager()->flush();
-
-                return $this->redirectToRoute('profil');
+            while ($enfants[$i] != Null) {
+                if ($child == $enfants[$i]) {
+                    $parent = true;
+                }
+                $i++;
             }
 
-            return $this->render('child/edit.html.twig', [
-                'child' => $child,
-                'form' => $form->createView(),
-            ]);
+            if ($parent === true) {
+                $form = $this->createForm(ChildType::class, $child);
+                $form->handleRequest($request);
+
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $child->setChildUpdatedAt(new \DateTime('now'));
+                    $this->getDoctrine()->getManager()->flush();
+
+                    return $this->redirectToRoute('profil');
+                }
+
+                return $this->render('child/edit.html.twig', [
+                    'child' => $child,
+                    'form' => $form->createView(),
+                ]);
+            } else {
+                return $this->render('403/403.html.twig', ['erreur' => 'ACCES FORBIDEN']);
+            }
+
         } else {
             return $this->render('403/403.html.twig', ['erreur' => 'ACCES FORBIDEN']);
         }
