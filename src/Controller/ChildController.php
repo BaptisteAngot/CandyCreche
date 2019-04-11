@@ -27,6 +27,7 @@ class ChildController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $child->setChildCreatedAt(new \DateTime('now'));
+            $child->setChildIdParent($user = $this->getUser()->getId());
             $entityManager->persist($child);
             $entityManager->flush();
 

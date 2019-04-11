@@ -16,7 +16,6 @@ class ChildType extends AbstractType
             ->add('Child_firstname')
             ->add('Child_years')
             ->add('Child_Others')
-            ->add('Child_id_parent')
         ;
     }
 
