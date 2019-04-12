@@ -77,18 +77,24 @@ class ProfilController extends AbstractController
     public function delete(Request $request, Parents $parent, TokenStorageInterface $tokenStorage, AuthorizationCheckerInterface $authChecker): Response
     {
         if (true === $authChecker->isGranted('ROLE_PARENT')) {
-            if ($this->isCsrfTokenValid('delete' . $parent->getId(), $request->request->get('_token'))) {
-                $entityManager = $this->getDoctrine()->getManager();
-                $this->get('security.token_storage')->setToken(null);
-                $entityManager->remove($parent);
-                $entityManager->flush();
+            if ($this->getUser() == $parent->getId()) {
+                if ($this->isCsrfTokenValid('delete' . $parent->getId(), $request->request->get('_token'))) {
+                    $entityManager = $this->getDoctrine()->getManager();
+                    $this->get('security.token_storage')->setToken(null);
+                    $entityManager->remove($parent);
+                    $entityManager->flush();
 
-                return $this->redirectToRoute('accueil');
+                    return $this->redirectToRoute('accueil');
+                } else {
+                    return $this->render('403/403.html.twig', [
+                        'erreur' => 'ACCES FORBIDEN'
+                    ]);
+                }
+            } else {
+                return $this->render('403/403.html.twig', [
+                    'erreur' => 'ACCES FORBIDEN'
+                ]);
             }
-        } else {
-            return $this->render('403/403.html.twig', [
-                'erreur' => 'ACCES FORBIDEN'
-            ]);
         }
     }
 }
