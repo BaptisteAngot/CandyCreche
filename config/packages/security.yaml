@@ -28,7 +28,7 @@ security:
 #            pattern: ^/(_(profiler|wdt)|css|images|js)/
 #            security: false
         parents:
-            pattern: ^/parents/login_parents
+            pattern: ^/parents/
             anonymous: true
             provider: parents
             guard:
@@ -38,10 +38,10 @@ security:
                 login_path: /parents/login_parents
                 check_path: /parents/login_parents
             logout:
-                path: /logout
+                path: parentslogout
                 target: /
         structures:
-            pattern: ^/structures/login_structure
+            pattern: ^/structures/
             provider: structures
             anonymous: true
             guard:
@@ -52,7 +52,7 @@ security:
                 login_path: /structures/login_structure
                 check_path: /structures/login_structure
             logout:
-                path: /logout
+                path: structurelogout
                 target: /
 
 
