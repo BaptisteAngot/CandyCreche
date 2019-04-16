@@ -1,9 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Disease{% endblock %}
+{% block title %}Disease index{% endblock %}
 
 {% block body %}
-    {{ include('disease/_form.html.twig') }}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Disease_name</th>
+                <th>Disease_therapy</th>
+                <th>Disease_severity</th>
+                <th>Disease_created_at</th>
+                <th>Disease_updated_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for disease in diseases %}
+            <tr>
+                <td>{{ disease.id }}</td>
+                <td>{{ disease.diseaseName }}</td>
+                <td>{{ disease.diseaseTherapy }}</td>
+                <td>{{ disease.diseaseSeverity }}</td>
+                <td>{{ disease.diseaseCreatedAt ? disease.diseaseCreatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ disease.diseaseUpdatedAt ? disease.diseaseUpdatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('disease_show', {'id': disease.id}) }}">show</a>
+                    <a href="{{ path('disease_edit', {'id': disease.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-    <a href="{{ path('profil') }}">Retour au profil</a>
+    <a href="{{ path('disease_new') }}">Create new</a>
 {% endblock %}

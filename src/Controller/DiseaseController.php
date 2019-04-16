@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Child;
 use App\Entity\Disease;
 use App\Form\DiseaseType;
 use App\Repository\DiseaseRepository;
@@ -19,7 +18,7 @@ class DiseaseController extends AbstractController
     /**
      * @Route("/{id}", name="disease_index", methods={"GET","POST"})
      */
-    public function index(Child $child,Request $request): Response
+    public function index(Request $request): Response
     {
         $disease = new Disease();
         $form = $this->createForm(DiseaseType::class, $disease);
@@ -27,14 +26,14 @@ class DiseaseController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $disease->addDiseaseIdChild($child);
             $disease->setDiseaseCreatedAt(new \DateTime('now'));
+            $entityManager->persist($disease);
             $entityManager->flush();
 
             return $this->redirectToRoute('profil');
         }
 
-        return $this->render('disease/index.html.twig', [
+        return $this->render('disease/new.html.twig', [
             'disease' => $disease,
             'form' => $form->createView(),
         ]);
