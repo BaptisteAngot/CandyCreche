@@ -19,7 +19,7 @@ class DiseaseController extends AbstractController
     /**
      * @Route("/{id}", name="disease_index", methods={"GET","POST"})
      */
-    public function index(Child $child,Request $request, DiseaseRepository $diseaseRepository): Response
+    public function index(Child $child,Request $request): Response
     {
         $disease = new Disease();
         $form = $this->createForm(DiseaseType::class, $disease);
