@@ -50,9 +50,7 @@ class DiseaseController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('disease_index', [
-                'id' => $disease->getId(),
-            ]);
+            return $this->redirectToRoute('profil');
         }
 
         return $this->render('disease/edit.html.twig', [
@@ -72,6 +70,6 @@ class DiseaseController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('disease_index');
+        return $this->redirectToRoute('profil');
     }
 }
