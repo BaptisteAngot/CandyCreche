@@ -93,6 +93,7 @@ class DiseaseController extends AbstractController
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
+                $disease->setDiseaseUpdatedAt(new \DateTime('now'));
                 $this->getDoctrine()->getManager()->flush();
 
                 return $this->redirectToRoute('profil');
