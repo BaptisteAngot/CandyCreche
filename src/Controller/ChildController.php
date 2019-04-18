@@ -32,7 +32,7 @@ class ChildController extends AbstractController
             if ($form->isSubmitted() && $form->isValid()) {
                 $entityManager = $this->getDoctrine()->getManager();
                 $child->setChildCreatedAt(new \DateTime('now'));
-                $child->setChildIdParent($user = $this->getUser()->getId());
+                $child->setChildIdParent($user = $this->getUser());
                 $entityManager->persist($child);
                 $entityManager->flush();
 
@@ -102,6 +102,13 @@ class ChildController extends AbstractController
 
             if ($this->isCsrfTokenValid('delete' . $child->getId(), $request->request->get('_token'))) {
                 $entityManager = $this->getDoctrine()->getManager();
+                $maladie = $child->getDiseases();
+
+                $i = 0;
+                while ($maladie[$i] != Null) {
+                    $entityManager->remove($maladie[$i]);
+                    $i++;
+                }
                 $entityManager->remove($child);
                 $entityManager->flush();
             }
