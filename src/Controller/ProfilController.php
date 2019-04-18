@@ -77,9 +77,24 @@ class ProfilController extends AbstractController
     public function delete(Request $request, Parents $parent, TokenStorageInterface $tokenStorage, AuthorizationCheckerInterface $authChecker): Response
     {
         if (true === $authChecker->isGranted('ROLE_PARENT')) {
-            if ($this->getUser() == $parent->getId()) {
                 if ($this->isCsrfTokenValid('delete' . $parent->getId(), $request->request->get('_token'))) {
                     $entityManager = $this->getDoctrine()->getManager();
+
+                    $enfants = $this->getUser()->getChildren();
+                    $i = 0;
+
+                    while ($enfants[$i] != Null) {
+                        $o = 0;
+                        $maladie = $enfants[$i]->getDiseases();
+
+                        while ($maladie[$o] != Null) {
+                            $entityManager->remove($maladie[$o]);
+                            $o++;
+                        }
+                        $entityManager->remove($enfants[$i]);
+                        $i++;
+                    }
+
                     $this->get('security.token_storage')->setToken(null);
                     $entityManager->remove($parent);
                     $entityManager->flush();
@@ -90,11 +105,6 @@ class ProfilController extends AbstractController
                         'erreur' => 'ACCES FORBIDEN'
                     ]);
                 }
-            } else {
-                return $this->render('403/403.html.twig', [
-                    'erreur' => 'ACCES FORBIDEN'
-                ]);
-            }
         }
     }
 }

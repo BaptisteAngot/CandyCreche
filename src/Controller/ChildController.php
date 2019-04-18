@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Child;
+use App\Entity\Disease;
 use App\Form\ChildType;
 use App\Repository\ChildRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -81,6 +82,7 @@ class ChildController extends AbstractController
 
                 return $this->render('child/edit.html.twig', [
                     'child' => $child,
+                    'disease' => $child->getDiseases(),
                     'form' => $form->createView(),
                 ]);
             } else {
