@@ -5,6 +5,7 @@
         <a href="{{ path('booking_new') }}">Create new booking</a>
         {% include '@Calendar/calendar.html' %}
     </div>
+    <div class="clear"></div>
 {% endblock %}
 
 {% block javascripts %}
@@ -25,7 +26,8 @@
                         url: "{{ path('fc_load_events') }}",
                         type: "POST",
                         data: {
-                            filters: {},
+                            filters: {
+                            },
                         },
                         error: () => {
                             // alert("There was an error while fetching FullCalendar!");
