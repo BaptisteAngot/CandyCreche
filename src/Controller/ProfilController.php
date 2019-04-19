@@ -18,7 +18,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class ProfilController extends AbstractController
 {
     /**
-     * @Route("/profil", name="profil")
+     * @Route("/parents/profil", name="profil")
      */
     public function index(AuthorizationCheckerInterface $authChecker)
     {
@@ -44,9 +44,9 @@ class ProfilController extends AbstractController
     }
 
     /**
-     * @Route("/profil/edit", name="parents_edit", methods={"GET","POST"})
+     * @Route("/parents/profil/edit", name="parents_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, AuthorizationCheckerInterface $authChecker): Response
+    public function editParent(Request $request, AuthorizationCheckerInterface $authChecker): Response
     {
         if (true === $authChecker->isGranted('ROLE_PARENT')) {
             $user = $this->getUser();
@@ -72,9 +72,9 @@ class ProfilController extends AbstractController
     }
 
     /**
-     * @Route("/profil/delete/{id}", name="parents_delete", methods={"DELETE"})
+     * @Route("/parents/profil/delete/{id}", name="parents_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Parents $parent, TokenStorageInterface $tokenStorage, AuthorizationCheckerInterface $authChecker): Response
+    public function deleteParent(Request $request, Parents $parent, TokenStorageInterface $tokenStorage, AuthorizationCheckerInterface $authChecker): Response
     {
         if (true === $authChecker->isGranted('ROLE_PARENT')) {
                 if ($this->isCsrfTokenValid('delete' . $parent->getId(), $request->request->get('_token'))) {

@@ -15,7 +15,7 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
- * @Route("/profil/child")
+ * @Route("/parents/profil/child")
  */
 class ChildController extends AbstractController
 {
