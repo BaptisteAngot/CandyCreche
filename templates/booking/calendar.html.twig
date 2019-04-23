@@ -17,8 +17,6 @@
     <script src="https://fullcalendar.io/releases/daygrid/4.0.1/main.min.js"></script>
     <script src="https://fullcalendar.io/releases/timegrid/4.0.1/main.min.js"></script>
 
-    <script src="lang/fr.js"></script>
-
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', () => {
             var calendarEl = document.getElementById('calendar-holder');
@@ -46,6 +44,20 @@
                 },
                 plugins: [ 'interaction', 'dayGrid', 'timeGrid' ], // https://fullcalendar.io/docs/plugin-index
                 timeZone: 'UTC',
+                locale: 'fr',
+                buttonText: {
+                    prev: "Préc",
+                    next: "Suiv",
+                    today: "Aujourd'hui",
+                    year: "Année",
+                    month: "Mois",
+                    week: "Semaine",
+                    day: "Jour",
+                    list: "Mon planning"
+                },
+                week: {
+                    dow: 1, // Monday is the first day of the week.
+                },
             });
             calendar.render();
         });
