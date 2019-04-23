@@ -18,6 +18,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 
 class ProfilController extends AbstractController
 {
+    /**
      * @Route("/parents/profil", name="profil")
      */
     public function index(AuthorizationCheckerInterface $authChecker)
