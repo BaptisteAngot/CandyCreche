@@ -3,11 +3,10 @@
 {% block body %}
     <div class="clear"></div>
     <div class="imagedefond">
+        <a class="bouton_rajout" href="{{ path('booking_new') }}">Choisir la date des vacances</a>
     <div class="calendarjs">
-        <a href="{{ path('booking_new') }}">Date de vacances</a>
         {% include '@Calendar/calendar.html' %}
     </div>
-
     </div>
 {% endblock %}
 
@@ -58,6 +57,11 @@
                 week: {
                     dow: 1, // Monday is the first day of the week.
                 },
+
+                weekLabel: "Sem.",
+                allDayHtml: "Toute la<br/>journée",
+                eventLimitText: "en plus",
+                noEventsMessage: "Aucun événement à afficher"
             });
             calendar.render();
         });
