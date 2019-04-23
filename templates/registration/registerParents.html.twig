@@ -2,9 +2,10 @@
 
 {% block body %}
 
-    <h1>Register</h1>
+    <div class="block"></div>
 
-    {{ form_start(registrationForm) }}
+    <div class="wrap_register">
+        {{ form_start(registrationForm) }}
 
     {{ form_row(registrationForm.parentsMail) }}
     {{ form_errors(registrationForm.parentsMail) }}
@@ -15,9 +16,21 @@
     {{ form_row(registrationForm.parentsPassword) }}
     {{ form_errors(registrationForm.parentsPassword) }}
 
+        <h1 class="register_form_h1">Inscription <br> Espace Parents</h1>
 
-    <input type="submit" value="Register">
-    {{ form_end(registrationForm) }}
+        <div class="register_form_mail">
+            <div class="parentsMail">       {{ form_row(registrationForm.parentsMail,       {"attr":{'placeholder': 'adresse@mail.com'}}) }}      </div>
+            <div class="parentsName">       {{ form_row(registrationForm.parentsName,       {"attr":{'placeholder': 'Nom de famille'}}) }}        </div>
+            <div class="parentsFirstname">  {{ form_row(registrationForm.parentsFirstname,  {"attr":{'placeholder': 'Prénom d\'un parent'}}) }}   </div>
+                                            {{ form_row(registrationForm.parentsPassword,   {"attr":{'placeholder': '**************'}}) }}
+        </div>
+
+        <div class="hr"></div>
+
+        <input class="login_form_submit" type="submit" value="Je m'inscris">
+        {{ form_end(registrationForm) }}
+    </div>
+    <div class="clear"></div>
 
 
 {% endblock body %}

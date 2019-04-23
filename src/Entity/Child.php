@@ -50,7 +50,7 @@ class Child
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Parents", inversedBy="children")
-     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $Child_id_parent;
 
@@ -171,13 +171,6 @@ class Child
     }
 
     public function setChildIdParent(?Parents $Child_id_parent): self
-    {
-        $this->Child_id_parent = $Child_id_parent;
-
-        return $this;
-    }
-
-    public function setChildIdParentId(?Parents $Child_id_parent): self
     {
         $this->Child_id_parent = $Child_id_parent;
 

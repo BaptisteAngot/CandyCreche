@@ -1,28 +1,37 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
 
-    <h1>Register</h1>
+    <div class="block"></div>
 
-    {{ form_start(registrationForm) }}
+    <div class="wrap_register_stucture">
+        {{ form_start(registrationForm) }}
+        <h1 class="register_form_h1">Inscription <br> Espace Structure</h1>
+        <div class="register_form_mail_box1">
+            <div class="structureName">         {{ form_row(registrationForm.structureName,         {"attr":{'placeholder': 'Nom de votre structure'}}) }}</div>
+            <div class="structureLocation">     {{ form_row(registrationForm.structureLocation,     {"attr":{'placeholder': 'Où se situe-t-elle ?'}}) }}</div>
+            <div class="structureCity">         {{ form_row(registrationForm.structureCity,         {"attr":{'placeholder': 'Dans quelle ville ? '}}) }}</div>
+            <div class="structureZipcode">      {{ form_row(registrationForm.structureZipcode,      {"attr":{'placeholder': 'Zipcode'}}) }}</div>
+            <div class="structureSiret">        {{ form_row(registrationForm.structureSiret,        {"attr":{'placeholder': 'Numero de siret'}}) }}</div>
+            <div class="structurePhone">        {{ form_row(registrationForm.structurePhone,        {"attr":{'placeholder': 'Votre numéro de téléphone'}}) }}</div>
+        </div>
+        <div class="register_form_mail_box2">
+            <div class="structureType">         {{ form_row(registrationForm.structureType,         {"attr":{'placeholder': 'Le type de votre structure'}}) }}</div>
+            <div class="structureNbspace">      {{ form_row(registrationForm.structureNbspace,      {"attr":{'placeholder': 'Le nombre de place maximum de votre structure'}}) }}</div>
+            <div class="structureTypefood">     {{ form_row(registrationForm.structureTypefood,     {"attr":{'placeholder': 'Le type de nourriture'}}) }}</div>
+            <div class="structureDescription">  {{ form_row(registrationForm.description,           {"attr":{'placeholder': 'Courte description'}}) }}</div>
+            <div class="structureMail">         {{ form_row(registrationForm.structureMail,         {"attr":{'placeholder': 'adresse@mail.com'}}) }}</div>
+            <div class="structurePassword">     {{ form_row(registrationForm.structurePassword,     {"attr":{'placeholder': 'Mot de passe'}}) }}</div>
 
-    {{ form_row(registrationForm.structureName) }}
-    {{ form_row(registrationForm.structureLocation) }}
-    {{ form_row(registrationForm.structureCity) }}
-    {{ form_row(registrationForm.structureZipcode) }}
-    {{ form_row(registrationForm.structureSiret) }}
-    {{ form_row(registrationForm.structurePhone) }}
-    {{ form_row(registrationForm.structureType) }}
-    {{ form_row(registrationForm.structureNbspace) }}
-    {{ form_row(registrationForm.structureTypefood) }}
-    {{ form_row(registrationForm.description) }}
+        </div>
+        <div class="hr"></div>
 
-    {{ form_row(registrationForm.structureMail) }}
-    {{ form_row(registrationForm.structurePassword) }}
+        <input class="register_form_submit" type="submit" value="Je m'inscris">
+        {{ form_end(registrationForm) }}
+    </div>
 
 
-    <input type="submit" value="Register">
-    {{ form_end(registrationForm) }}
-
+    <div class="clear"></div>
 
 {% endblock body %}

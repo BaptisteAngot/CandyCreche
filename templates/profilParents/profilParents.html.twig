@@ -18,6 +18,7 @@
                 <p>Adresse mail: {{ parents.parentsMail }}</p>
                 <p>Nom: {{ parents.parentsName }}</p>
                 <p>Prénom: {{ parents.parentsFirstname }}</p>
+                <a href="{{ path('parents_edit') }}">Modifier profil</a>
             </div>
 
             {% for enfant in enfants %}
@@ -30,7 +31,9 @@
 
                 {% for maladie in enfant.diseases %}
                     <p>Maladie: {{ maladie.disease_name }}</p>
+                    <a href="{{ path('disease_edit', {'id': maladie.id}) }}">Modifier maladie</a>
                 {% endfor %}
+                <a href="{{ path('disease_index', {'id': enfant.id}) }}">Ajouter Maladie</a>
                 {% for allergie in enfant.allergies %}
                     <p>Allergie: {{ allergie.allergy_name }}</p>
                 {% endfor %}
@@ -38,9 +41,11 @@
                     <p>Equipement: {{ equipment.equipment_name }}</p>
                 {% endfor %}
                 <p>Info(s) complémentaire(s): {{ enfant.childOthers }}</p>
+                <a href="{{ path('child_edit', {'id': enfant.id}) }}">Modifier Informations</a>
             </div>
             {% endfor %}
             <div class="clear"></div>
+            <a href="{{ path('child_index') }}">Ajouter Enfant</a>
         </section>
     </div>
 
