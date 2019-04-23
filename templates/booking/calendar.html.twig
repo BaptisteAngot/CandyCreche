@@ -1,9 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="clear"></div>
     <div class="imagedefond">
-        <a class="bouton_rajout" href="{{ path('booking_new') }}">Choisir la date des vacances</a>
+        <a class="bouton_rajout" href="{{ path('booking_new') }}">Créer de nouvelles vacances</a>
     <div class="calendarjs">
         {% include '@Calendar/calendar.html' %}
     </div>

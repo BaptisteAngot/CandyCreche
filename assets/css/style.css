@@ -1194,14 +1194,15 @@ form {
     max-width: 50%;
     text-align: center;
     margin: 0 auto;
-    max-height: 80%;
     background-color: #ffffffcc;
+    padding: 7px;
+    border-radius: 3px;
 }
 
 .bouton_rajout{
     float: right;
-    background-color: rgb(30, 43, 55);
-    padding: 15px;
+    background-color: rgb(44, 62, 80);
+    padding: 10px;
     border-radius: 3px;
     font-family: inherit;
     display: inline-block;
@@ -1209,7 +1210,8 @@ form {
     text-align: center;
     text-decoration: none;
     color: white;
-    margin: 0 auto;
+    margin-right: 3%;
+    font-size: 1vw;
 }
 
 .bouton_rajout:hover{
