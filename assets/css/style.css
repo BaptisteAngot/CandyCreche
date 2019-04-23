@@ -1185,10 +1185,14 @@ form {
 }
 
 /********************************* Calendar *****************************************/
+.imagedefond{
+    background-image: linear-gradient(to right top, rgba(255, 220, 150, 0.5), rgba(255, 220, 200, 0.1)), url("../img/9.jpg");
+    padding:2%;
+}
 
 .calendarjs {
-    max-width: 25%;
-    margin: 5%;
-    float: right;
+    max-width: 50%;
+    text-align: center;
+    margin: 0 auto;
 }
 
