@@ -1180,10 +1180,6 @@ body {
     }
 }
 
-form {
-    margin-top: 200px;
-}
-
 /********************************* Calendar *****************************************/
 .imagedefond{
     background-image: linear-gradient(to right top, rgba(255, 220, 150, 0.7), rgba(255, 220, 200, 0.3)), url("../img/9.jpg");
@@ -1210,7 +1206,7 @@ form {
     text-align: center;
     text-decoration: none;
     color: white;
-    margin-right: 3%;
+    margin-right: 7%;
     font-size: 1vw;
 }
 

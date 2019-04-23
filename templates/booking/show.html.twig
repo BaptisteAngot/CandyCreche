@@ -3,17 +3,18 @@
 {% block title %}Booking{% endblock %}
 
 {% block body %}
+    <div class="imagedefond">
     <h1>Vacances de: {{ booking.title }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
                 <th>Commence le:</th>
-                <td>{{ booking.beginAt ? booking.beginAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ booking.beginAt ? booking.beginAt|date('d-m-Y H:i:s') : '' }}</td>
             </tr>
             <tr>
                 <th>Fini le:</th>
-                <td>{{ booking.endAt ? booking.endAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ booking.endAt ? booking.endAt|date('d-m-Y H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
@@ -23,4 +24,5 @@
     <a href="{{ path('booking_edit', {'id': booking.id}) }}">Modifier</a>
 
     {{ include('booking/_delete_form.html.twig') }}
+    </div>
 {% endblock %}
