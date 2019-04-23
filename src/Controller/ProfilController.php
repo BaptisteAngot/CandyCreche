@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Child;
 use App\Entity\Disease;
 use App\Entity\Parents;
+use App\Entity\Structure;
 use App\Repository\DiseaseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,12 +18,12 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 
 class ProfilController extends AbstractController
 {
-    /**
      * @Route("/parents/profil", name="profil")
      */
     public function index(AuthorizationCheckerInterface $authChecker)
     {
-        if (true === $authChecker->isGranted('ROLE_PARENT')) {
+        if (true === $authChecker->isGranted('ROLE_PARENT'))
+        {
             $parent = $this->getUser();
 
             return $this->render('profilParents/profilParents.html.twig', [
@@ -30,15 +31,33 @@ class ProfilController extends AbstractController
                 'parents' => $parent,
                 'enfants' => $parent->getChildren(),
             ]);
-        } elseif (true === $authChecker->isGranted('ROLE_STRUCTURE')) {
+        }
+        else
+        {
+            return $this->render('403/403.html.twig',[
+                'erreur' => 'ACCES INTERDIT'
+            ]);
+        }
+    }
+
+    /**
+     * @Route("/structures/profil", name="profilstructure")
+     */
+    public function profilstructure(AuthorizationCheckerInterface $authChecker)
+    {
+        if (true === $authChecker->isGranted('ROLE_STRUCTURE'))
+        {
             $structure = $this->getUser();
 
-            return $this->render('profil/index.html.twig', [
-                'structure' => $structure,
+            return $this->render('profilStructures/profilstructure.html.twig',[
+                'controller_name' => 'Profil Structure',
+                'structure' => $structure
             ]);
-        } else {
-            return $this->render('403/403.html.twig', [
-                'erreur' => 'ACCES FORBIDEN'
+        }
+        else
+        {
+            return $this->render('403/403.html.twig',[
+                'erreur' => 'ACCES INTERDIT'
             ]);
         }
     }
