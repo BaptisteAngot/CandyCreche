@@ -6,6 +6,7 @@ use App\Entity\Child;
 use App\Entity\Disease;
 use App\Entity\Parents;
 use App\Entity\Structure;
+use App\Form\StructureType;
 use App\Repository\DiseaseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,28 +32,6 @@ class ProfilController extends AbstractController
                 'controller_name' => 'Profil',
                 'parents' => $parent,
                 'enfants' => $parent->getChildren(),
-            ]);
-        }
-        else
-        {
-            return $this->render('403/403.html.twig',[
-                'erreur' => 'ACCES INTERDIT'
-            ]);
-        }
-    }
-
-    /**
-     * @Route("/structures/profil", name="profilstructure")
-     */
-    public function profilstructure(AuthorizationCheckerInterface $authChecker)
-    {
-        if (true === $authChecker->isGranted('ROLE_STRUCTURE'))
-        {
-            $structure = $this->getUser();
-
-            return $this->render('profilStructures/profilstructure.html.twig',[
-                'controller_name' => 'Profil Structure',
-                'structure' => $structure
             ]);
         }
         else
@@ -126,5 +105,63 @@ class ProfilController extends AbstractController
                     ]);
                 }
         }
+    }
+
+    /**
+     * @Route("/structures/profil", name="profilstructure")
+     */
+    public function profilstructure(AuthorizationCheckerInterface $authChecker)
+    {
+        if (true === $authChecker->isGranted('ROLE_STRUCTURE'))
+        {
+            $structure = $this->getUser();
+
+            return $this->render('profilStructures/profilstructure.html.twig',[
+                'controller_name' => 'Profil Structure',
+                'structure' => $structure
+            ]);
+        }
+        else
+        {
+            return $this->render('403/403.html.twig',[
+                'erreur' => 'ACCES INTERDIT'
+            ]);
+        }
+    }
+
+    /**
+     * @Route("/structures/profil/edit", name="structure_edit", methods={"GET","POST"})
+     */
+    public function editStructure(Request $request): Response
+    {
+        $structure = $this->getUser();
+        $form = $this->createForm(StructureType::class, $structure);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('profilstructure');
+        }
+
+        return $this->render('profilStructures/edit.html.twig', [
+            'structure' => $structure,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/structures/profil/delete/{id}", name="structure_delete", methods={"DELETE"})
+     */
+    public function deleteStructure(Request $request, Structure $structure): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$structure->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $this->get('security.token_storage')->setToken(null);
+            $entityManager->remove($structure);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('accueil');
     }
 }
