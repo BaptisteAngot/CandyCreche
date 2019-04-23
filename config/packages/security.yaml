@@ -17,6 +17,9 @@ security:
         App\Entity\Parents:
             algorithm: bcrypt
             cost: 13
+        App\Entity\AuthorizeUser:
+            algorithm: bcrypt
+            cost: 13
     providers:
         parents:
             entity: { class: App\Entity\Parents, property: parents_mail}

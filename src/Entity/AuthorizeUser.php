@@ -1,14 +1,18 @@
 <?php
 
 namespace App\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AuthorizeUserRepository")
+ * @UniqueEntity(fields={"Authorize_login"}, message="There is already an account with this Authorize_login")
  */
-class AuthorizeUser
+class AuthorizeUser implements UserInterface
 {
+    private $roles;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -40,7 +44,27 @@ class AuthorizeUser
      * @ORM\ManyToOne(targetEntity="App\Entity\Structure", inversedBy="authorizeUsers")
      */
     private $relation;
+    public function __construct()
+    {
+        $this->Authorize_created_at = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+        $this->roles = array('ROLE_AUTHO');
+    }
+    public function getUsername()
+    {
+        return $this->Authorize_login;
+    }
 
+    public function getPassword()
+    {
+        return $this->Authorize_password;
+    }
+
+    public function getSalt()
+    {
+        // The bcrypt and argon2i algorithms don't require a separate salt.
+        // You *may* need a real salt if you choose a different encoder.
+        return null;
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -93,7 +117,13 @@ class AuthorizeUser
 
         return $this;
     }
-
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+    public function eraseCredentials()
+    {
+    }
     public function __toString()
     {
         return strval($this->id);
