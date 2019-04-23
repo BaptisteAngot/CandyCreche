@@ -19,11 +19,29 @@ class ProfilController extends AbstractController
     /**
      * @Route("/profil", name="profil")
      */
-    public function index(AuthorizationCheckerInterface $authChecker)
+    public function index(AuthorizationCheckerInterface $authChecker, Child $kinder)
     {
         if (true === $authChecker->isGranted('ROLE_PARENT'))
         {
             $parent = $this->getUser();
+            $child=$parent->getChildren();
+            //$child->getDiseases();
+            /*
+            echo '<pre>';
+            \Doctrine\Common\Util\Debug::dump($parent);
+            echo '</pre>';*/
+
+            //code nouaedra
+            $enfants = $this->getUser()->getChildren();
+            $i = 0;
+
+            while ($enfants[$i] != Null) {
+                echo '<pre>';
+                \Doctrine\Common\Util\Debug::dump($enfants[$i]);
+                echo '</pre>';
+                $i++;
+            }
+            //code nouaedra
 
             return $this->render('profilParents/profilParents.html.twig', [
                 'controller_name' => 'Profil',
@@ -72,9 +90,12 @@ class ProfilController extends AbstractController
     /**
      * @Route("/profil/delete/{id}", name="parents_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Parents $parent): Response
+    public function delete(Request $request, Parents $parent, Child $child): Response
     {
         if ($this->isCsrfTokenValid('delete' . $parent->getId(), $request->request->get('_token'))) {
+            $child=$parent->getChildren();
+            $child->getDiseases();
+            \Doctrine\Common\Util\Debug::dump($parent);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($parent);
             $entityManager->flush();
@@ -83,4 +104,6 @@ class ProfilController extends AbstractController
 
         return $this->redirectToRoute('accueil');
     }
+
+
 }

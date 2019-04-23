@@ -7,9 +7,13 @@
     {{ form_start(registrationForm) }}
 
     {{ form_row(registrationForm.parentsMail) }}
+    {{ form_errors(registrationForm.parentsMail) }}
     {{ form_row(registrationForm.parentsName) }}
+    {{ form_errors(registrationForm.parentsName) }}
     {{ form_row(registrationForm.parentsFirstname) }}
+    {{ form_errors(registrationForm.parentsFirstname) }}
     {{ form_row(registrationForm.parentsPassword) }}
+    {{ form_errors(registrationForm.parentsPassword) }}
 
 
     <input type="submit" value="Register">
