@@ -54,8 +54,9 @@ class CalendarListener
              */
 
             $bookingEvent->setOptions([
-                'backgroundColor' => 'red',
-                'borderColor' => 'red',
+                'backgroundColor' => 'rgb(255, 220, 150)',
+                'borderColor' => 'rgb(255, 220, 150)',
+                'textColor' => '#222222',
             ]);
             $bookingEvent->addOption(
                 'url',
