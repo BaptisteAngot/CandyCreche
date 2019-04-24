@@ -29,28 +29,33 @@ class PivotChildStructureController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $child = $pivotChildStructure->getPivotIdChild()->getId();
+            $user = $this->getUser()->getChildren();
+            $child = $pivotChildStructure->getPivotIdChild();
             $structureId = $structure->getId();
 
-            $entityManager = $this->getDoctrine()->getManager();
+            if (true === $user->contains($child)) {
+                $child = $pivotChildStructure->getPivotIdChild()->getId();
 
-            $RAW_QUERY = 'SELECT * FROM pivot_child_structure 
+                $entityManager = $this->getDoctrine()->getManager();
+
+                $RAW_QUERY = 'SELECT * FROM pivot_child_structure 
 inner join pivot_child_structure_structure 
 on pivot_child_structure.id = pivot_child_structure_structure.pivot_child_structure_id 
 where pivot_child_structure.pivot_id_child_id = :child 
 and pivot_child_structure_structure.structure_id = :structure;';
 
-            $statement = $entityManager->getConnection()->prepare($RAW_QUERY);
-            $statement -> bindValue(':child', $child);
-            $statement -> bindValue(':structure', $structureId);
-            $statement->execute();
-            $result = $statement->fetchAll();
+                $statement = $entityManager->getConnection()->prepare($RAW_QUERY);
+                $statement->bindValue(':child', $child);
+                $statement->bindValue(':structure', $structureId);
+                $statement->execute();
+                $result = $statement->fetchAll();
 
-            if (empty($result)){
+                if (empty($result)) {
 
-                $pivotChildStructure->addPivotIdStructure($structure);
-                $entityManager->persist($pivotChildStructure);
-                $entityManager->flush();
+                    $pivotChildStructure->addPivotIdStructure($structure);
+                    $entityManager->persist($pivotChildStructure);
+                    $entityManager->flush();
+                }
             }
             return $this->redirectToRoute('liste');
         }
