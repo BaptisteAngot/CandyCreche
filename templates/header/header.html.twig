@@ -9,7 +9,9 @@
                         <li><a href="#">Qui sommes-nous ?</a></li>
                         <li><a href="#parallax-two-parents">Espace Parents</a></li>
                         <li><a href="#parallax-two-entreprises">Espace Entreprises</a></li>
-                        <li><a href="{{ path('structurelogout') }}">Logout</a></li>
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <li><a href="{{ path('structurelogout') }}">Logout</a></li>
+                        {% endif %}
                     </ul>
                 </div>
                 <span class="navTrigger">
