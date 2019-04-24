@@ -96,7 +96,7 @@ class ProfilController extends AbstractController
      */
     public function deleteParent(Request $request, Parents $parent, TokenStorageInterface $tokenStorage, AuthorizationCheckerInterface $authChecker): Response
     {
-        if (true === $authChecker->isGranted('ROLE_PARENT')) {
+        if (true === $authChecker->isGranted('')) {
                 if ($this->isCsrfTokenValid('delete' . $parent->getId(), $request->request->get('_token'))) {
                     $entityManager = $this->getDoctrine()->getManager();
 
