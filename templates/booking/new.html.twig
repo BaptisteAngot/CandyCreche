@@ -4,11 +4,12 @@
 
 {% block body %}
     <div class="imagedefond">
-    <h1>Nouvel évènement</h1>
-
+    <h1>Nouveau congé</h1>
+    <div class="centrer">
     {{ include('booking/_form.html.twig') }}
 
     <a class="btn-retreat" href="{{ path('booking_index') }}">Retour à la liste</a>
+    </div>
         <div class="clear"></div>
     </div>
 {% endblock %}

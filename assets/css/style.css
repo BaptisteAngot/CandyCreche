@@ -1237,8 +1237,33 @@ body {
     box-shadow: 0px 0px 25px black;
     width: 12.5%;
     padding: 10px;
-    vertical-align:middle;
-    bottom: 50px;
+
+}
+
+#booking_beginAt, #booking_endAt, #booking_title{
+    padding: 5px;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 7px;
+}
+
+#booking select:focus{
+    outline:none;
+}
+
+.centrer{
+    vertical-align: middle;
+    top: 20vh;
+    position: relative;
+}
+
+.centrer1{
+    vertical-align: middle;
+    top: 5vh;
+    position: relative;
 }
 
 .btn-retreat{
@@ -1258,9 +1283,6 @@ body {
     margin-right: 7px;
     font: inherit;
     cursor: pointer;
-    &:last-child{
-        margin-right: 0;
-     }
 }
 
 .btn-ff:hover{

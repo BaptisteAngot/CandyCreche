@@ -5,21 +5,21 @@
 {% block body %}
     <div class="imagedefond">
     <h1>Liste des vacances</h1>
-
+        <div class="centrer1">
     <table class="table">
         <thead>
             <tr>
                 <th>Commence le:</th>
                 <th>Fini le:</th>
-                <th>Vacances de:</th>
+                <th>Congé de:</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for booking in bookings %}
             <tr>
-                <td>{{ booking.beginAt ? booking.beginAt|date('d-m-Y H:i') : '' }}</td>
-                <td>{{ booking.endAt ? booking.endAt|date('d-m-Y H:i') : '' }}</td>
+                <td>{{ booking.beginAt ? booking.beginAt|date('d-m-Y') : '' }}</td>
+                <td>{{ booking.endAt ? booking.endAt|date('d-m-Y') : '' }}</td>
                 <td>{{ booking.title }}</td>
                 <td>
                     <a href="{{ path('booking_show', {'id': booking.id}) }}">Voir</a>
@@ -34,7 +34,8 @@
         </tbody>
     </table>
 
-    <a class="btn-retreat" href="{{ path('booking_new') }}">Nouvel évènement</a>
+    <a class="btn-retreat" href="{{ path('booking_new') }}">Nouveau congé</a>
+        </div>
         <div class="clear"></div>
     </div>
 {% endblock %}
