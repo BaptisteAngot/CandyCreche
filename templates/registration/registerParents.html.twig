@@ -7,6 +7,15 @@
     <div class="wrap_register">
         {{ form_start(registrationForm) }}
 
+    {{ form_row(registrationForm.parentsMail) }}
+    {{ form_errors(registrationForm.parentsMail) }}
+    {{ form_row(registrationForm.parentsName) }}
+    {{ form_errors(registrationForm.parentsName) }}
+    {{ form_row(registrationForm.parentsFirstname) }}
+    {{ form_errors(registrationForm.parentsFirstname) }}
+    {{ form_row(registrationForm.parentsPassword) }}
+    {{ form_errors(registrationForm.parentsPassword) }}
+
         <h1 class="register_form_h1">Inscription <br> Espace Parents</h1>
 
         <div class="register_form_mail">
