@@ -17,12 +17,16 @@ security:
         App\Entity\Parents:
             algorithm: bcrypt
             cost: 13
+        App\Entity\AuthorizeUser:
+            algorithm: bcrypt
+            cost: 13
     providers:
         parents:
             entity: { class: App\Entity\Parents, property: parents_mail}
         structures:
             entity: { class: App\Entity\Structure, property: structure_mail}
-
+        authorize:
+            entity: { class: App\Entity\AuthorizeUser, property: Authorize_login}
     firewalls:
 #        dev:
 #            pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -54,8 +58,14 @@ security:
             logout:
                 path: structurelogout
                 target: /
-
-
+        AuthorizeUser:
+            pattern: ^/authorize/
+            provider: authorize
+            anonymous: true
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthorizeAuthenticator
+#                entry_point: App\Security\LoginFromAuthorizeAuthenticator
             # activate different ways to authenticate
 
             # http_basic: true
