@@ -20,7 +20,7 @@ body {
 
 .block {
     width: 100%;
-    height: 65px;
+    height: 49px;
 }
 
 /***********************Navbar********Logo/Menu*******************************/
@@ -649,34 +649,49 @@ body {
     padding-bottom: 30%;
 }
 
-
 /************************************profilParents************************************************************/
-
-
-#image_nom {
-    background-image: url('../img/6.jpg');
+.image_nom {
+    background-image: linear-gradient(to right bottom, rgba(255, 220, 150, 0.8), rgba(255, 220, 150, 0.2)), url('../img/6.jpg');
     background-position: bottom;
     width: 100%;
-    padding: 6%;
+    padding: 7%;
 }
 
-.img_profil {
-    background-image: url('../img/profil_parents.jpeg');
-    background-position: center;
+.img_profil h2 {
+    text-align: center;
     margin: 0 auto;
-    box-sizing: border-box;
-    height: 200px;
-    width: 200px;
-    border: 2px solid white;
-    border-radius: 50%;
-    box-shadow: 0px 0px 5px black;
-    transition: 0.3s;
-    margin-top: 50px;
+    width: 700px;
+    font-size: 10em;
+    color: white;
+    margin-bottom: 80px;
 }
 
-.img_profil:hover {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
+.add-child {
+    text-align: center;
+    padding: 2%;
+}
+
+.add-child a {
+    margin-top: 50px;
+    background-color:  #7abaff;
+    font-size: 2em;
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 20px 40px 20px 40px;
+    border-radius: 50px;
+}
+
+.edit-profil {
+    text-align: center;
+    margin-top: 75px;
+}
+
+.edit-profil a {
+    background-color:#7abaff;
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 2%;
+    border-radius: 50px;
 }
 
 #info_Parents {
@@ -686,24 +701,26 @@ body {
 .div_info {
     float: left;
     box-sizing: border-box;
-    margin: 0 0.6%;
     height: 100%;
-    min-height: 400px;
-    width: 32%;
+    min-height: 300px;
+    width: 28%;
     min-width: 140px;
-    padding: 10px;
-    margin-top: 50px;
-    margin-bottom: 2%;
-    background-color: white;
-    font-size: 1.5em;
+    margin: 50px;
+    font-size: 1.3em;
 }
 
 #info_Parents h2 {
-    margin-top: 30px;
-    margin-bottom: 20px;
-    height: 50px;
     text-align: center;
+    background-color: #7abaff;
     font-size: 2em;
+    padding: 5%;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.info_child a {
+    text-decoration: none;
+    color: dodgerblue;
 }
 
 #info_Parents p {
@@ -755,20 +772,6 @@ body {
 #info_Entreprise p {
     margin-left: 5px;
     margin-top: 25px;
-}
-
-.div_info hr {
-    width: 30%;
-    transition: 0.25s;
-    background-color: white;
-    border: none;
-    border-bottom: 1px solid black;
-    margin: 0 auto;
-}
-
-.div_info:hover > hr {
-    width: 80%;
-    transition: 0.25s;
 }
 
 .update_info:active {
@@ -830,16 +833,16 @@ body {
 }
 
 .img_structure img:hover {
-     transition: 0.5s;
-     box-shadow: none;
-     border-radius: 10%;
- }
+    transition: 0.5s;
+    box-shadow: none;
+    border-radius: 10%;
+}
 
 .titre_crèche {
     text-align: center;
     font-weight: bold;
     font-size: 2em;
-    width:50%;
+    width: 50%;
     margin: 0 auto;
     padding: 15px;
     border: 2px solid #222;
@@ -854,7 +857,7 @@ body {
     padding: 10px;
     text-align: justify;
     font-size: 1.3em;
-    padding:15px;
+    padding: 15px;
 }
 
 .voir_la_page a {
@@ -882,7 +885,7 @@ body {
 .txtPlaces {
     font-size: 1.5em;
     text-align: center;
-    width:100%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -1216,15 +1219,38 @@ body {
 
 }
 
-.parentsMail label { font-size: 0; }
-.parentsMail label:before { content: "Adresse Mail"; font-size: 20px; }
-.parentsMail input:placeholder { content: "Adresse Mail"; font-size: 20px; color: black;}
-.parentsName label { font-size: 0; }
-.parentsName label:before { content: "Nom de famille"; font-size: 20px; }
-.parentsFirstname label { font-size: 0; }
-.parentsFirstname label:before { content: "Prénom d'un parent"; font-size: 20px; }
+.parentsMail label {
+    font-size: 0;
+}
 
+.parentsMail label:before {
+    content: "Adresse Mail";
+    font-size: 20px;
+}
 
+.parentsMail input:placeholder {
+    content: "Adresse Mail";
+    font-size: 20px;
+    color: black;
+}
+
+.parentsName label {
+    font-size: 0;
+}
+
+.parentsName label:before {
+    content: "Nom de famille";
+    font-size: 20px;
+}
+
+.parentsFirstname label {
+    font-size: 0;
+}
+
+.parentsFirstname label:before {
+    content: "Prénom d'un parent";
+    font-size: 20px;
+}
 
 .wrap_register_stucture {
     max-width: 1200px;
@@ -1251,7 +1277,6 @@ body {
     transition: 0.5s;
 }
 
-
 .wrap_register form {
     width: 40%;
     height: 100%;
@@ -1276,6 +1301,7 @@ body {
     color: white;
     margin-top: 5%;
 }
+
 .register_form_mail_box1 {
     float: left;
     width: 45%;
@@ -1285,14 +1311,14 @@ body {
 }
 
 .register_form_mail_box1 input {
-     width: 100%;
-     border: 2px solid;
-     border-color: transparent;
-     float: right;
-     padding: 15px 20px;
-     border-radius: 25px;
-     margin: 4% 0 4% 0;
- }
+    width: 100%;
+    border: 2px solid;
+    border-color: transparent;
+    float: right;
+    padding: 15px 20px;
+    border-radius: 25px;
+    margin: 4% 0 4% 0;
+}
 
 .register_form_mail_box1 input:focus {
     border: 2px solid;
@@ -1321,8 +1347,6 @@ body {
     border: 2px solid;
     border-color: #7abaff;
 }
-
-
 
 .register_form_mail input {
     width: 100%;
@@ -1488,26 +1512,29 @@ body {
         width: 100%;
     }
 
-    .wrap_register form{
+    .wrap_register form {
         transition: 0.5s;
         width: 100%;
     }
-    .wrap_register_stucture form{
+
+    .wrap_register_stucture form {
         transition: 0.5s;
         width: 100%;
     }
+
     .register_form_mail_box1 {
         font-size: 1.5em;
     }
+
     .register_form_mail_box2 {
         font-size: 1.5em;
     }
 
 }
+
 /********************************************Forms Twig*********************************************/
 
-.formWidget_boite
-{
+.formWidget_boite {
     float: left;
     margin-left: 25%;
     border: #000000 solid 1px;
@@ -1516,8 +1543,7 @@ body {
     margin-bottom: 50px;
 }
 
-.formWidget_boite input
-{
+.formWidget_boite input {
     margin-bottom: 15px;
     margin-left: 25%;
     border-radius: 50px;
@@ -1526,11 +1552,101 @@ body {
     width: 50%;
 }
 
-/*.required*/
-/*{*/
-/*    display: flex;*/
-/*    margin-bottom: 15px;*/
-/*    font-size: 2em;*/
-/*    margin-left: 25%;*/
-/*}*/
+/********************************************add_child************************************************/
+.fond-child {
+    width: 100%;
+    height: 75vh;
+}
 
+.child {
+    width: 400px;
+    margin: 16px auto;
+    font-size: 16px;
+}
+
+.child-header,
+.child p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.child-triangle {
+    width: 0;
+    margin-right: auto;
+    margin-left: auto;
+    border: 12px solid transparent;
+    border-bottom-color: #28d;
+}
+
+.child-header {
+    background: #28d;
+    padding: 20px;
+    font-size: 1.4em;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.child-container {
+    background: #ebebeb;
+    padding: 12px;
+}
+
+/* Every row inside .login-container is defined with p tags */
+child p {
+    padding: 12px;
+}
+
+.child input {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    padding: 16px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em;
+}
+
+.child input[type="email"],
+.child input[type="password"] {
+    background: #fff;
+    border-color: #bbb;
+    color: #555;
+}
+
+/* Text fields' focus effect */
+.child input[type="email"]:focus,
+.child input[type="password"]:focus {
+    border-color: #888;
+}
+
+.child input[type="submit"] {
+    background: #28d;
+    border-color: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+
+.child input[type="submit"]:hover {
+    background: #17c;
+}
+
+/* Buttons' focus effect */
+.child input[type="submit"]:focus {
+    border-color: #05a;
+}
+
+.child-ref {
+    text-align: center;
+    background-color: #28d;
+    text-decoration: none;
+    padding: 5%;
+}
+
+.child-ref a {
+    text-decoration: none;
+    color: white;
+}
