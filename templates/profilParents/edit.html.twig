@@ -3,28 +3,33 @@
 {% block title %}Edit Parents{% endblock %}
 
 {% block body %}
-
-    <div class="fond">
-
-    <div class="formWidget_boite">
-
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <div class="hr"></div>
-        <button class="btn_modifInfo">{{ button_label|default('Modifier mes infos') }}</button>
-        {{ form_end(form) }}
-
-    </div>
-
-    <div class="clear"></div>
-
-        <form method="post" action="{{ path('parents_delete', {'id': parent.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-            <input type="hidden" name="_method" value="DELETE">
-            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ parent.id) }}">
-            <button class="btn_deleteInfo">Supprimer mon profil</button>
-        </form>
+    <div class="block"></div>
 
 
+    <div class="formulaire-child">
+        <div class="formulaire-child-triangle"></div>
+
+        <h2 class="formulaire-child-header">Modifier les informations</h2>
+
+        <div class="formulaire-child-container">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <div class="save">
+                <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+            </div>
+            {{ form_end(form) }}
+
+
+            <form method="post" action="{{ path('parents_delete', {'id': parent.id}) }}"
+                  onsubmit="return confirm('Êtes-vous sur de vouloir supprimer votre profil ?');">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ parent.id) }}">
+                <div class="save">
+                    <button class="btn">Supprimer mon profil</button>
+                </div>
+            </form>
+
+        </div>
     </div>
 
 {% endblock %}
