@@ -19,10 +19,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('booking_index') }}">Retour à la liste</a>
+    <a class="btn-end-table" href="{{ path('booking_index') }}">Retour à la liste</a>
 
     <a href="{{ path('booking_edit', {'id': booking.id}) }}">Modifier</a>
 
     {{ include('booking/_delete_form.html.twig') }}
+        <div class="clear"></div>
     </div>
 {% endblock %}

@@ -18,8 +18,8 @@
         <tbody>
         {% for booking in bookings %}
             <tr>
-                <td>{{ booking.beginAt ? booking.beginAt|date('d-m-Y H:i:s') : '' }}</td>
-                <td>{{ booking.endAt ? booking.endAt|date('d-m-Y H:i:s') : '' }}</td>
+                <td>{{ booking.beginAt ? booking.beginAt|date('d-m-Y H:i') : '' }}</td>
+                <td>{{ booking.endAt ? booking.endAt|date('d-m-Y H:i') : '' }}</td>
                 <td>{{ booking.title }}</td>
                 <td>
                     <a href="{{ path('booking_show', {'id': booking.id}) }}">Voir</a>
@@ -34,6 +34,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('booking_new') }}">Nouvel évènement</a>
+    <a class="btn-end-table" href="{{ path('booking_new') }}">Nouvel évènement</a>
+        <div class="clear"></div>
     </div>
 {% endblock %}
