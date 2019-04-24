@@ -1218,7 +1218,6 @@ body {
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
 
 }
-
 .parentsMail label {
     font-size: 0;
 }
@@ -1242,6 +1241,15 @@ body {
     content: "Nom de famille";
     font-size: 20px;
 }
+
+.parentsMail label { font-size: 0; }
+.parentsMail label:before { content: "Adresse Mail"; font-size: 20px; }
+.parentsMail input::placeholder { content: "Adresse Mail"; font-size: 20px; color: black;}
+.parentsName label { font-size: 0; }
+.parentsName label:before { content: "Nom de famille"; font-size: 20px; }
+.parentsFirstname label { font-size: 0; }
+.parentsFirstname label:before { content: "Prénom d'un parent"; font-size: 20px; }
+
 
 .parentsFirstname label {
     font-size: 0;
@@ -1536,117 +1544,22 @@ body {
 
 .formWidget_boite {
     float: left;
-    margin-left: 25%;
-    border: #000000 solid 1px;
-    width: 30%;
-    margin-top: 50px;
+    margin-left: 20%;
+    width: 60%;
+    margin-top: 100px;
     margin-bottom: 50px;
+    background: rgb(255,255,255);
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+    border-radius: 5px;
 }
 
 .formWidget_boite input {
     margin-bottom: 15px;
-    margin-left: 25%;
-    border-radius: 50px;
+    margin-left: 15%;
+    border-radius: 5px;
     height: 50px;
     border: solid 1px #000000;
-    width: 50%;
-}
-
-/********************************************add_child************************************************/
-.fond-child {
-    width: 100%;
-    height: 75vh;
-}
-
-.child {
-    width: 400px;
-    margin: 16px auto;
-    font-size: 16px;
-}
-
-.child-header,
-.child p {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.child-triangle {
-    width: 0;
-    margin-right: auto;
-    margin-left: auto;
-    border: 12px solid transparent;
-    border-bottom-color: #28d;
-}
-
-.child-header {
-    background: #28d;
-    padding: 20px;
-    font-size: 1.4em;
-    font-weight: normal;
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff;
-}
-
-.child-container {
-    background: #ebebeb;
-    padding: 12px;
-}
-
-/* Every row inside .login-container is defined with p tags */
-child p {
-    padding: 12px;
-}
-
-.child input {
-    box-sizing: border-box;
-    display: block;
-    width: 100%;
-    border-width: 1px;
-    border-style: solid;
-    padding: 16px;
-    outline: 0;
-    font-family: inherit;
-    font-size: 0.95em;
-}
-
-.child input[type="email"],
-.child input[type="password"] {
-    background: #fff;
-    border-color: #bbb;
-    color: #555;
-}
-
-/* Text fields' focus effect */
-.child input[type="email"]:focus,
-.child input[type="password"]:focus {
-    border-color: #888;
-}
-
-.child input[type="submit"] {
-    background: #28d;
-    border-color: transparent;
-    color: #fff;
-    cursor: pointer;
-}
-
-.child input[type="submit"]:hover {
-    background: #17c;
-}
-
-/* Buttons' focus effect */
-.child input[type="submit"]:focus {
-    border-color: #05a;
-}
-
-.child-ref {
-    text-align: center;
-    background-color: #28d;
-    text-decoration: none;
-    padding: 5%;
-}
-
-.child-ref a {
-    text-decoration: none;
-    color: white;
+    width: 70%;
+    padding-left: 10px;
+    background-color: #E8F0FE;
 }
