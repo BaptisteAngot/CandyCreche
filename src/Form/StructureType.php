@@ -12,17 +12,39 @@ class StructureType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('structure_name')
-            ->add('structure_location')
-            ->add('structure_city')
-            ->add('structure_zipcode')
-            ->add('structure_phone')
-            ->add('structure_type')
-            ->add('structure_siret')
-            ->add('structure_nbspace')
-            ->add('structure_typefood')
-            ->add('structure_mail')
-            ->add('description')
+            ->add('structure_name', null, [
+                'label' => 'Nom de votre structure'
+            ])
+            ->add('structure_location', null, [
+                'label' => 'Adresse'
+            ])
+            ->add('structure_city', null, [
+                'label' => 'Ville'
+            ])
+            ->add('structure_zipcode', null, [
+                'label' => 'Zipcode'
+            ])
+            ->add('structure_phone', null, [
+                'label' => 'Numéro de téléphone'
+            ])
+            ->add('structure_type', null, [
+                'label' => 'Type de structure'
+            ])
+            ->add('structure_siret', null, [
+                'label' => 'Numéro de siret'
+            ])
+            ->add('structure_nbspace', null, [
+                'label' => 'Nombre d\'espace'
+            ])
+            ->add('structure_typefood', null, [
+                'label' => 'Type de nourriture'
+            ])
+            ->add('structure_mail', null, [
+                'label' => 'Adresse email'
+            ])
+            ->add('description', null, [
+                'label' => 'Courte description'
+            ])
         ;
     }
 

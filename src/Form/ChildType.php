@@ -12,10 +12,18 @@ class ChildType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Child_name')
-            ->add('Child_firstname')
-            ->add('Child_years')
-            ->add('Child_Others')
+            ->add('Child_name', null, [
+                'label' => 'Nom de l\'enfant'
+            ])
+            ->add('Child_firstname', null, [
+                'label' => 'Prénom de l\'enfant'
+            ])
+            ->add('Child_years', null, [
+                'label' => 'Âge de l\'enfant'
+            ])
+            ->add('Child_Others', null, [
+                'label' => 'Autres informations'
+            ])
         ;
     }
 

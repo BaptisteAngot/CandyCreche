@@ -5,14 +5,18 @@
 {% block header %}{% endblock %}
 {% block body %}
     <div class="fond">
-        <section id="image_nom">
-            <div class="img_profil"></div>
-        </section>
+        <div class="image_nom_structure">
+            <div class="img_profil">
+                <h2>Profil Structure</h2>
+                <div class="add-child">
+                    <a href="{{ path('structure_edit') }}">Modifier mes informations</a>
+                </div>
+            </div>
+        </div>
 
         <section id="info_Parents">
             <div class="div_info">
-                <h2>Vos informations</h2>
-                <hr/>
+                <h2>Mes informations</h2>
                 <p>Nom de la structure: {{ structure.getStructureName }} </p>
                 <p>Description: {{ structure.getDescription }}</p>
                 <p>Adresse mail: {{ structure.getStructureMail }}</p>
@@ -22,13 +26,12 @@
             </div>
             <div class="div_info">
                 <h2>Localisation</h2>
-                <hr/>
                 <p>Ville : {{ structure.getStructureCity }}</p>
                 <p>Code postal: {{ structure.getStructureZipcode }}</p>
                 <p>Adresse: {{ structure.getStructureLocation }}</p>
             </div>
             <div class="clear"></div>
-            <a href="{{ path('structure_edit') }}">Modifier Informations</a>
         </section>
     </div>
 {% endblock %}
+

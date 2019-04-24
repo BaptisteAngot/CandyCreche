@@ -10,7 +10,7 @@
             <div class="img_profil">
                 <h2>Profil Parents</h2>
                 <div class="add-child">
-                    <a href="{{ path('child_index') }}">Ajouter Enfant</a>
+                    <a href="{{ path('child_index') }}">Ajouter un enfant</a>
                 </div>
             </div>
         </div>
@@ -34,13 +34,16 @@
                     <p>Âge: {{ enfant.childYears }}</p>
 
                     {% for maladie in enfant.diseases %}
+                    <div class="info_maladie">
                         <p>Maladie: {{ maladie.disease_name }}</p>
                         <div class="info_child">
-                            <a href="{{ path('disease_edit', {'id': maladie.id}) }}">Modifier maladie</a>
+                            <a href="{{ path('disease_edit', {'id': maladie.id}) }}">Modifier une maladie</a>
                         </div>
+                    </div>
                     {% endfor %}
+                    <div class="clear"></div>
                     <div class="info_child">
-                        <a href="{{ path('disease_index', {'id': enfant.id}) }}">Ajouter Maladie</a>
+                        <a href="{{ path('disease_index', {'id': enfant.id}) }}">Ajouter une maladie</a>
                     </div>
                     {% for allergie in enfant.allergies %}
                         <p>Allergie: {{ allergie.allergy_name }}</p>
@@ -50,7 +53,7 @@
                     {% endfor %}
                     <p>Info(s) complémentaire(s): {{ enfant.childOthers }}</p>
                     <div class="info_child">
-                        <a href="{{ path('child_edit', {'id': enfant.id}) }}">Modifier Informations</a>
+                        <a href="{{ path('child_edit', {'id': enfant.id}) }}">Modifier mes informations</a>
                     </div>
                 </div>
             {% endfor %}

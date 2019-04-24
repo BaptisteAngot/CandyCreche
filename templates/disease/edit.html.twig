@@ -3,7 +3,20 @@
 {% block title %}Edit Disease{% endblock %}
 
 {% block body %}
-        {{ include('disease/_form.html.twig', {'button_label': 'Enregistrer modifications'}) }}
-        {{ include('disease/_delete_form.html.twig') }}
-    <a href="{{ path('profil') }}">back to list</a>
+    <div class="block"></div>
+
+
+    <div class="formulaire-child">
+        <div class="formulaire-child-triangle"></div>
+
+        <h2 class="formulaire-child-header">Modifier une maladie</h2>
+
+        <div class="formulaire-child-container">
+            {{ include('disease/_form.html.twig', {'button_label': 'Enregistrer modifications'}) }}
+            {{ include('disease/_delete_form.html.twig') }}
+            <div class="formulaire-child-button">
+                <a href="{{ path('profil') }}">&#9664; Revenir au profil</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
