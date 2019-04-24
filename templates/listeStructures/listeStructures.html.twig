@@ -4,7 +4,6 @@
 
 {% block header %}{% endblock %}
 {% block body %}
-
     <div class="block"></div>
     <div class="fond_liste_structures">
         {% for structure in structures %}
@@ -34,9 +33,11 @@
                         <p class="txtPlaces">Place total :</p>
                         <p class="places">{{ structure.getStructureNbspace }}</p>
                         <div class="clear"></div>
+                        <a href="{{ path('inscrireEnfant', {'id': structure.id}) }}">Inscrire mon enfant</a>
                     </div>
                 </div>
             </div>
+
         </div>
     {% endfor %}
     </div> {#<div class="fond_liste_structures"></div>#}

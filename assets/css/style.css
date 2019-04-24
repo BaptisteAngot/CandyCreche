@@ -1254,24 +1254,13 @@ body {
     font-size: 20px;
 }
 
-.parentsMail label {
-    font-size: 0;
-}
-
-.parentsMail label:before {
-    content: "Adresse Mail";
-    font-size: 20px;
-}
-
-.parentsMail input::placeholder {
-    content: "Adresse Mail";
-    font-size: 20px;
-    color: black;
-}
-
-.parentsName label {
-    font-size: 0;
-}
+.parentsMail label { font-size: 0; }
+.parentsMail label:before { content: "Adresse Mail"; font-size: 20px; }
+.parentsMail input::placeholder { content: "Adresse Mail"; font-size: 20px; color: black;}
+.parentsName label { font-size: 0; }
+.parentsName label::before { content: "Nom de famille"; font-size: 20px; }
+.parentsFirstname label { font-size: 0; }
+.parentsFirstname label::before { content: "Prénom d'un parent"; font-size: 20px; }
 
 .parentsName label:before {
     content: "Nom de famille";
@@ -1298,13 +1287,11 @@ body {
 
 .wrap_register_stucture {
     max-width: 1200px;
-    margin: 0 auto;
     background-image: url("../img/13.jpg");
     background-position: bottom;
     background-size: cover;
     height: 950px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px auto;
     -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
