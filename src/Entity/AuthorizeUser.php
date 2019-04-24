@@ -11,6 +11,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class AuthorizeUser implements UserInterface
 {
+    /**
+     * @ORM\Column(type="json")
+     */
     private $roles;
 
     /**
