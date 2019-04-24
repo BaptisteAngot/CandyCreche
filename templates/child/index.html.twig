@@ -4,7 +4,18 @@
 
 {% block body %}
 
-    {{ include('child/_form.html.twig') }}
+    <div class="block"></div>
 
-    <a href="{{ path('child_index') }}">back to list</a>
+    <div class="fond-child">
+        <div class="child">
+            <div class="child-triangle"></div>
+
+            <h2 class="child-header">Ajouter une enfant</h2>
+
+                <p>{{ include('child/_form.html.twig') }}</p>
+                <div class="child-ref">
+                    <a href="{{ path('profil') }}">Retourner à la page profil parent</a>
+                </div>
+        </div>
+    </div>
 {% endblock %}
