@@ -1185,7 +1185,9 @@ body {
 .imagedefond{
     background-image: linear-gradient(to right top, rgba(255, 220, 150, 0.7), rgba(255, 220, 200, 0.3)), url("../img/9.jpg");
     padding:2%;
-    font-size: 2em;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 1.5em;
 }
 
 .imagedefond h1{
@@ -1193,31 +1195,12 @@ body {
 }
 
 .calendarjs {
-    max-width: 50%;
+    width: 50%;
     text-align: center;
-    margin: 0 auto;
     background-color: #ffffffcc;
     padding: 7px;
     border-radius: 3px;
-}
-
-.bouton_rajout{
-    float: right;
-    background-color: rgb(44, 62, 80);
-    padding: 10px;
-    border-radius: 3px;
-    font-family: inherit;
-    display: inline-block;
-    font-weight: 400;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    margin-right: 7%;
-    font-size: 1vw;
-}
-
-.bouton_rajout:hover{
-    background-color: rgb(26, 37, 47);
+    margin: 0 auto;
 }
 
 .imagedefond a{
@@ -1233,19 +1216,47 @@ body {
 }
 
 .table{
-    padding: 20%;
     text-align: center;
     background-color: #ffffff99;
     margin: 0 auto;
+    border: 5px solid rgb(255, 220, 150);
+    box-shadow: 0px 0px 25px black;
 }
 
-.table td{
+.table:hover {
+    border: 0px solid rgb(255, 220, 150);
+    transition: ease 1.5;
+    transform: scale(1.05);
+}
+
+.table th, td{
     padding:15px;
+    padding-bottom: 20px;
 }
 
-.btn-end-table{
+.btn-retreat{
     float: right;
     font-size: 1.5em;
     margin-right: auto;
+}
+
+.btn-ff{
+    float: left;
+    text-decoration: none;
+    background-color: rgb(44, 62, 80);
+    color: white;
+    padding: 7px;
+    border-radius: 3px;
+    border: none;
+    margin-right: 7px;
+    font: inherit;
+    cursor: pointer;
+    &:last-child{
+        margin-right: 0;
+     }
+}
+
+.btn-ff:hover{
+    background-color: rgb(26, 37, 47);
 }
 
