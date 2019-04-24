@@ -13,7 +13,7 @@ body {
 }
 
 .wrap {
-    max-width: 1000px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 }
@@ -603,7 +603,6 @@ body {
 .copyright {
     font-size: 1.3em;
     color: black;
-    font-weight: bold;
     width: 100%;
     padding: 1%;
     text-align: center;
@@ -1527,11 +1526,11 @@ body {
     width: 50%;
 }
 
-.required
-{
-    display: flex;
-    margin-bottom: 15px;
-    font-size: 2em;
-    margin-left: 25%;
-}
+/*.required*/
+/*{*/
+/*    display: flex;*/
+/*    margin-bottom: 15px;*/
+/*    font-size: 2em;*/
+/*    margin-left: 25%;*/
+/*}*/
 
