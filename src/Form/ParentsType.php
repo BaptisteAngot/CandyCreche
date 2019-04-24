@@ -12,10 +12,9 @@ class ParentsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('parents_name')
+            ->add('parents_name'/*, ['label' => 'Create Post']*/)
             ->add('parents_firstname')
             ->add('parents_mail')
-            ->add('parents_password')
         ;
     }
 

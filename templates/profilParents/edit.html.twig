@@ -10,25 +10,20 @@
 
         {{ form_start(form) }}
         {{ form_widget(form) }}
-        <button class="btn_modifInfo">{{ button_label|default('Mofifier mes infos') }}</button>
+        <div class="hr"></div>
+        <button class="btn_modifInfo">{{ button_label|default('Modifier mes infos') }}</button>
         {{ form_end(form) }}
 
+    </div>
+
+    <div class="clear"></div>
 
         <form method="post" action="{{ path('parents_delete', {'id': parent.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
             <input type="hidden" name="_method" value="DELETE">
             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ parent.id) }}">
-            <button class="btn_deleteInfo">Delete</button>
+            <button class="btn_deleteInfo">Supprimer mon profil</button>
         </form>
 
-    </div>
-
-    <form method="post" action="{{ path('parents_delete', {'id': parent.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ parent.id) }}">
-        <button class="btn">Delete</button>
-    </form>
-
-    <div class="clear"></div>
 
     </div>
 

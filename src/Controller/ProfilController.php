@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Controller;
-
 use App\Entity\Child;
 use App\Entity\Disease;
 use App\Entity\Parents;
@@ -16,36 +14,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
-
 class ProfilController extends AbstractController
 {
     /**
      * @Route("/parents/profil", name="profil")
      */
-    public function index(AuthorizationCheckerInterface $authChecker, Child $kinder)
+    public function index(AuthorizationCheckerInterface $authChecker)
     {
         if (true === $authChecker->isGranted('ROLE_PARENT'))
         {
             $parent = $this->getUser();
-            $child=$parent->getChildren();
-            //$child->getDiseases();
-            /*
-            echo '<pre>';
-            \Doctrine\Common\Util\Debug::dump($parent);
-            echo '</pre>';*/
-
-            //code nouaedra
-            $enfants = $this->getUser()->getChildren();
-            $i = 0;
-
-            while ($enfants[$i] != Null) {
-                echo '<pre>';
-                \Doctrine\Common\Util\Debug::dump($enfants[$i]);
-                echo '</pre>';
-                $i++;
-            }
-            //code nouaedra
-
             return $this->render('profilParents/profilParents.html.twig', [
                 'controller_name' => 'Profil',
                 'parents' => $parent,
@@ -59,7 +37,6 @@ class ProfilController extends AbstractController
             ]);
         }
     }
-
     /**
      * @Route("/parents/profil/edit", name="parents_edit", methods={"GET","POST"})
      */
@@ -69,14 +46,11 @@ class ProfilController extends AbstractController
             $user = $this->getUser();
             $form = $this->createForm(ParentsType::class, $user);
             $form->handleRequest($request);
-
             if ($form->isSubmitted() && $form->isValid()) {
                 $user->setParentsUpdatedAt(new \DateTime('now'));
                 $this->getDoctrine()->getManager()->flush();
-
                 return $this->redirectToRoute('profil');
             }
-
             return $this->render('profilParents/edit.html.twig', [
                 'parent' => $user,
                 'form' => $form->createView(),
@@ -87,45 +61,37 @@ class ProfilController extends AbstractController
             ]);
         }
     }
-
     /**
      * @Route("/parents/profil/delete/{id}", name="parents_delete", methods={"DELETE"})
      */
-
     public function deleteParent(Request $request, Parents $parent, TokenStorageInterface $tokenStorage, AuthorizationCheckerInterface $authChecker): Response
     {
         if (true === $authChecker->isGranted('ROLE_PARENT')) {
-                if ($this->isCsrfTokenValid('delete' . $parent->getId(), $request->request->get('_token'))) {
-                    $entityManager = $this->getDoctrine()->getManager();
-
-                    $enfants = $this->getUser()->getChildren();
-                    $i = 0;
-
-                    while ($enfants[$i] != Null) {
-                        $o = 0;
-                        $maladie = $enfants[$i]->getDiseases();
-
-                        while ($maladie[$o] != Null) {
-                            $entityManager->remove($maladie[$o]);
-                            $o++;
-                        }
-                        $entityManager->remove($enfants[$i]);
-                        $i++;
+            if ($this->isCsrfTokenValid('delete' . $parent->getId(), $request->request->get('_token'))) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $enfants = $this->getUser()->getChildren();
+                $i = 0;
+                while ($enfants[$i] != Null) {
+                    $o = 0;
+                    $maladie = $enfants[$i]->getDiseases();
+                    while ($maladie[$o] != Null) {
+                        $entityManager->remove($maladie[$o]);
+                        $o++;
                     }
-
-                    $this->get('security.token_storage')->setToken(null);
-                    $entityManager->remove($parent);
-                    $entityManager->flush();
-
-                    return $this->redirectToRoute('accueil');
-                } else {
-                    return $this->render('403/403.html.twig', [
-                        'erreur' => 'ACCES FORBIDEN'
-                    ]);
+                    $entityManager->remove($enfants[$i]);
+                    $i++;
                 }
+                $this->get('security.token_storage')->setToken(null);
+                $entityManager->remove($parent);
+                $entityManager->flush();
+                return $this->redirectToRoute('accueil');
+            } else {
+                return $this->render('403/403.html.twig', [
+                    'erreur' => 'ACCES FORBIDEN'
+                ]);
+            }
         }
     }
-
     /**
      * @Route("/structures/profil", name="profilstructure")
      */
@@ -134,7 +100,6 @@ class ProfilController extends AbstractController
         if (true === $authChecker->isGranted('ROLE_STRUCTURE'))
         {
             $structure = $this->getUser();
-
             return $this->render('profilStructures/profilstructure.html.twig',[
                 'controller_name' => 'Profil Structure',
                 'structure' => $structure
@@ -147,7 +112,6 @@ class ProfilController extends AbstractController
             ]);
         }
     }
-
     /**
      * @Route("/structures/profil/edit", name="structure_edit", methods={"GET","POST"})
      */
@@ -156,19 +120,15 @@ class ProfilController extends AbstractController
         $structure = $this->getUser();
         $form = $this->createForm(StructureType::class, $structure);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('profilstructure');
         }
-
         return $this->render('profilStructures/edit.html.twig', [
             'structure' => $structure,
             'form' => $form->createView(),
         ]);
     }
-
     /**
      * @Route("/structures/profil/delete/{id}", name="structure_delete", methods={"DELETE"})
      */
@@ -180,7 +140,6 @@ class ProfilController extends AbstractController
             $entityManager->remove($structure);
             $entityManager->flush();
         }
-
         return $this->redirectToRoute('accueil');
     }
 }
