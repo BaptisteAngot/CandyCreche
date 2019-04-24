@@ -3,8 +3,14 @@
 {% block title %}New Child{% endblock %}
 
 {% block body %}
-
+    <style>
+        .x {
+            padding: 100px;
+        }
+    </style>
+    <div class="x">
     {{ include('child/_form.html.twig') }}
 
     <a href="{{ path('child_index') }}">back to list</a>
+    </div>
 {% endblock %}
