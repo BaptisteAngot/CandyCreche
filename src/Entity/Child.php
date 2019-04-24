@@ -177,13 +177,6 @@ class Child
         return $this;
     }
 
-    public function setChildIdParentId(?Parents $Child_id_parent): self
-    {
-        $this->Child_id_parent = $Child_id_parent;
-
-        return $this;
-    }
-
 
     /**
      * @return Collection|Disease[]

@@ -1,5 +1,15 @@
 security:
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers.
+
+    #        chain_provider:
+    #            chain:
+    #                providers: [parents, structure]
+    #        structure:
+    #            entity: { class: App\Entity\Structure, property: structure_mail}
+    ##        users:
+    ##            entity:
+    ##                class: 'App\Entity\Parents'
+    ##                property: 'parents_mail'
     encoders:
         App\Entity\Structure:
             algorithm: bcrypt
@@ -7,26 +17,55 @@ security:
         App\Entity\Parents:
             algorithm: bcrypt
             cost: 13
+        App\Entity\AuthorizeUser:
+            algorithm: bcrypt
+            cost: 13
     providers:
-        users:
-            entity:
-                class: 'App\Entity\Parents'
-                property: 'parents_mail'
+        parents:
+            entity: { class: App\Entity\Parents, property: parents_mail}
+        structures:
+            entity: { class: App\Entity\Structure, property: structure_mail}
+        authorize:
+            entity: { class: App\Entity\AuthorizeUser, property: Authorize_login}
     firewalls:
-        dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-        main:
+#        dev:
+#            pattern: ^/(_(profiler|wdt)|css|images|js)/
+#            security: false
+        parents:
+            pattern: ^/parents/
             anonymous: true
+            provider: parents
             guard:
                 authenticators:
                     - App\Security\LoginFormAuthenticator
+            form_login:
+                login_path: /parents/login_parents
+                check_path: /parents/login_parents
+            logout:
+                path: parentslogout
+                target: /
+        structures:
+            pattern: ^/structures/
+            provider: structures
+            anonymous: true
+            guard:
+                authenticators:
                     - App\Security\LoginFromStructureAuthenticator
                 entry_point: App\Security\LoginFromStructureAuthenticator
+            form_login:
+                login_path: /structures/login_structure
+                check_path: /structures/login_structure
             logout:
-                path: /logout
+                path: structurelogout
                 target: /
-
+        AuthorizeUser:
+            pattern: ^/authorize/
+            provider: authorize
+            anonymous: true
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthorizeAuthenticator
+#                entry_point: App\Security\LoginFromAuthorizeAuthenticator
             # activate different ways to authenticate
 
             # http_basic: true

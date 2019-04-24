@@ -13,7 +13,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class RegistrationStructureController extends AbstractController
 {
     /**
-     * @Route("/register_structure", name="app_register_structure")
+     * @Route("structures/register_structure", name="app_register_structure")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
@@ -36,7 +36,7 @@ class RegistrationStructureController extends AbstractController
 
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('accueil');
+            return $this->redirectToRoute('app_login_structure');
         }
 
         return $this->render('registration/registerStructure.html.twig', [

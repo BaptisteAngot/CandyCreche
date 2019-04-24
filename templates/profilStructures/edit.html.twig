@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Structure{% endblock %}
+
+{% block body %}
+
+
+    <div class="block"></div>
+
+
+    <div class="formulaire-child">
+        <div class="formulaire-child-triangle"></div>
+
+        <h2 class="formulaire-child-header">Modifier mes informations</h2>
+
+        <div class="formulaire-child-container">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <div class="save">
+                <button class="btn_modifInfo">{{ button_label|default('Modifier mes informations') }}</button>
+            </div>
+            <div class="formulaire-child-button">
+                <a href="{{ path('profilstructure') }}">&#9664; Revenir au profil</a>
+            </div>
+            {{ form_end(form) }}
+
+
+            <form method="post" action="{{ path('structure_delete', {'id': structure.id}) }}"
+                  onsubmit="return confirm('Êtes-vous sur de vouloir supprimer votre structure ?');">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ structure.id) }}">
+                <div class="save">
+                    <button class="btn_deleteInfo">Supprimer mon profil</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

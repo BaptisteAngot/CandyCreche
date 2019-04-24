@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Child{% endblock %}
+
+{% block body %}
+
+    <div class="block"></div>
+
+
+    <div class="formulaire-child">
+        <div class="formulaire-child-triangle"></div>
+
+        <h2 class="formulaire-child-header">Modifier les informations</h2>
+
+        <div class="formulaire-child-container">
+            {{ include('child/_form.html.twig', {'button_label': 'Enregistrer modifications'}) }}
+            {{ include('child/_delete_form.html.twig') }}
+            <div class="formulaire-child-button">
+                <a href="{{ path('profil') }}">&#9664; Revenir au profil</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

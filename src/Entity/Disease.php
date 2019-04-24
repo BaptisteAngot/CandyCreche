@@ -153,7 +153,4 @@ class Disease
     {
         return strval($this->id);
     }
-
-
-
 }
