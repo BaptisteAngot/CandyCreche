@@ -10,11 +10,11 @@
         <tbody>
             <tr>
                 <th>Commence le:</th>
-                <td>{{ booking.beginAt ? booking.beginAt|date('d-m-Y H:i:s') : '' }}</td>
+                <td>{{ booking.beginAt ? booking.beginAt|date('d-m-Y H:i') : '' }}</td>
             </tr>
             <tr>
                 <th>Fini le:</th>
-                <td>{{ booking.endAt ? booking.endAt|date('d-m-Y H:i:s') : '' }}</td>
+                <td>{{ booking.endAt ? booking.endAt|date('d-m-Y H:i') : '' }}</td>
             </tr>
         </tbody>
     </table>

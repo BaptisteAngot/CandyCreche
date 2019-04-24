@@ -1185,9 +1185,10 @@ body {
 .imagedefond{
     background-image: linear-gradient(to right top, rgba(255, 220, 150, 0.7), rgba(255, 220, 200, 0.3)), url("../img/9.jpg");
     padding:2%;
-    min-width: 100%;
-    min-height: 100%;
+    min-height: 69vh;
     font-size: 1.5em;
+    vertical-align:middle;
+    bottom: 50px;
 }
 
 .imagedefond h1{
@@ -1219,19 +1220,25 @@ body {
     text-align: center;
     background-color: #ffffff99;
     margin: 0 auto;
-    border: 5px solid rgb(255, 220, 150);
     box-shadow: 0px 0px 25px black;
-}
-
-.table:hover {
-    border: 0px solid rgb(255, 220, 150);
-    transition: ease 1.5;
-    transform: scale(1.05);
+    vertical-align:middle;
+    bottom: 50px;
 }
 
 .table th, td{
     padding:15px;
     padding-bottom: 20px;
+}
+
+#booking{
+    text-align: center;
+    background-color: #ffffff99;
+    margin: 0 auto;
+    box-shadow: 0px 0px 25px black;
+    width: 12.5%;
+    padding: 10px;
+    vertical-align:middle;
+    bottom: 50px;
 }
 
 .btn-retreat{
