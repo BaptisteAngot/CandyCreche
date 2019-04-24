@@ -50,7 +50,7 @@ class RegistrationParentsController extends AbstractController
                     'text/html'
                 );
             $mailer->send($message);
-            return $this->redirectToRoute('accueil');
+            return $this->redirectToRoute('app_login_parents');
         }
 
         return $this->render('registration/registerParents.html.twig', [
