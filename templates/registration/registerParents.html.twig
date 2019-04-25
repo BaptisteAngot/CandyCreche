@@ -14,6 +14,7 @@
             <div class="parentsName">       {{ form_row(registrationForm.parentsName,       {"attr":{'placeholder': 'Nom de famille'}}) }}        </div>
             <div class="parentsFirstname">  {{ form_row(registrationForm.parentsFirstname,  {"attr":{'placeholder': 'Prénom d\'un parent'}}) }}   </div>
                                             {{ form_row(registrationForm.parentsPassword,   {"attr":{'placeholder': '**************'}}) }}
+            <div class="checkbox">{{ form_row(registrationForm.termsAccepted) }} J'accepte les conditions générale d'utilisation </div>
         </div>
 
         <input class="login_form_submit" type="submit" value="Je m'inscris">
