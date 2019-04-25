@@ -1296,3 +1296,10 @@ body {
     background-color: rgb(26, 37, 47);
 }
 
+.fc-time{
+    display:none;
+}
+
+.fc-title{
+    font-weight: 700;
+}

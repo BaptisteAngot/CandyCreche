@@ -24,6 +24,7 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 defaultView: 'dayGridMonth',
                 editable: true,
+                eventLimit: true,
                 eventSources: [
                     {
                         url: "{{ path('fc_load_events') }}",
@@ -33,7 +34,7 @@
                             },
                         },
                         error: () => {
-                            // alert("There was an error while fetching FullCalendar!");
+                            // alert("Il y a eu une erreur pendant l'ajout au calendrier!");
                         },
                     },
                 ],
@@ -53,16 +54,9 @@
                     month: "Mois",
                     week: "Semaine",
                     day: "Jour",
-                    list: "Mon planning"
+                    list: "La liste des congés",
                 },
-                week: {
-                    dow: 1, // Monday is the first day of the week.
-                },
-
-                weekLabel: "Sem.",
-                allDayHtml: "Toute la<br/>journée",
-                eventLimitText: "en plus",
-                noEventsMessage: "Aucun événement à afficher"
+                firstDay: 1,
             });
             calendar.render();
         });
