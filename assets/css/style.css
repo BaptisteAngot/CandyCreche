@@ -1229,31 +1229,6 @@ body {
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
 
 }
-
-.parentsMail label {
-    font-size: 0;
-}
-
-.parentsMail label:before {
-    content: "Adresse Mail";
-    font-size: 20px;
-}
-
-.parentsMail input:placeholder {
-    content: "Adresse Mail";
-    font-size: 20px;
-    color: black;
-}
-
-.parentsName label {
-    font-size: 0;
-}
-
-.parentsName label:before {
-    content: "Nom de famille";
-    font-size: 20px;
-}
-
 .parentsMail label { font-size: 0; }
 .parentsMail label:before { content: "Adresse Mail"; font-size: 20px; }
 .parentsMail input::placeholder { content: "Adresse Mail"; font-size: 20px; color: black;}
@@ -1261,29 +1236,8 @@ body {
 .parentsName label::before { content: "Nom de famille"; font-size: 20px; }
 .parentsFirstname label { font-size: 0; }
 .parentsFirstname label::before { content: "Prénom d'un parent"; font-size: 20px; }
+.checkbox label{ font-size: 0;}
 
-.parentsName label:before {
-    content: "Nom de famille";
-    font-size: 20px;
-}
-
-.parentsFirstname label {
-    font-size: 0;
-}
-
-.parentsFirstname label:before {
-    content: "Prénom d'un parent";
-    font-size: 20px;
-}
-
-.parentsFirstname label {
-    font-size: 0;
-}
-
-.parentsFirstname label:before {
-    content: "Prénom d'un parent";
-    font-size: 20px;
-}
 
 .wrap_register_stucture {
     max-width: 1200px;
