@@ -3,19 +3,26 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <style>
-        .ex {
-            padding: 150px;
-        }
-    </style>
-    <div class="ex">
-    <h1>Register</h1>
+
+
+
+    <div class="block"></div>
+
+    <div class="wrap_register_authorize">
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.Authorize_login) }}
-        {{ form_row(registrationForm.plainPassword) }}
 
+        <h1 class="register_form_h1_authorize">Inscription authorize</h1>
+
+        <div class="register_form_mail">
+            <div class="parentsMail">   {{ form_row(registrationForm.Authorize_login,{"attr":{'placeholder': 'adresse@mail.com'}}) }} </div>
+                                        {{ form_row(registrationForm.plainPassword, {"attr":{'placeholder': '**************'}}) }}
+        </div>
+        <div class="save">
         <button class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+        </div>
+
+            {{ form_end(registrationForm) }}
     </div>
+    <div class="clear"></div>
 {% endblock %}

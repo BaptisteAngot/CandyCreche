@@ -20,7 +20,7 @@ body {
 
 .block {
     width: 100%;
-    height: 49px;
+    height: 65px;
 }
 
 /***********************Navbar********Logo/Menu*******************************/
@@ -652,6 +652,10 @@ body {
 }
 
 /************************************profilParents************************************************************/
+.wrapper_form {
+    height: 100vh;
+}
+
 .image_nom {
      background-image: linear-gradient(to right bottom, rgba(255, 220, 150, 0.8), rgba(255, 220, 150, 0.2)), url('../img/6.jpg');
      background-position: bottom;
@@ -715,6 +719,36 @@ body {
     font-size: 1.3em;
 }
 
+.div_info_authorize {
+    margin:  0 auto;
+    box-sizing: border-box;
+    height: 500px;
+    min-height: 300px;
+    width: 28%;
+    min-width: 140px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    font-size: 1.3em;
+}
+
+.wrap_info_structure {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+.div_info_structure {
+    margin:  0 auto;
+    box-sizing: border-box;
+    height: 350px;
+    min-height: 300px;
+    float: left;
+    width: 48%;
+    min-width: 140px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    margin-right: 10px;
+    font-size: 1.3em;
+}
 .info_maladie {
     width: 50%;
     float: left;
@@ -1074,12 +1108,150 @@ body {
     }
 }
 
+/********************************* Calendar *****************************************/
+
+.imagedefond{
+    background-image: linear-gradient(to right top, rgba(255, 220, 150, 0.7), rgba(255, 220, 200, 0.3)), url("../img/9.jpg");
+    padding:2%;
+    min-height: 69vh;
+    font-size: 1.5em;
+    vertical-align:middle;
+    bottom: 50px;
+}
+
+.imagedefond h1{
+    font-size: 2em;
+}
+
+.calendarjs {
+    width: 50%;
+    text-align: center;
+    background-color: #ffffffcc;
+    padding: 7px;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
+.imagedefond a{
+    text-decoration: none;
+    background-color: rgb(44, 62, 80);
+    color: white;
+    padding: 7px;
+    border-radius: 3px;
+}
+
+.imagedefond a:hover{
+    background-color: rgb(26, 37, 47);
+}
+
+.table{
+    text-align: center;
+    background-color: #ffffff99;
+    margin: 0 auto;
+    box-shadow: 0px 0px 25px black;
+    vertical-align:middle;
+    bottom: 50px;
+}
+
+.table th, td{
+    padding:15px;
+    padding-bottom: 20px;
+}
+
+#booking{
+    text-align: center;
+    background-color: #ffffff99;
+    margin: 0 auto;
+    box-shadow: 0px 0px 25px black;
+    width: 11%;
+    padding: 10px;
+    color: rgb(34, 34, 34);
+}
+
+#booking_beginAt, #booking_endAt, #booking_title{
+    padding: 5px;
+    background-color: transparent;
+    margin: 7px;
+    color: rgb(34, 34, 34);
+}
+
+#booking_beginAt:hover, #booking_endAt:hover, #booking_title:hover{
+
+    border:2px transparent solid;
+}
+
+.centrer{
+    vertical-align: middle;
+    top: 15vh;
+    position: relative;
+}
+
+.centrer1{
+    vertical-align: middle;
+    top: 5vh;
+    position: relative;
+}
+
+.btn-retreat{
+    float: right;
+    font-size: 1.5em;
+    text-decoration: none;
+    background-color: rgb(44, 62, 80);
+    color: white;
+    padding: 7px;
+    border-radius: 3px;
+    border: none;
+    margin: 30px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.btn-ff{
+    float: left;
+    font-size: 1.5em;
+    text-decoration: none;
+    background-color: rgb(44, 62, 80);
+    color: white;
+    padding: 7px;
+    border-radius: 3px;
+    border: none;
+    margin: 30px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.btn-ff:hover{
+    background-color: rgb(26, 37, 47);
+}
+
+.fc-time{
+    display:none;
+}
+
+.fc-title{
+    font-weight: 700;
+}
+
 /***********************************login_form (parents/structure)**************************************************/
 
 .wrap_login_form_parents {
     max-width: 1200px;
     margin: 0 auto;
     background-image: url("../img/9.jpg");
+    background-position: bottom;
+    background-size: cover;
+    height: 800px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+}
+
+.wrap_login_form_authorize {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-image: url("../img/16.jpg");
     background-position: bottom;
     background-size: cover;
     height: 800px;
@@ -1103,6 +1275,17 @@ body {
     -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
 }
+
+.wrap_login_form_authorize form {
+     width: 40%;
+     height: 100%;
+     padding: 3%;
+     float: left;
+     background: rgba(255, 220, 150, .6);
+     border-right: solid 1px white;
+     transition: 0.5s;
+
+ }
 
 .wrap_login_form_structure form {
     width: 40%;
@@ -1229,31 +1412,6 @@ body {
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
 
 }
-
-.parentsMail label {
-    font-size: 0;
-}
-
-.parentsMail label:before {
-    content: "Adresse Mail";
-    font-size: 20px;
-}
-
-.parentsMail input:placeholder {
-    content: "Adresse Mail";
-    font-size: 20px;
-    color: black;
-}
-
-.parentsName label {
-    font-size: 0;
-}
-
-.parentsName label:before {
-    content: "Nom de famille";
-    font-size: 20px;
-}
-
 .parentsMail label { font-size: 0; }
 .parentsMail label:before { content: "Adresse Mail"; font-size: 20px; }
 .parentsMail input::placeholder { content: "Adresse Mail"; font-size: 20px; color: black;}
@@ -1261,41 +1419,59 @@ body {
 .parentsName label::before { content: "Nom de famille"; font-size: 20px; }
 .parentsFirstname label { font-size: 0; }
 .parentsFirstname label::before { content: "Prénom d'un parent"; font-size: 20px; }
-
-.parentsName label:before {
-    content: "Nom de famille";
-    font-size: 20px;
-}
-
-.parentsFirstname label {
-    font-size: 0;
-}
-
-.parentsFirstname label:before {
-    content: "Prénom d'un parent";
-    font-size: 20px;
-}
-
-.parentsFirstname label {
-    font-size: 0;
-}
-
-.parentsFirstname label:before {
-    content: "Prénom d'un parent";
-    font-size: 20px;
-}
+.checkbox label{ font-size: 0;}
+.checkbox label::before { content: "J'accepte les conditions générale d'utilisation"; font-size: 19px; }
 
 .wrap_register_stucture {
     max-width: 1200px;
     background-image: url("../img/13.jpg");
     background-position: bottom;
     background-size: cover;
-    height: 950px;
+    height: 1000px;
     margin: 10px auto;
     -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
 
+}
+
+.wrap_register_authorize {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-image: url("../img/15.jpg");
+    background-position: bottom;
+    background-size: cover;
+    height: 700px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+}
+
+
+.wrap_register_authorize form {
+    width: 40%;
+    height: 100%;
+    padding: 3%;
+    float: right;
+    background: rgba(255, 220, 150, .4);
+    border-left: solid 1px white;
+    transition: 0.5s;
+}
+.register_form_h1_authorize {
+    margin-top: 5%;
+    font-size: 3em;
+    color: white;
+    text-align: center;
+}
+
+.register_form_mail_authorize{
+    float: left;
+    width: 100%;
+    font-size: 20px;
+    color: white;
+    margin-top: 5%;
 }
 
 .wrap_register_stucture form {
@@ -1463,12 +1639,6 @@ body {
         margin-left: 5%;
     }
 
-    .img_profil {
-        height: 150px;
-        width: 150px;
-        margin-top: 65px;
-    }
-
 }
 
 @media screen and (max-width: 680px) {
@@ -1545,6 +1715,10 @@ body {
         width: 100%;
     }
 
+    .wrap_register_authorize form {
+        transition: 0.5s;
+        width: 100%;
+    }
     .wrap_register_stucture form {
         transition: 0.5s;
         width: 100%;
@@ -1558,16 +1732,18 @@ body {
         font-size: 1.5em;
     }
 
-}
-
-@media screen and (max-width: 400px) {
+    .div_info_structure {
+        width: 100%;
+        transition: 0.5s;
+    }
     .img_profil h2 {
         font-size: 5em;
-        width: 100%;
+        padding: 20%;
     }
     .add-child a {
-        font-size: 0.8em;
+        font-size: 1em;
     }
+
 }
 
 /************************************************formulaire-child******************************************************/
@@ -1618,7 +1794,6 @@ body {
     box-sizing: border-box;
     display: block;
     width: 100%;
-    border-style: solid;
     padding: 16px;
     outline: 0;
     font-family: inherit;
@@ -1647,3 +1822,4 @@ body {
     text-align: center;
     margin: 10px;
 }
+
