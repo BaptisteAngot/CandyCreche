@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Disease{% endblock %}
+
+{% block body %}
+
+    <div class="block"></div>
+
+
+        <div class="formulaire-child">
+            <div class="formulaire-child-triangle"></div>
+
+            <h2 class="formulaire-child-header">Ajouter une maladie</h2>
+
+            <div class="formulaire-child-container">
+                {{ include('disease/_form.html.twig') }}
+                <div class="formulaire-child-button">
+                    <a href="{{ path('profil') }}">&#9664; Revenir au profil</a>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

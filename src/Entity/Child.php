@@ -80,6 +80,7 @@ class Child
         $this->allergies = new ArrayCollection();
         $this->equipment = new ArrayCollection();
         $this->pivotChildStructures = new ArrayCollection();
+        $this->Child_created_at = new \DateTime('now',new \DateTimeZone('Europe/Paris'));
     }
 
     public function getId(): ?int
@@ -170,13 +171,6 @@ class Child
     }
 
     public function setChildIdParent(?Parents $Child_id_parent): self
-    {
-        $this->Child_id_parent = $Child_id_parent;
-
-        return $this;
-    }
-
-    public function setChildIdParentId(?Parents $Child_id_parent): self
     {
         $this->Child_id_parent = $Child_id_parent;
 

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Parents{% endblock %}
+
+{% block body %}
+    <div class="block"></div>
+
+
+    <div class="formulaire-child">
+        <div class="formulaire-child-triangle"></div>
+
+        <h2 class="formulaire-child-header">Modifier les informations</h2>
+
+        <div class="formulaire-child-container">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <div class="save">
+                <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+            </div>
+            {{ form_end(form) }}
+
+
+            <form method="post" action="{{ path('parents_delete', {'id': parent.id}) }}"
+                  onsubmit="return confirm('Êtes-vous sur de vouloir supprimer votre profil ?');">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ parent.id) }}">
+                <div class="save">
+                    <button class="btn">Supprimer mon profil</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ controller_name }}{% endblock %}
+
+{% block header %}{% endblock %}
+{% block body %}
+    <div class="fond">
+        <div class="image_nom_structure">
+            <div class="img_profil">
+                <h2>Profil Structure</h2>
+                <div class="add-child">
+                    <a href="{{ path('structure_edit') }}">Modifier mes informations</a>
+                </div>
+            </div>
+        </div>
+
+        <section id="info_Parents">
+            <div class="div_info">
+                <h2>Mes informations</h2>
+                <p>Nom de la structure: {{ structure.getStructureName }} </p>
+                <p>Description: {{ structure.getDescription }}</p>
+                <p>Adresse mail: {{ structure.getStructureMail }}</p>
+                <p>Numéro téléphone : {{ structure.getStructurePhone }}</p>
+                <p>Nombre de place maximum : {{ structure.getStructureNbspace }}</p>
+                <p>Type de nourriture: {{ structure.getStructureTypefood }}</p>
+            </div>
+            <div class="div_info">
+                <h2>Localisation</h2>
+                <p>Ville : {{ structure.getStructureCity }}</p>
+                <p>Code postal: {{ structure.getStructureZipcode }}</p>
+                <p>Adresse: {{ structure.getStructureLocation }}</p>
+            </div>
+            <div class="clear"></div>
+        </section>
+    </div>
+{% endblock %}
+

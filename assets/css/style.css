@@ -13,14 +13,14 @@ body {
 }
 
 .wrap {
-    max-width: 1000px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 }
 
 .block {
     width: 100%;
-    height: 65px;
+    height: 49px;
 }
 
 /***********************Navbar********Logo/Menu*******************************/
@@ -31,7 +31,7 @@ body {
     height: 65px;
     line-height: 65px;
     text-align: center;
-    /*position: fixed;*/
+    position: fixed;
     z-index: 10;
 }
 
@@ -62,6 +62,7 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
+
 }
 
 .navbar div.main_list ul li {
@@ -69,6 +70,7 @@ body {
     height: 65px;
     padding: 0;
     padding-right: 3rem;
+    background-color: #222222;
 }
 
 .navbar div.main_list ul li a {
@@ -343,7 +345,7 @@ body {
     width: 50%;
     -webkit-clip-path: polygon(100% 100%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
     clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
-    background-image: linear-gradient(to right bottom, rgba(255, 220, 150, 0.8), rgba(255, 220, 150, 0.2)), url("../img/1.jpg");
+    background-image: linear-gradient(to right bottom, rgba(255, 220, 150, 0.8), rgba(255, 220, 150, 0.2)), url("../img/2.jpg");
     background-attachment: fixed;
     background-size: cover;
     -moz-background-size: cover;
@@ -430,6 +432,8 @@ body {
     width: 50%;
     height: 40vh;
     background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
     float: right;
     border-radius: 10px;
 }
@@ -437,7 +441,7 @@ body {
 /**************************************************espace_parents******************************************************/
 #parallax-two-parents {
     width: 100%;
-    height: 20vh;
+    height: 18vh;
 }
 
 .div_espace_parents_txt {
@@ -601,7 +605,6 @@ body {
 .copyright {
     font-size: 1.3em;
     color: black;
-    font-weight: bold;
     width: 100%;
     padding: 1%;
     text-align: center;
@@ -648,32 +651,53 @@ body {
     padding-bottom: 30%;
 }
 
-/************************************profilParents*********************************************************************/
+/************************************profilParents************************************************************/
+.image_nom {
+     background-image: linear-gradient(to right bottom, rgba(255, 220, 150, 0.8), rgba(255, 220, 150, 0.2)), url('../img/6.jpg');
+     background-position: bottom;
+     width: 100%;
+     padding: 7%;
+ }
 
-#image_nom {
-    background-image: url('../img/6.jpg');
+.image_nom_structure {
+    background-image: linear-gradient(to right bottom, rgba(255, 220, 150, 0.8), rgba(255, 220, 150, 0.2)), url('../img/14.jpg');
     background-position: bottom;
     width: 100%;
-    padding: 6%;
+    padding: 7%;
+}
+.img_profil h2 {
+    text-align: center;
+    width: 100%;
+    font-size: 10em;
+    color: white;
 }
 
-.img_profil {
-    background-image: url('../img/profil_parents.jpeg');
-    background-position: center;
-    margin: 0 auto;
-    box-sizing: border-box;
-    height: 200px;
-    width: 200px;
-    border: 2px solid white;
-    border-radius: 50%;
-    box-shadow: 0px 0px 5px black;
-    transition: 0.3s;
+.add-child {
+    text-align: center;
+    padding: 2%;
+}
+
+.add-child a {
     margin-top: 50px;
+    background-color: #28d;
+    font-size: 2em;
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 20px 40px 20px 40px;
+    border-radius: 50px;
 }
 
-.img_profil:hover {
-    -webkit-transform: scale(1.2);
-    transform: scale(1.2);
+.edit-profil {
+    text-align: center;
+    margin-top: 75px;
+}
+
+.edit-profil a {
+    background-color: #28d;
+    text-decoration: none;
+    color: whitesmoke;
+    padding: 2%;
+    border-radius: 50px;
 }
 
 #info_Parents {
@@ -683,24 +707,31 @@ body {
 .div_info {
     float: left;
     box-sizing: border-box;
-    margin: 0 0.6%;
-    height: 100%;
-    min-height: 400px;
-    width: 32%;
+    height: 500px;
+    min-height: 300px;
+    width: 28%;
     min-width: 140px;
-    padding: 10px;
-    margin-top: 50px;
-    margin-bottom: 2%;
-    background-color: white;
-    font-size: 1.5em;
+    margin: 50px;
+    font-size: 1.3em;
+}
+
+.info_maladie {
+    width: 50%;
+    float: left;
 }
 
 #info_Parents h2 {
-    margin-top: 30px;
-    margin-bottom: 20px;
-    height: 50px;
     text-align: center;
+    background-color: #28d;
     font-size: 2em;
+    padding: 5%;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.info_child a {
+    text-decoration: none;
+    color: dodgerblue;
 }
 
 #info_Parents p {
@@ -754,20 +785,6 @@ body {
     margin-top: 25px;
 }
 
-.div_info hr {
-    width: 30%;
-    transition: 0.25s;
-    background-color: white;
-    border: none;
-    border-bottom: 1px solid black;
-    margin: 0 auto;
-}
-
-.div_info:hover > hr {
-    width: 80%;
-    transition: 0.25s;
-}
-
 .update_info:active {
     background-color: orange;
     box-shadow: 0 5px #95a5a6;
@@ -777,129 +794,6 @@ body {
 
 .fond {
     background-color: #EEEEEE;
-}
-
-/*******************************************************Responsive*****************************************************/
-
-@media screen and (max-width: 950px) {
-    .navTrigger {
-        display: block;
-    }
-
-    .navbar div.logo {
-        margin-left: 15px;
-    }
-
-    .navbar div.main_list {
-        width: 100%;
-        height: 0;
-        overflow: hidden;
-    }
-
-    .navbar div.show_list {
-        height: auto;
-        display: none;
-    }
-
-    .navbar div.main_list ul {
-        flex-direction: column;
-        width: 100%;
-        height: 100vh;
-        min-width: 400px;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        background-color: #111;
-        background-position: center top;
-    }
-
-    .navbar div.main_list ul li {
-        width: 100%;
-        text-align: right;
-    }
-
-    .navbar div.main_list ul li a {
-        text-align: center;
-        width: 100%;
-        font-size: 3rem;
-        padding: 20px;
-    }
-
-    .navbar div.media_button {
-        display: block;
-    }
-
-    .div_info {
-        width: 90%;
-        margin-left: 5%;
-    }
-
-    .img_profil {
-        height: 150px;
-        width: 150px;
-        margin-top: 65px;
-    }
-
-}
-
-@media screen and (max-width: 680px) {
-
-    .qui_somme_nous h2 {
-        font-size: 3em;
-    }
-
-    .qui_somme_nous .txt_qui_somme_nous p {
-        font-size: 1.5em;
-        text-align: justify;
-    }
-
-    .pourquoi_candy_creche h2 {
-        font-size: 3em;
-    }
-
-    .pourquoi_candy_creche .txt_pourquoi_candy_creche p {
-        font-size: 1.5em;
-        text-align: justify;
-    }
-
-    .div_espace_parents_txt {
-        width: 100%;
-        font-size: 1.5em;
-        text-align: justify;
-        margin-left: 25%;
-    }
-
-    .div_espace_entreprises_txt {
-        width: 100%;
-        font-size: 1.5em;
-        text-align: justify;
-        margin-left: 25%;
-    }
-
-    .equipe p {
-        text-align: center;
-        padding: 3%;
-        font-size: 2em;
-    }
-
-    #parallax-world-of-ugg .parallax-two {
-        width: 100%;
-        height: 30vh;
-    }
-
-    #parallax-world-of-ugg .parallax-three {
-        width: 100%;
-        height: 30vh;
-    }
-
-    #parallax-world-of-ugg h3 {
-        font-size: 2.4em;
-        margin-left: 5%;
-    }
-
-    .img_pourquoi_candy_creche {
-        width: 100%;
-    }
 }
 
 /************************************************Liste entreprises*****************************************************/
@@ -950,16 +844,16 @@ body {
 }
 
 .img_structure img:hover {
-     transition: 0.5s;
-     box-shadow: none;
-     border-radius: 10%;
- }
+    transition: 0.5s;
+    box-shadow: none;
+    border-radius: 10%;
+}
 
 .titre_crèche {
     text-align: center;
     font-weight: bold;
     font-size: 2em;
-    width:50%;
+    width: 50%;
     margin: 0 auto;
     padding: 15px;
     border: 2px solid #222;
@@ -974,7 +868,7 @@ body {
     padding: 10px;
     text-align: justify;
     font-size: 1.3em;
-    padding:15px;
+    padding: 15px;
 }
 
 .voir_la_page a {
@@ -1002,7 +896,7 @@ body {
 .txtPlaces {
     font-size: 1.5em;
     text-align: center;
-    width:100%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -1053,31 +947,31 @@ body {
 
 /*****************************************Structure Détails********************************************/
 
-.wrapper{
+.wrapper {
     max-width: 1300px;
     width: 100%;
     margin: 0 auto;
 }
 
-.fond_creche{
+.fond_creche {
     background-color: rgb(255, 220, 150);
 }
 
-#informations_details{
+#informations_details {
     background-color: white;
-    -webkit-box-shadow: -1px 5px 83px -4px rgba(0,0,0,0.93);
-    -moz-box-shadow: -1px 5px 83px -4px rgba(0,0,0,0.93);
-    box-shadow: -1px 5px 83px -4px rgba(0,0,0,0.93);
+    -webkit-box-shadow: -1px 5px 83px -4px rgba(0, 0, 0, 0.93);
+    -moz-box-shadow: -1px 5px 83px -4px rgba(0, 0, 0, 0.93);
+    box-shadow: -1px 5px 83px -4px rgba(0, 0, 0, 0.93);
 }
 
-.banniere_details{
+.banniere_details {
     display: block;
     margin: 1%;
     float: inherit;
     text-align: center;
 }
 
-.banniere_details img{
+.banniere_details img {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -1086,82 +980,82 @@ body {
     opacity: .99;
 }
 
-.banniere_details .haut{
-    text-align:center;
-    color:#222222;
-    width:100%;
+.banniere_details .haut {
+    text-align: center;
+    color: #222222;
+    width: 100%;
     position: absolute;
-    left:0;
-    top:21%;
+    left: 0;
+    top: 21%;
     font-size: 1.5vw;
     font-weight: bold;
 }
 
-.banniere_details .bas{
-    text-align:center;
-    color:#222222;
-    width:100%;
-    position:absolute;
-    left:0;
-    top:25%;
+.banniere_details .bas {
+    text-align: center;
+    color: #222222;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 25%;
     font-size: 1vw;
 }
 
-.banniere_details img:hover{
+.banniere_details img:hover {
     opacity: 0.5;
 }
 
-.description_details{
+.description_details {
     margin: 2%;
     text-align: center;
     width: 60%;
-    font-size:1.5em;
+    font-size: 1.5em;
     float: left;
 }
 
-.description_details h1{
+.description_details h1 {
     margin: 2%;
     font-size: 2em;
     font-weight: bold;
 }
 
-.sup_details{
+.sup_details {
     margin: 2%;
     width: 30%;
-    font-size:1.5em;
+    font-size: 1.5em;
     float: left;
 }
 
-.sup_details h1{
+.sup_details h1 {
     font-size: 1.5em;
     font-weight: bold;
 }
 
-.avis_details{
+.avis_details {
     width: 65%;
-    margin:2%;
+    margin: 2%;
     font-size: 4em;
     float: left;
     text-align: center;
 }
 
-.statut_details{
+.statut_details {
     font-size: 1.8em;
     text-align: center;
     float: left;
-    margin:2%;
+    margin: 2%;
     width: 25%;
 }
 
-.commentaires_details{
+.commentaires_details {
     width: 100%;
-    margin:2%;
+    margin: 2%;
     font-size: 4em;
     float: left;
     text-align: center;
 }
 
-.hr{
+.hr {
     width: 50%;
     background-color: white;
     border: none;
@@ -1175,7 +1069,7 @@ body {
         margin-top: -15%;
     }
 
-    .banniere_details .bas{
+    .banniere_details .bas {
         margin-top: -15%;
     }
 }
@@ -1303,3 +1197,531 @@ body {
 .fc-title{
     font-weight: 700;
 }
+
+/***********************************login_form (parents/structure)**************************************************/
+
+.wrap_login_form_parents {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-image: url("../img/9.jpg");
+    background-position: bottom;
+    background-size: cover;
+    height: 800px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+}
+
+.wrap_login_form_structure {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-image: url("../img/10.jpg");
+    background-position: bottom;
+    background-size: cover;
+    height: 800px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+}
+
+.wrap_login_form_structure form {
+    width: 40%;
+    height: 100%;
+    padding: 3%;
+    float: left;
+    background: rgba(255, 220, 150, .6);
+    border-right: solid 1px white;
+    transition: 0.5s;
+
+}
+
+.wrap_login_form_parents form {
+    width: 40%;
+    height: 100%;
+    padding: 3%;
+    float: right;
+    background: rgba(255, 220, 150, .4);
+    border-left: solid 1px white;
+    transition: 0.5s;
+
+}
+
+.login_form_h1 {
+    font-size: 3em;
+    color: white;
+    text-align: center;
+    margin-top: 30%;
+}
+
+#login_form_mail {
+    width: 100%;
+    margin: 5%;
+}
+
+.login_form_label_mail {
+    float: left;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+.form_control_parents {
+    border: 3px solid;
+    border-color: transparent;
+    float: right;
+    padding: 15px 20px;
+    border-radius: 25px;
+}
+
+.form_control_parents:focus {
+    border: 3px solid;
+    border-color: #7abaff;
+}
+
+.form_control_structure {
+    border: 3px solid;
+    border-color: transparent;
+    float: right;
+    padding: 15px 20px;
+    border-radius: 25px;
+}
+
+.form_control_structure:focus {
+    border: 3px solid;
+    border-color: #7abaff;
+}
+
+#login_form_password {
+    width: 100%;
+    margin: 5%;
+}
+
+.login_form_label_password {
+    float: left;
+    font-size: 20px;
+    color: white;
+}
+
+.form_control_password {
+    border: 2px solid;
+    border-color: transparent;
+    float: right;
+    padding: 15px 20px;
+    border-radius: 25px;
+}
+
+.form_control_password:focus {
+    border: 2px solid;
+    border-color: #7abaff;
+}
+
+.login_form_submit {
+    width: 100%;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: #005cbf;
+    color: white;
+    font-size: 1.5em;
+    transition: 1s;
+    margin-top: 10%;
+}
+
+.login_form_submit:hover {
+    background: #7abaff;
+    cursor: pointer;
+
+}
+
+/***********************************register_form (parents/structure)**************************************************/
+
+.wrap_register {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-image: url("../img/11.jpg");
+    background-position: bottom;
+    background-size: cover;
+    height: 900px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+
+}
+.parentsMail label { font-size: 0; }
+.parentsMail label:before { content: "Adresse Mail"; font-size: 20px; }
+.parentsMail input::placeholder { content: "Adresse Mail"; font-size: 20px; color: black;}
+.parentsName label { font-size: 0; }
+.parentsName label::before { content: "Nom de famille"; font-size: 20px; }
+.parentsFirstname label { font-size: 0; }
+.parentsFirstname label::before { content: "Prénom d'un parent"; font-size: 20px; }
+.checkbox label{ font-size: 0;}
+
+
+.wrap_register_stucture {
+    max-width: 1200px;
+    background-image: url("../img/13.jpg");
+    background-position: bottom;
+    background-size: cover;
+    height: 950px;
+    margin: 10px auto;
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.75);
+
+}
+
+.wrap_register_stucture form {
+    width: 65%;
+    height: 100%;
+    padding: 3%;
+    float: left;
+    background: rgba(255, 220, 150, .4);
+    border-right: solid 1px white;
+    transition: 0.5s;
+}
+
+.wrap_register form {
+    width: 40%;
+    height: 100%;
+    padding: 3%;
+    float: right;
+    background: rgba(255, 220, 150, .4);
+    border-left: solid 1px white;
+    transition: 0.5s;
+}
+
+.register_form_h1 {
+    margin-top: 5%;
+    font-size: 3em;
+    color: white;
+    text-align: center;
+}
+
+.register_form_mail {
+    float: left;
+    width: 100%;
+    font-size: 20px;
+    color: white;
+    margin-top: 5%;
+}
+
+.register_form_mail_box1 {
+    float: left;
+    width: 45%;
+    font-size: 20px;
+    color: white;
+    margin-top: 5%;
+}
+
+.register_form_mail_box1 input {
+    width: 100%;
+    border: 2px solid;
+    border-color: transparent;
+    float: right;
+    padding: 15px 20px;
+    border-radius: 25px;
+    margin: 4% 0 4% 0;
+}
+
+.register_form_mail_box1 input:focus {
+    border: 2px solid;
+    border-color: #7abaff;
+}
+
+.register_form_mail_box2 {
+    float: right;
+    width: 45%;
+    font-size: 20px;
+    color: white;
+    margin-top: 5%;
+}
+
+.register_form_mail_box2 input {
+    width: 100%;
+    border: 2px solid;
+    border-color: transparent;
+    float: right;
+    padding: 15px 20px;
+    border-radius: 25px;
+    margin: 4% 0 4% 0;
+}
+
+.register_form_mail_box2 input:focus {
+    border: 2px solid;
+    border-color: #7abaff;
+}
+
+.register_form_mail input {
+    width: 100%;
+    border: 2px solid;
+    border-color: transparent;
+    float: right;
+    padding: 15px 20px;
+    border-radius: 25px;
+    margin: 4% 0 4% 0;
+}
+
+.register_form_mail input:focus {
+    border: 2px solid;
+    border-color: #7abaff;
+}
+
+.register_form_submit {
+    width: 100%;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 25px;
+    background: #005cbf;
+    color: white;
+    font-size: 1.5em;
+    transition: 1s;
+    margin-top: 2%;
+}
+
+.register_form_submit:hover {
+    background: #7abaff;
+    cursor: pointer;
+}
+
+/*******************************************************Responsive*****************************************************/
+
+@media screen and (max-width: 950px) {
+    .navTrigger {
+        display: block;
+    }
+
+    .navbar div.logo {
+        margin-left: 15px;
+    }
+
+    .navbar div.main_list {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+    }
+
+    .navbar div.show_list {
+        height: auto;
+        display: none;
+    }
+
+    .navbar div.main_list ul {
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #222222;
+        background-position: center top;
+    }
+
+    .navbar div.main_list ul li {
+        width: 100%;
+        text-align: right;
+    }
+
+    .navbar div.main_list ul li a {
+        text-align: center;
+        width: 100%;
+    }
+
+    .navbar div.media_button {
+        display: block;
+    }
+
+    .div_info {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .img_profil {
+        height: 150px;
+        width: 150px;
+        margin-top: 65px;
+    }
+
+}
+
+@media screen and (max-width: 680px) {
+
+    .qui_somme_nous h2 {
+        font-size: 3em;
+    }
+
+    .qui_somme_nous .txt_qui_somme_nous p {
+        font-size: 1.5em;
+        text-align: justify;
+    }
+
+    .pourquoi_candy_creche h2 {
+        font-size: 3em;
+    }
+
+    .pourquoi_candy_creche .txt_pourquoi_candy_creche p {
+        font-size: 1.5em;
+        text-align: justify;
+    }
+
+    .div_espace_parents_txt {
+        width: 100%;
+        font-size: 1.5em;
+        text-align: justify;
+        margin-left: 25%;
+    }
+
+    .div_espace_entreprises_txt {
+        width: 100%;
+        font-size: 1.5em;
+        text-align: justify;
+        margin-left: 25%;
+    }
+
+    .equipe p {
+        text-align: center;
+        padding: 3%;
+        font-size: 2em;
+    }
+
+    #parallax-world-of-ugg .parallax-two {
+        width: 100%;
+        height: 30vh;
+    }
+
+    #parallax-world-of-ugg .parallax-three {
+        width: 100%;
+        height: 30vh;
+    }
+
+    #parallax-world-of-ugg h3 {
+        font-size: 2.4em;
+        margin-left: 5%;
+    }
+
+    .img_pourquoi_candy_creche {
+        width: 100%;
+    }
+
+    .wrap_login_form_parents form {
+        transition: 0.5s;
+        width: 100%;
+    }
+
+    .wrap_login_form_structure form {
+        transition: 0.5s;
+        width: 100%;
+    }
+
+    .wrap_register form {
+        transition: 0.5s;
+        width: 100%;
+    }
+
+    .wrap_register_stucture form {
+        transition: 0.5s;
+        width: 100%;
+    }
+
+    .register_form_mail_box1 {
+        font-size: 1.5em;
+    }
+
+    .register_form_mail_box2 {
+        font-size: 1.5em;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    .img_profil h2 {
+        font-size: 5em;
+        width: 100%;
+    }
+    .add-child a {
+        font-size: 0.8em;
+    }
+}
+
+/************************************************formulaire-child******************************************************/
+
+.formulaire-child {
+    width: 400px;
+    margin: 16px auto;
+    font-size: 16px;
+}
+
+/* Reset top and bottom margins from certain elements */
+.formulaire-child-header,
+.formulaire-child p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* The triangle form is achieved by a CSS hack */
+.formulaire-child-triangle {
+    width: 0;
+    margin-right: auto;
+    margin-left: auto;
+    border: 12px solid transparent;
+    border-bottom-color: #28d;
+}
+
+.formulaire-child-header {
+    background: #28d;
+    padding: 20px;
+    font-size: 1.4em;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.formulaire-child-container {
+    background: #ebebeb;
+    padding: 12px;
+}
+
+/* Every row inside .login-container is defined with p tags */
+.formulaire-child p {
+    padding: 12px;
+}
+
+.formulaire-child input {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 16px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em;
+    margin: 10px 0 10px 0;
+    border: 2px transparent solid;
+}
+
+.formulaire-child input:focus {
+    border: 2px #28d solid;
+}
+
+.formulaire-child-button {
+    text-align: center;
+    background-color: #28d;
+    padding: 2%;
+}
+
+.formulaire-child-button a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3em;
+}
+
+.save {
+    text-align: center;
+    margin: 10px;
+}
+

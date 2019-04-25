@@ -15,7 +15,7 @@ class RegistrationParentsController extends AbstractController
     /**
      * @Route("/register_parents", name="app_register_parents")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, \Swift_Mailer $mailer): Response
     {
         $user = new Parents();
         $form = $this->createForm(RegistrationsParentsFormType::class, $user);
@@ -35,8 +35,22 @@ class RegistrationParentsController extends AbstractController
             $entityManager->flush();
 
             // do anything else you need here, like send an email
-
-            return $this->redirectToRoute('accueil');
+            $message  = (new \Swift_Message('Création nouveau compte'))
+                ->setFrom('candycreche1234@gmail.com')
+                ->setTo('candycreche1234@gmail.com')
+                ->setBody(
+                    $this->renderView(
+                        'mail/mail.html.twig',
+                        [
+                            'mail' => $user->getParentsMail(),
+                            'name' => $user->getParentsName(),
+                            'firstname' => $user->getParentsFirstname(),
+                        ]
+                    ),
+                    'text/html'
+                );
+            $mailer->send($message);
+            return $this->redirectToRoute('app_login_parents');
         }
 
         return $this->render('registration/registerParents.html.twig', [
