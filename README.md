@@ -11,6 +11,7 @@ Utiliser le manager de paquet [yarn](https://yarnpkg.com/fr/docs/install#windows
 composer install
 composer require encore
 composer require admin
+composer require toiba/fullcalendar-bundle
 yarn install
 yarn add bootstrap
 yarn add jquery
