@@ -3,11 +3,24 @@
 {% block title %}New PivotChildStructure{% endblock %}
 
 {% block body %}
+    <div class="block"></div>
+    <div class="wrapper_form">
+        <div class="formulaire-child">
+            <div class="formulaire-child-triangle"></div>
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-    {{ form_end(form) }}
+            <h2 class="formulaire-child-header">Ajouter une enfant</h2>
 
-    <a href="{{ path('liste') }}">back to list</a>
+            <div class="formulaire-child-container">
+                {{ form_start(form) }}
+                <div class="enfantName">{{ form_widget(form) }}</div>
+                <div class="save">
+                    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+                </div>
+                {{ form_end(form) }}
+                <div class="formulaire-child-button">
+                    <a href="{{ path('liste') }}">&#9664; Revenir à la liste</a></div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

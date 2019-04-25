@@ -5,8 +5,14 @@
 {% block header %}{% endblock %}
 {% block body %}
     <div class="block"></div>
-    <div class="fond_liste_structures">
-        {% for structure in structures %}
+    <div class="fond">
+    <div class="image_nom_liste">
+        <div class="img_profil">
+            <h2>Liste structure</h2>
+        </div>
+    </div>
+
+    {% for structure in structures %}
         <div class="liste_structures">
             <div class="wrap">
                 <div id="informations_structures_visible" class="informations_structures_visible clearfix">
@@ -17,11 +23,16 @@
                         <div class="img_structure">
                             <img src="https://placeimg.com/300/300/any" title="Photo de profil crèche">
                         </div>
-                        <div class="profil_description">
+
+                        <div class="formulaire-child">
+                            <div class="formulaire-child-triangle"></div>
+
+                            <h2 class="formulaire-child-header">Informations sur cet établissement</h2>
                             <p>
-                                Description:  {{ structure.getDescription }}
+                                Description: {{ structure.getDescription }}
                                 <br>
-                                Localisation: {{ structure.getStructureCity }}, {{ structure.getStructureLocation }}, {{ structure.getStructureZipcode }}
+                                Localisation: {{ structure.getStructureCity }}, {{ structure.getStructureLocation }}
+                                , {{ structure.getStructureZipcode }}
                                 <br>
                                 Mail : {{ structure.getStructureMail }}
                                 <br>
@@ -33,14 +44,15 @@
                         <p class="txtPlaces">Place total :</p>
                         <p class="places">{{ structure.getStructureNbspace }}</p>
                         <div class="clear"></div>
-                        <a href="{{ path('inscrireEnfant', {'id': structure.id}) }}">Inscrire mon enfant</a>
+                        <div class="inscription-enfant">
+                            <a href="{{ path('inscrireEnfant', {'id': structure.id}) }}">&#9664 Inscrire mon enfant &#9658</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
     {% endfor %}
-    </div> {#<div class="fond_liste_structures"></div>#}
 
 
 {% endblock %}
