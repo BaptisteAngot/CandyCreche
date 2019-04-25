@@ -1,5 +1,30 @@
 {% extends'base.html.twig' %}
 
 {% block body %}
-    {{ dump(info) }}
+
+    <div class="fond">
+    <div class="image_nom">
+        <div class="img_profil">
+            <h2>Informations enfant</h2>
+        </div>
+    </div>
+
+    <section id="info_Parents">
+        <div class="div_info_authorize">
+            <h2>Vos informations</h2>
+            <p>Nom de l'enfant: {{ info.childName }}</p>
+            <p>Prénom de l'enfant: {{ info.childFirstname }}</p>
+            <p>Âge: {{ info.childYears }}</p>
+            {% for maladie in info.diseases %}
+            <p>Maladie: {{ maladie.disease_name }}</p>
+            {% endfor %}
+            {% for allergie in info.allergies %}
+           <p>Allergie: {{ allergie.allergy_name }}</p>
+            {% endfor %}
+            {% for equipment in info.equipment %}
+            <p>Equipement: {{ equipment.equipment_name }}</p>
+            {% endfor %}
+        </div>
+    </section>
+    <div class="clear"></div>
 {% endblock body %}
