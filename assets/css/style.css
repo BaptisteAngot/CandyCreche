@@ -1074,6 +1074,130 @@ body {
     }
 }
 
+/********************************* Calendar *****************************************/
+
+.imagedefond{
+    background-image: linear-gradient(to right top, rgba(255, 220, 150, 0.7), rgba(255, 220, 200, 0.3)), url("../img/9.jpg");
+    padding:2%;
+    min-height: 69vh;
+    font-size: 1.5em;
+    vertical-align:middle;
+    bottom: 50px;
+}
+
+.imagedefond h1{
+    font-size: 2em;
+}
+
+.calendarjs {
+    width: 50%;
+    text-align: center;
+    background-color: #ffffffcc;
+    padding: 7px;
+    border-radius: 3px;
+    margin: 0 auto;
+}
+
+.imagedefond a{
+    text-decoration: none;
+    background-color: rgb(44, 62, 80);
+    color: white;
+    padding: 7px;
+    border-radius: 3px;
+}
+
+.imagedefond a:hover{
+    background-color: rgb(26, 37, 47);
+}
+
+.table{
+    text-align: center;
+    background-color: #ffffff99;
+    margin: 0 auto;
+    box-shadow: 0px 0px 25px black;
+    vertical-align:middle;
+    bottom: 50px;
+}
+
+.table th, td{
+    padding:15px;
+    padding-bottom: 20px;
+}
+
+#booking{
+    text-align: center;
+    background-color: #ffffff99;
+    margin: 0 auto;
+    box-shadow: 0px 0px 25px black;
+    width: 11%;
+    padding: 10px;
+    color: rgb(34, 34, 34);
+}
+
+#booking_beginAt, #booking_endAt, #booking_title{
+    padding: 5px;
+    background-color: transparent;
+    margin: 7px;
+    color: rgb(34, 34, 34);
+}
+
+#booking_beginAt:hover, #booking_endAt:hover, #booking_title:hover{
+
+    border:2px transparent solid;
+}
+
+.centrer{
+    vertical-align: middle;
+    top: 15vh;
+    position: relative;
+}
+
+.centrer1{
+    vertical-align: middle;
+    top: 5vh;
+    position: relative;
+}
+
+.btn-retreat{
+    float: right;
+    font-size: 1.5em;
+    text-decoration: none;
+    background-color: rgb(44, 62, 80);
+    color: white;
+    padding: 7px;
+    border-radius: 3px;
+    border: none;
+    margin: 30px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.btn-ff{
+    float: left;
+    font-size: 1.5em;
+    text-decoration: none;
+    background-color: rgb(44, 62, 80);
+    color: white;
+    padding: 7px;
+    border-radius: 3px;
+    border: none;
+    margin: 30px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.btn-ff:hover{
+    background-color: rgb(26, 37, 47);
+}
+
+.fc-time{
+    display:none;
+}
+
+.fc-title{
+    font-weight: 700;
+}
+
 /***********************************login_form (parents/structure)**************************************************/
 
 .wrap_login_form_parents {
@@ -1572,7 +1696,6 @@ body {
     box-sizing: border-box;
     display: block;
     width: 100%;
-    border-style: solid;
     padding: 16px;
     outline: 0;
     font-family: inherit;
@@ -1601,3 +1724,4 @@ body {
     text-align: center;
     margin: 10px;
 }
+

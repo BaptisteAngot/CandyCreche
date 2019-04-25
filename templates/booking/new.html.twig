@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Booking{% endblock %}
+
+{% block body %}
+    <div class="imagedefond">
+    <h1>Nouveau congé</h1>
+    <div class="centrer">
+    {{ include('booking/_form.html.twig') }}
+
+    <a class="btn-ff" href="{{ path('booking_index') }}">Retour à la liste</a>
+    </div>
+        <div class="clear"></div>
+    </div>
+{% endblock %}

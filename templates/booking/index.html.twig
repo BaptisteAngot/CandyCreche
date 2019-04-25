@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Booking index{% endblock %}
+
+{% block body %}
+    <div class="imagedefond">
+    <h1>Liste des congés</h1>
+        <div class="centrer1">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Commence le:</th>
+                <th>Fini le:</th>
+                <th>Congé de:</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.beginAt ? booking.beginAt|date('d-m-Y') : '' }}</td>
+                <td>{{ booking.endAt ? booking.endAt|date('d-m-Y') : '' }}</td>
+                <td>{{ booking.title }}</td>
+                <td>
+                    <a href="{{ path('booking_show', {'id': booking.id}) }}">Voir</a>
+                    <a href="{{ path('booking_edit', {'id': booking.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas de vacances actualisés</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn-retreat" href="{{ path('booking_new') }}">Nouveau congé</a>
+            <a class="btn-ff" href="{{ path('booking_calendar') }}">Calendrier</a>
+        </div>
+        <div class="clear"></div>
+    </div>
+{% endblock %}
