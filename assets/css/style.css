@@ -1235,28 +1235,26 @@ body {
     background-color: #ffffff99;
     margin: 0 auto;
     box-shadow: 0px 0px 25px black;
-    width: 12.5%;
+    width: 11%;
     padding: 10px;
-
+    color: rgb(34, 34, 34);
 }
 
 #booking_beginAt, #booking_endAt, #booking_title{
     padding: 5px;
     background-color: transparent;
-    background-image: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
     margin: 7px;
+    color: rgb(34, 34, 34);
 }
 
-#booking select:focus{
-    outline:none;
+#booking_beginAt:hover, #booking_endAt:hover, #booking_title:hover{
+
+    border:2px transparent solid;
 }
 
 .centrer{
     vertical-align: middle;
-    top: 20vh;
+    top: 15vh;
     position: relative;
 }
 
@@ -1269,19 +1267,28 @@ body {
 .btn-retreat{
     float: right;
     font-size: 1.5em;
-    margin-right: auto;
-}
-
-.btn-ff{
-    float: left;
     text-decoration: none;
     background-color: rgb(44, 62, 80);
     color: white;
     padding: 7px;
     border-radius: 3px;
     border: none;
-    margin-right: 7px;
-    font: inherit;
+    margin: 30px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.btn-ff{
+    float: left;
+    font-size: 1.5em;
+    text-decoration: none;
+    background-color: rgb(44, 62, 80);
+    color: white;
+    padding: 7px;
+    border-radius: 3px;
+    border: none;
+    margin: 30px;
+    font-family: inherit;
     cursor: pointer;
 }
 

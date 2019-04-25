@@ -21,11 +21,12 @@
         </tbody>
     </table>
 
-    <a class="btn-retreat" href="{{ path('booking_index') }}">Retour à la liste</a>
+    <a class="btn-ff" href="{{ path('booking_index') }}">Retour à la liste</a>
 
-    <a class="btn-ff" href="{{ path('booking_edit', {'id': booking.id}) }}">Modifier</a>
+    <a class="btn-retreat" href="{{ path('booking_edit', {'id': booking.id}) }}">Modifier</a>
 
     {{ include('booking/_delete_form.html.twig') }}
+
     </div>
         <div class="clear"></div>
     </div>
