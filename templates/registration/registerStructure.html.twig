@@ -23,6 +23,7 @@
             <div class="structureDescription">  {{ form_row(registrationForm.description,           {"attr":{'placeholder': 'Courte description'}}) }}</div>
             <div class="structureMail">         {{ form_row(registrationForm.structureMail,         {"attr":{'placeholder': 'adresse@mail.com'}}) }}</div>
             <div class="structurePassword">     {{ form_row(registrationForm.structurePassword,     {"attr":{'placeholder': 'Mot de passe'}}) }}</div>
+            <div class="checkbox">{{ form_row(registrationForm.termsAccepted) }} J'accepte les conditions générale d'utilisation </div>
 
         </div>
         <input class="register_form_submit" type="submit" value="Je m'inscris">
