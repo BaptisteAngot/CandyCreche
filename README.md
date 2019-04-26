@@ -15,9 +15,15 @@ yarn install
 yarn add bootstrap
 yarn add jquery
 yarn add popper.js
-yarn encore dev --watch
 php bin/console c:c
 php bin/console server:run
+```
+
+Lorsque le serveur est actif, Utilisé cette instruction pour appliquer les modifications du CSS
+(cette commande s'exécute en boucle et empêche d'exécuter une autre commande dans le même terminal)
+
+```
+yarn encore dev --watch
 ```
 
 ## Base de données
